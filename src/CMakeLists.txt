@@ -1,4 +1,4 @@
-include_directories ("DataHandlers")
+# libraries
 add_subdirectory (DataHandlers)
 set (EXTRA_LIBS ${EXTRA_LIBS} InputData OutputData)
 
