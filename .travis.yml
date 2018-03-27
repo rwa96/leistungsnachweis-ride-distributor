@@ -3,24 +3,16 @@ sudo: false
 
 addons:
   apt:
-    sources:
-      - jonathonf/gcc-7.1
+#    sources:
+#      - jonathonf/gcc-7.1
     packages:
       - cmake
-      - gcc-7
-      - g++-7
+#      - gcc-7
+#      - g++-7
       - libboost-all-dev
 
 compiler:
   - g++
-
-before_install:
-  - sudo add-apt-repository
-  - sudo apt-get -qq update
-
-install:
-  - sudo apt-get install -y libboost-all-dev
-  - sudo apt-get install -y gcc-7 g++-7
 
 script:
   - cmake -GUnix Makefiles -B ./.build -H . -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_BUILD_TYPE=Debug
