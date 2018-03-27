@@ -1,0 +1,37 @@
+language: cpp
+sudo: false
+
+addons:
+  apt:
+    sources:
+      - jonathonf/gcc-7.1
+    packages:
+      - cmake
+      - gcc-7
+      - g++-7
+      - libboost-all-dev
+
+compiler:
+  - g++
+
+before_install:
+  - sudo add-apt-repository
+  - sudo apt-get -qq update
+
+install:
+  - sudo apt-get install -y libboost-all-dev
+  - sudo apt-get install -y gcc-7 g++-7
+
+script:
+  - cmake -GUnix Makefiles -B ./.build -H . -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_BUILD_TYPE=Debug
+  - cmake --build .build --target all
+  - cmake --build .build --target doc
+
+deploy:
+  provider:     pages
+  skip-cleanup: true
+  github-token: $GITHUB_TOKEN
+  keep-history: true
+  local-dir:    ./.build/html
+  on:
+    branch:     master
