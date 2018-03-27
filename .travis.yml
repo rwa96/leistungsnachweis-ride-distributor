@@ -15,7 +15,7 @@ compiler:
   - g++
 
 script:
-  - cmake -GUnix Makefiles -B ./.build -H . -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_BUILD_TYPE=Debug
+  - cmake cmake -G"Unix Makefiles" -B"./.build" -H"./" -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_BUILD_TYPE=Debug
   - cmake --build .build --target all
   - cmake --build .build --target doc
 
