@@ -1,5 +1,5 @@
 language: cpp
-sudo: required
+sudo: false
 
 addons:
   apt:
@@ -7,11 +7,6 @@ addons:
       - cmake
       - doxygen
       - libboost-all-dev
-
-before_install:
-  - sudo add-apt-repository ppa:jonathonf/gcc-7.1 -y
-  - sudo apt-get update -q
-  - sudo apt-get install gcc-7 g++-7 -y
 
 compiler:
   - g++
