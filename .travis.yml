@@ -17,17 +17,17 @@ before_install:
   - export CC=/usr/bin/gcc-7
 
 script:
-  - cmake . -B"$HOME/.build" -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_BUILD_TYPE=Debug
-  - cmake --build $HOME/.build --target all
-  - cmake --build $HOME/.build --target test
-  - cmake --build $HOME/.build --target doc
+  - cmake . -B".build" -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_BUILD_TYPE=Debug
+  - cmake --build .build --target all
+  - cmake --build .build --target test
+  - cmake --build .build --target doc
 
 deploy:
   provider:     pages
   skip-cleanup: true
   github-token: $GITHUB_TOKEN
   keep-history: true
-  local-dir:    $HOME/.build/docs/html
+  local-dir:    .build/docs/html
   on:
     branch:     master
 
