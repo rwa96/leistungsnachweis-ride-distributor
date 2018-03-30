@@ -9,17 +9,18 @@ addons:
       - cmake
       - doxygen
       - libboost-all-dev
-      - libgtest-dev
       - g++-7
+      - gcc-7
 
-compiler:
-  - g++-7
+before_install:
+  - export CXX=/usr/bin/g++-7
+  - export CC=/usr/bin/gcc-7
 
 script:
-  - cmake -B".build" -H"./" -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_BUILD_TYPE=Debug
-  - cmake --build .build --target all
-  - cmake --build .build --target test
-  - cmake --build .build --target doc
+  - cmake -B"$HOME/.build" -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_BUILD_TYPE=Debug
+  - cmake --build $HOME/.build --target all
+  - cmake --build $HOME/.build --target test
+  - cmake --build $HOME/.build --target doc
 
 deploy:
   provider:     pages
