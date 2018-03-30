@@ -13,10 +13,10 @@ addons:
       - g++-7
 
 compiler:
-  - g++
+  - g++-7
 
 script:
-  - CXX=/usr/bin/g++-7 cmake -G"Unix Makefiles" -B"$HOME/.build" -H"$HOME" -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_BUILD_TYPE=Debug
+  - cmake -B".build" -H"./" -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_BUILD_TYPE=Debug
   - cmake --build .build --target all
   - cmake --build .build --target test
   - cmake --build .build --target doc
