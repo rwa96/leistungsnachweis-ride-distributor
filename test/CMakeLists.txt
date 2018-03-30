@@ -1,12 +1,13 @@
-#find_package (Boost COMPONENTS system filesystem unit_test_framework REQUIRED)
-#include_directories (${TEST_SOURCE_DIR}/src
-#                     ${Boost_INCLUDE_DIRS}
-#                     )
-#add_definitions (-DBOOST_TEST_DYN_LINK)
-#add_executable (Test test.cpp)
-#target_link_libraries (Test
-#                       Sqr
-#                       ${Boost_FILESYSTEM_LIBRARY}
-#                       ${Boost_SYSTEM_LIBRARY}
-#                       ${Boost_UNIT_TEST_FRAMEWORK_LIBRARY}
-#                       )
+find_package(GTest REQUIRED)
+
+add_library(InputDataTest DataHandlers/InputDataTest.cpp)
+target_include_directories(InputDataTest PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/DataHandlers)
+target_link_libraries(InputDataTest PRIVATE InputData GTest::GTest)
+
+add_library(OutputDataTest DataHandlers/OutputDataTest.cpp)
+target_include_directories(OutputDataTest PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/DataHandlers)
+target_link_libraries(OutputDataTest PRIVATE OutputData GTest::GTest)
+
+add_executable(UnitTests test.cpp)
+target_link_libraries(UnitTests PRIVATE InputDataTest OutputDataTest GTest::Main)
+add_test(NAME AllUnitTests COMMAND UnitTests)

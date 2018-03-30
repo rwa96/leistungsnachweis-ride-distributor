@@ -1,7 +1,10 @@
-# libraries
-add_subdirectory (DataHandlers)
-set (EXTRA_LIBS ${EXTRA_LIBS} InputData OutputData)
+find_package(Boost REQUIRED)
 
-# add the executable
-add_executable (RideDistributor main.cpp)
-target_link_libraries (RideDistributor ${EXTRA_LIBS})
+add_library(OutputData DataHandlers/OutputData.cpp)
+target_include_directories(OutputData PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/DataHandlers)
+
+add_library(InputData DataHandlers/InputData.cpp)
+target_include_directories(InputData PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/DataHandlers)
+
+add_executable(RideDistributor main.cpp)
+target_link_libraries(RideDistributor PRIVATE OutputData InputData)

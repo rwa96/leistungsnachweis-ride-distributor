@@ -3,17 +3,22 @@ sudo: false
 
 addons:
   apt:
+    sources:
+      - ubuntu-toolchain-r-test
     packages:
       - cmake
       - doxygen
       - libboost-all-dev
+      - libgtest-dev
+      - g++-7
 
 compiler:
   - g++
 
 script:
-  - cmake cmake -G"Unix Makefiles" -B"./.build" -H"./" -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_BUILD_TYPE=Debug
+  - CXX=/usr/bin/g++-7 cmake -G"Unix Makefiles" -B"$HOME/.build" -H"$HOME" -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_BUILD_TYPE=Debug
   - cmake --build .build --target all
+  - cmake --build .build --target test
   - cmake --build .build --target doc
 
 deploy:
@@ -21,6 +26,11 @@ deploy:
   skip-cleanup: true
   github-token: $GITHUB_TOKEN
   keep-history: true
-  local-dir:    .build/docs/html
+  local-dir:    $HOME/.build/docs/html
   on:
     branch:     master
+
+notifications:
+  email:
+    on-success: never
+    on-failure: never
