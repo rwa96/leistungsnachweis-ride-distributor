@@ -80,6 +80,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <img src="https://travis-ci.org/ob-algdatii-ss18/leistungsnachweis-ride-distributor.svg?branch=master"  alt="Build status"/>
 </div>
 <h1>Ride distributor</h1>
+<h2>Setup</h2>
+<h3>Create Workspace</h3>
+<p>``` cmake . -B".build" -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_BUILD_TYPE=Debug ```</p>
+<h3>Create Executable (and documentation)</h3>
+<p>``` cmake &ndash;build .build &ndash;target all cmake &ndash;build .build &ndash;target doc ```</p>
+<h3>Unit Tests (first create executable)</h3>
+<p>``` cmake &ndash;build .build &ndash;target test ``` </p>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
