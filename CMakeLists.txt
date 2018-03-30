@@ -1,8 +1,6 @@
 cmake_minimum_required (VERSION 3.8)
 project (RideDistributor)
 
-include(gtest.cmake)
-
 # The project version number.
 set(VERSION_MAJOR 0)
 set(VERSION_MINOR 0)
