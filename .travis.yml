@@ -17,7 +17,7 @@ before_install:
   - export CC=/usr/bin/gcc-7
 
 script:
-  - cmake -B"$HOME/.build" -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_BUILD_TYPE=Debug
+  - cmake . -B"$HOME/.build" -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_BUILD_TYPE=Debug
   - cmake --build $HOME/.build --target all
   - cmake --build $HOME/.build --target test
   - cmake --build $HOME/.build --target doc
