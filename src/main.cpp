@@ -4,7 +4,7 @@
 
 int main(){
 	try {
-		InputData inputData("../../resources/a_example.in");
+		InputData inputData("resources/d_metropolis.in");
 		std::cout << inputData.str();
 	}
 	catch (const std::fstream::failure e) {

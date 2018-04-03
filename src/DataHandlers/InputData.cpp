@@ -1,30 +1,32 @@
 #include <sstream>
 #include "InputData.hpp"
+#include "Utils.hpp"
 
-InputData::InputData(const std::string path) throw(std::fstream::failure) {
+InputData::InputData(const std::string path){
 	std::fstream inFile;
 	inFile.exceptions(std::fstream::failbit | std::fstream::badbit);
 
 	{ inFile.open(path, std::ios_base::in);
-		inFile >> this->r >> this->c >> this->f >> this->n >> this->b >> this->t;
+		inFile >> r >> c >> f >> n >> b >> t;
 
-		this->rides = { this->n, 4 };
-		//this->ride_distances = { this->n };
+		rides = matrix<unsigned short>(n, 4);
+		ride_distances = vector<unsigned short>(n);
 
-		for (int i = 0; i < this->n; i++) {
+		for (unsigned i = 0; i < n; i++) {
 			inFile >> rides(i, 0) >> rides(i, 1) >> rides(i, 2) >> rides(i, 3);
 		}
-	}
+	} // inFile closes
 };
 
 std::string InputData::str() const {
 	std::ostringstream result;
 
-	result << "number of rides: " << this->n << std::endl;
-	result << "map: (" << this->r << ", " << this->c << ")" << std::endl;
-	result << "number of cars: " << this->f << std::endl;
-	result << "bonus: " << this->b << std::endl;
-	result << "simulation steps: " << this->t << std::endl;
+	result << "number of rides: " << n << std::endl;
+	result << "map: (" << r << ", " << c << ")" << std::endl;
+	result << "number of cars: " << f << std::endl;
+	result << "bonus: " << b << std::endl;
+	result << "simulation steps: " << t << std::endl;
+    result << "rides:" << std::endl << matrixToString(rides) << std::endl;
 
 	return result.str();
 };

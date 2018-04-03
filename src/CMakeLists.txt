@@ -12,6 +12,8 @@ target_include_directories(InputData
 	PUBLIC
 		${CMAKE_CURRENT_SOURCE_DIR}/DataHandlers
 		${Boost_INCLUDE_DIRS}
+    PRIVATE
+        ${CMAKE_CURRENT_SOURCE_DIR}/Utils
 )
 
 add_executable(RideDistributor main.cpp)

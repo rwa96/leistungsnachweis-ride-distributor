@@ -16,7 +16,7 @@ private:
 
 public:
 
-    InputData(const std::string path) throw(std::fstream::failure);
+    InputData(const std::string path);
 	std::string str() const;
 
 };
