@@ -1,2 +1,4 @@
 .atom-dbg.cson
 .build/
+.vs/
+CMakeSettings.json

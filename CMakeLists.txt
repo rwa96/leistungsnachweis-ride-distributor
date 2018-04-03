@@ -11,9 +11,15 @@ mark_as_advanced(VERSION_MAJOR VERSION_MINOR VERSION_PATCH)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
+
+# Windows stuff
 if(MSVC)
     set(CMAKE_CXX_FLAGS ${CMAKE_CXX_FLAGS} "/std:c++17")
 endif(MSVC)
+if(WIN32)
+    message("Setup windows environment..")
+    set(BOOST_ROOT C:/local/boost_1_67_0_b1_rc2)
+endif(WIN32)
 
 # Unit tests
 enable_testing()
