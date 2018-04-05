@@ -1,19 +1,26 @@
 #include <sstream>
 #include "InputData.hpp"
-#include "Utils.hpp"
 
 InputData::InputData(const std::string path){
 	std::fstream inFile;
 	inFile.exceptions(std::fstream::failbit | std::fstream::badbit);
 
 	{ inFile.open(path, std::ios_base::in);
-		inFile >> r >> c >> f >> n >> b >> t;
+		inFile >> rows >> cols >> fleetSize >> nRides >> bonus >> maxTime;
 
-		rides = matrix<unsigned short>(n, 4);
-		ride_distances = vector<unsigned short>(n);
+        startX = Tensor(nRides);
+        startY = Tensor(nRides);
+        endX = Tensor(nRides);
+        endY = Tensor(nRides);
+        startT = Tensor(nRides);
+        endT = Tensor(nRides);
+        distances = Tensor(nRides);
 
-		for (unsigned i = 0; i < n; i++) {
-			inFile >> rides(i, 0) >> rides(i, 1) >> rides(i, 2) >> rides(i, 3);
+		for (unsigned short i = 0; i < nRides; i++) {
+			inFile >> startX(i) >> startY(i);
+            inFile >> endX(i) >> endY(i);
+            inFile >> startT(i) >> endT(i);
+            distances(i) = abs(startX(i) - endX(i)) + abs(startY(i) - endY(i));
 		}
 	} // inFile closes
 };
@@ -21,12 +28,11 @@ InputData::InputData(const std::string path){
 std::string InputData::str() const {
 	std::ostringstream result;
 
-	result << "number of rides: " << n << std::endl;
-	result << "map: (" << r << ", " << c << ")" << std::endl;
-	result << "number of cars: " << f << std::endl;
-	result << "bonus: " << b << std::endl;
-	result << "simulation steps: " << t << std::endl;
-    result << "rides:" << std::endl << matrixToString(rides) << std::endl;
+	result << "number of rides: " << nRides << std::endl;
+	result << "map: (" << rows << ", " << cols << ")" << std::endl;
+	result << "number of cars: " << fleetSize << std::endl;
+	result << "bonus: " << bonus << std::endl;
+	result << "simulation steps: " << maxTime << std::endl;
 
 	return result.str();
 };

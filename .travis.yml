@@ -8,13 +8,10 @@ addons:
     packages:
       - cmake
       - doxygen
-      - libboost-all-dev
       - g++-7
-      - gcc-7
 
 before_install:
   - export CXX=/usr/bin/g++-7
-  - export CC=/usr/bin/gcc-7
 
 script:
   - cmake . -B".build" -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_BUILD_TYPE=Debug

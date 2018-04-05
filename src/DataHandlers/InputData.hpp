@@ -2,22 +2,17 @@
 #define INPUTDATA_H
 
 #include <fstream>
-#include <boost/numeric/ublas/matrix.hpp>
 #include <string>
+#include "Tensor.hpp"
 
-using namespace boost::numeric::ublas;
 
-class InputData{
-private:
-
-    matrix<unsigned short> rides;
-    vector<unsigned short> ride_distances;
-    unsigned short r, c, f, n, b, t;
-
-public:
+struct InputData{
 
     InputData(const std::string path);
-	std::string str() const;
+    std::string str() const;
+
+    unsigned short rows, cols, fleetSize, nRides, bonus, maxTime;
+    Tensor startX, startY, endX, endY, startT, endT, distances;
 
 };
 

@@ -16,10 +16,6 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 if(MSVC)
     set(CMAKE_CXX_FLAGS ${CMAKE_CXX_FLAGS} "/std:c++17")
 endif(MSVC)
-if(WIN32)
-    message("Setup windows environment..")
-    set(BOOST_ROOT C:/local/boost_1_67_0_b1_rc2)
-endif(WIN32)
 
 # Unit tests
 enable_testing()
