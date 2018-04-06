@@ -25,9 +25,11 @@ public:
     inline int& operator()(const int x, const int y, const int z)
     {return data[x*dims[1]*dims[2] + y*dims[2] + z];};
 
-    const unsigned getSize() const {return size;};
+    inline const unsigned getSize() const
+    {return size;};
 
-    const std::vector<unsigned> getDims() const {return dims;};
+    const std::vector<unsigned> getDims() const
+    {return dims;};
 
 private:
 

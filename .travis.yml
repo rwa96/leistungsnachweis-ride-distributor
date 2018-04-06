@@ -16,8 +16,8 @@ before_install:
 script:
   - cmake . -B".build" -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_BUILD_TYPE=Debug
   - cmake --build .build --target all
-  - cmake --build .build --target test
   - cmake --build .build --target doc
+  - cd .build && ctest -VV
 
 deploy:
   provider:     pages

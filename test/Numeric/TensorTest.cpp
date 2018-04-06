@@ -1,5 +1,6 @@
 #include <vector>
-#include "gtest/gtest.h"
+#include <gtest/gtest.h>
+#include <gmock/gmock.h>
 #include "Tensor.hpp"
 
 TEST(TensorTest, EmptyInitiation){
@@ -29,9 +30,15 @@ TEST(TensorTest, RandomValueInitialization){
 
     const Tensor twoDim({randomValue, randomValue});
     EXPECT_EQ(twoDim.getSize(), randomValue*randomValue);
-    EXPECT_THAT(twoDim.getDims(), ContainerEq(std::vector<unsigned>(2, randomValue)));
+    EXPECT_THAT(twoDim.getDims(), ::testing::ContainerEq(std::vector<unsigned>(2, randomValue)));
 
     const Tensor threeDim({randomValue, randomValue, randomValue});
-    EXPECT_EQ(twoDim.getSize(), randomValue*randomValue*randomValue);
-    EXPECT_THAT(threeDim.getDims(), ContainerEq(std::vector<unsigned>(3, randomValue)));
+    EXPECT_EQ(threeDim.getSize(), randomValue*randomValue*randomValue);
+    EXPECT_THAT(threeDim.getDims(), ::testing::ContainerEq(std::vector<unsigned>(3, randomValue)));
+}
+
+int main(int argc, char** argv){
+    ::testing::InitGoogleTest(&argc, argv);
+    int ret = RUN_ALL_TESTS();
+    return ret;
 }
