@@ -11,7 +11,7 @@ struct InputData{
     InputData(const std::string path);
     std::string str() const;
 
-    unsigned short rows, cols, fleetSize, nRides, bonus, maxTime;
+    unsigned rows, cols, fleetSize, nRides, bonus, maxTime;
     Tensor startX, startY, endX, endY, startT, endT, distances;
 
 };

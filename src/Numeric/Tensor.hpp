@@ -3,25 +3,36 @@
 
 #include <string>
 #include <memory>
+#include <initializer_list>
+#include <vector>
+
 
 class Tensor{
 public:
 
-    Tensor():rows(0), cols(0){};
+    Tensor():size(0){};
 
-    Tensor(const unsigned len);
-
-    Tensor(const unsigned rows, const unsigned cols);
+    Tensor(std::initializer_list<unsigned>);
 
     std::string str() const;
 
-    int& operator()(const int rows, const int cols);
+    inline int& operator()(const int x)
+    {return data[x];};
 
-    int& operator()(const int cols);
+    inline int& operator()(const int x, const int y)
+    {return data[x*dims[1] + y];};
+
+    inline int& operator()(const int x, const int y, const int z)
+    {return data[x*dims[1]*dims[2] + y*dims[2] + z];};
+
+    const unsigned getSize() const {return size;};
+
+    const std::vector<unsigned> getDims() const {return dims;};
 
 private:
 
-    unsigned rows, cols;
+    unsigned size;
+    std::vector<unsigned> dims;
     std::unique_ptr<int[]> data;
 
 };

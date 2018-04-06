@@ -8,13 +8,13 @@ InputData::InputData(const std::string path){
 	{ inFile.open(path, std::ios_base::in);
 		inFile >> rows >> cols >> fleetSize >> nRides >> bonus >> maxTime;
 
-        startX = Tensor(nRides);
-        startY = Tensor(nRides);
-        endX = Tensor(nRides);
-        endY = Tensor(nRides);
-        startT = Tensor(nRides);
-        endT = Tensor(nRides);
-        distances = Tensor(nRides);
+        startX = Tensor({nRides});
+        startY = Tensor({nRides});
+        endX = Tensor({nRides});
+        endY = Tensor({nRides});
+        startT = Tensor({nRides});
+        endT = Tensor({nRides});
+        distances = Tensor({nRides});
 
 		for (unsigned short i = 0; i < nRides; i++) {
 			inFile >> startX(i) >> startY(i);
@@ -33,6 +33,7 @@ std::string InputData::str() const {
 	result << "number of cars: " << fleetSize << std::endl;
 	result << "bonus: " << bonus << std::endl;
 	result << "simulation steps: " << maxTime << std::endl;
+    //result << "distances: " << distances.str();
 
 	return result.str();
 };
