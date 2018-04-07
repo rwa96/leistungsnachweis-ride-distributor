@@ -1,5 +1,8 @@
 #include <sstream>
+#include <algorithm>
 #include "Tensor.hpp"
+
+#define MAX_SHOWN_ENTRIES (unsigned)20
 
 
 Tensor::Tensor(std::initializer_list<unsigned> args):dims(args){
@@ -18,9 +21,10 @@ std::string Tensor::str() const{
     std::ostringstream result;
 
     result << '[';
-    for(unsigned i = 0; i < size; ++i){
+    for(unsigned i = 0; i < std::min(size, MAX_SHOWN_ENTRIES); ++i){
         result << data[i];
         if(i < size-1){result << ", ";}
+        else if(size > MAX_SHOWN_ENTRIES){result << "...";}
     }
     result << ']' << std::endl;
 
