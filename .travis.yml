@@ -23,7 +23,7 @@ script:
   - cd .build && ctest -VV
 
 after_success:
-  - coveralls --root . -exclude ".*googletest-.*" -exclude ".*CMakeFiles.*"
+  - coveralls --root . -E ".*googletest.*" -E ".*CMakeFiles.*"
 
 deploy:
   provider:     pages
