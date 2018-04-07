@@ -1,4 +1,4 @@
-![Build status](https://travis-ci.org/ob-algdatii-ss18/leistungsnachweis-ride-distributor.svg?branch=master)
+![Build status](https://travis-ci.org/ob-algdatii-ss18/leistungsnachweis-ride-distributor.svg?branch=master) [![Coverage Status](https://coveralls.io/repos/github/ob-algdatii-ss18/leistungsnachweis-ride-distributor/badge.svg?branch=master)](https://coveralls.io/github/ob-algdatii-ss18/leistungsnachweis-ride-distributor?branch=master)
 
 # Ride distributor
 

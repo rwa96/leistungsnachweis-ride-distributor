@@ -9,15 +9,22 @@ addons:
       - cmake
       - doxygen
       - g++-7
+	  - gcc-7
 
 before_install:
+  - pip install --user cpp-coveralls
+  - export CC=/usr/bin/gcc-7
   - export CXX=/usr/bin/g++-7
 
 script:
+  - ./configure --enable-gcov && make && make check
   - cmake . -B".build" -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_BUILD_TYPE=Debug
   - cmake --build .build --target all
   - cmake --build .build --target doc
   - cd .build && ctest -VV
+
+after_success:
+  - coveralls --gcov-options '\-lp'
 
 deploy:
   provider:     pages
