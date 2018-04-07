@@ -17,13 +17,13 @@ before_install:
   - export CXX=/usr/bin/g++-7
 
 script:
-  - cmake . -B".build" -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_BUILD_TYPE=Debug -DCOVERAGE=1
+  - cmake . -B".build" -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_BUILD_TYPE=Debug
   - cmake --build .build --target all
   - cmake --build .build --target doc
   - cd .build && ctest -VV
 
 after_success:
-  - coveralls --root .build -exclude ".*googletest-.*" -exclude ".*CMakeFiles.*"
+  - coveralls --root . -exclude ".*googletest-.*" -exclude ".*CMakeFiles.*"
 
 deploy:
   provider:     pages
