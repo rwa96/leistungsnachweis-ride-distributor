@@ -9,7 +9,7 @@ addons:
       - cmake
       - doxygen
       - g++-7
-	  - gcc-7
+      - gcc-7
 
 before_install:
   - pip install --user cpp-coveralls
