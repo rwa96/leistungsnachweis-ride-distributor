@@ -7,10 +7,14 @@
 
 var indexSectionsWithContent =
 {
+  0: "it",
+  1: "it"
 };
 
 var indexSectionNames =
 {
+  0: "all",
+  1: "classes"
 };
 
 function convertToId(search)
