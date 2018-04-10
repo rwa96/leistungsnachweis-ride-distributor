@@ -6,16 +6,14 @@ void OutputData::writeToFile(const std::string path, const unsigned fleetSize) c
 	outFile.exceptions(std::fstream::failbit | std::fstream::badbit);
 	std::vector<std::vector<int>> data = createDataStructure(shared_from_this(), fleetSize);
 
-	{	
-		outFile.open(path, std::ios_base::out);
-		for (auto car : data) {
-			outFile << car.size() << ' ';
-			for (auto ride : car) {
-				outFile << ride << ' ';
-			}
-			outFile << std::endl;
+	outFile.open(path, std::fstream::out);
+	for (auto car : data) {
+		outFile << car.size() << ' ';
+		for (auto ride : car) {
+			outFile << ride << ' ';
 		}
-	} // inFile closes
+		outFile << std::endl;
+	}
 }
 
 std::vector<std::vector<int>> OutputData::createDataStructure(std::shared_ptr<const OutputData> start, const unsigned fleetSize) const {
