@@ -7,8 +7,8 @@
 
 var indexSectionsWithContent =
 {
-  0: "it",
-  1: "it"
+  0: "iot",
+  1: "iot"
 };
 
 var indexSectionNames =
