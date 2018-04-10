@@ -1,4 +1,5 @@
 #ifndef OUTPUTDATA_H
+#define OUTPUTDATA_H
 
 #include <memory>
 #include <string>
@@ -22,5 +23,4 @@ private:
 
 };
 
-#define OUTPUTDATA_H
 #endif // OUTPUTDATA_H
