@@ -2,13 +2,19 @@
 #include <fstream>
 #include "InputData.hpp"
 
-int main(){
-	try {
-		InputData inputData("resources/a_example.in");
-		std::cout << inputData.str();
+int main(int argc, char* argv[]){
+	if (argc == 2) {
+		try {
+			InputData inputData(argv[1]);
+			std::cout << inputData.str();
+		}
+		catch (const std::fstream::failure e) {
+			std::cerr << e.what() << "(Invalid file or path)" << std::endl;
+			return 1;
+		}
 	}
-	catch (const std::fstream::failure e) {
-		std::cerr << e.what();
+	else {
+		std::cerr << "No path argument set" << std::endl;
 		return 1;
 	}
 
