@@ -5,7 +5,8 @@ InputData::InputData(const std::string path){
 	std::fstream inFile;
 	inFile.exceptions(std::fstream::failbit | std::fstream::badbit);
 
-	{ inFile.open(path, std::ios_base::in);
+	{ 
+		inFile.open(path, std::ios_base::in);
 		inFile >> rows >> cols >> fleetSize >> nRides >> bonus >> maxTime;
 
         startX = Tensor({nRides});

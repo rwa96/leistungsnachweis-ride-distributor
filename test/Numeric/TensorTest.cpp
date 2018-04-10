@@ -37,6 +37,36 @@ TEST(TensorTest, RandomValueInitialization){
     EXPECT_THAT(threeDim.getDims(), ::testing::ContainerEq(std::vector<unsigned>(3, randomValue)));
 }
 
+TEST(TensorTest, 2DIndexAccess) {
+	Tensor threeDim({ 2, 2 });
+	for (unsigned listIndex = 0; listIndex < threeDim.getSize(); ++listIndex) {
+		threeDim(listIndex) = listIndex;
+	}
+
+	unsigned listIndex = 0;
+	for (unsigned x = 0; x < threeDim.getDims()[0]; ++x) {
+		for (unsigned y = 0; y < threeDim.getDims()[1]; ++y) {
+			EXPECT_EQ(threeDim(x, y), listIndex++);
+		}
+	}
+}
+
+TEST (TensorTest, 3DIndexAccess) {
+	Tensor threeDim({ 2, 2, 2 });
+	for (unsigned listIndex = 0; listIndex < threeDim.getSize(); ++listIndex) {
+		threeDim(listIndex) = listIndex;
+	}
+
+	unsigned listIndex = 0;
+	for (unsigned x = 0; x < threeDim.getDims()[0]; ++x) {
+		for (unsigned y = 0; y < threeDim.getDims()[1]; ++y) {
+			for (unsigned z = 0; z < threeDim.getDims()[2]; ++z) {
+				EXPECT_EQ(threeDim(x, y, z), listIndex++);
+			}
+		}
+	}
+}
+
 int main(int argc, char** argv){
     ::testing::InitGoogleTest(&argc, argv);
     int ret = RUN_ALL_TESTS();
