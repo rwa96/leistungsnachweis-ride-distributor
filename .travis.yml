@@ -23,7 +23,7 @@ script:
   - cd .build && ctest -VV
 
 after_success:
-  - coveralls --root . -E ".*googletest.*" -E ".*CMakeFiles.*"
+  - coveralls -E ".build/googletest.*" -E ".build/CMakeFiles.*" --gcov "llvm-cov gcov" --gcov-options "\-lp" -r
 
 deploy:
   provider:     pages
