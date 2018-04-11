@@ -1,13 +1,6 @@
 #include <fstream>
+#include <stdio.h>
 #include "InputDataTest.hpp"
-
-#if defined(WIN32) || defined(_WIN32) || defined(__WIN32) && !defined(__CYGWIN__)
-	#include <experimental/filesystem>
-	namespace fs = std::experimental::filesystem::v1;
-#else
-	#include <filesystem>
-	namespace fs = std::filesystem;
-#endif
 
 InputDataTest::InputDataTest() :exampleInputString(
 	"3 4 2 3 2 10 \n"
@@ -16,7 +9,7 @@ InputDataTest::InputDataTest() :exampleInputString(
 	"2 0 2 2 0 9 \n") {};
 
 void InputDataTest::SetUp() {
-	inputFile = fs::temp_directory_path().string() + "inputFile";
+	inputFile = "testInputFile.in";
 	std::fstream outFile;
 	outFile.exceptions(std::fstream::failbit | std::fstream::badbit);
 
@@ -25,29 +18,32 @@ void InputDataTest::SetUp() {
 };
 
 void InputDataTest::TearDown() {
-	fs::remove(inputFile);
+    #if defined(WIN32) || defined(_WIN32) || defined(__WIN32) && !defined(__CYGWIN__)
+    DeleteFile(inputFile)
+    #else
+    remove(inputFile.c_str());
+    #endif
 };
 
-TEST(InputDataTest, memberVariables) {
+TEST_F(InputDataTest, memberVariables) {
 	const InputData exampleInputData(inputFile);
-	EXPECT_EQ(exampleInputData.cols, 3);
-	EXPECT_EQ(exampleInputData.rows, 4);
+    EXPECT_EQ(exampleInputData.rows, 3);
+	EXPECT_EQ(exampleInputData.cols, 4);
 	EXPECT_EQ(exampleInputData.fleetSize, 2);
 	EXPECT_EQ(exampleInputData.nRides, 3);
 	EXPECT_EQ(exampleInputData.bonus, 2);
 	EXPECT_EQ(exampleInputData.maxTime, 10);
-
-	EXPECT_THAT(exampleInputData.startX, ::testing::ContainerEq({ 0, 1, 2 }));
-	EXPECT_THAT(exampleInputData.startY, ::testing::ContainerEq({ 0, 1, 2 });
-	EXPECT_THAT(exampleInputData.endX, ::testing::ContainerEq({ 1, 1, 2 });
-	EXPECT_THAT(exampleInputData.endY, ::testing::ContainerEq({ 3, 0, 2 });
-	EXPECT_THAT(exampleInputData.startT, ::testing::ContainerEq({ 2, 0, 0 });
-	EXPECT_THAT(exampleInputData.endT, ::testing::ContainerEq({ 9, 9, 9 });
 };
 
-TEST(InputDataTest, stringOutput) {
+TEST_F(InputDataTest, stringOutput) {
 	const InputData exampleInputData(inputFile);
-	EXPECT_EQ(exampleInputData.str(), exampleInputString);
+    const std::string expectedOutput =
+        "number of rides: 3\n"
+        "map: (3, 4)\n"
+        "number of cars: 2\n"
+        "bonus: 2\n"
+        "simulation steps: 10\n";
+	EXPECT_EQ(exampleInputData.str(), expectedOutput);
 };
 
 int main(int argc, char** argv) {
