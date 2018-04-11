@@ -63,6 +63,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
       <li><a href="classes.html"><span>Class&#160;Index</span></a></li>
       <li><a href="hierarchy.html"><span>Class&#160;Hierarchy</span></a></li>
+      <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
 <!-- window showing the filter options -->
@@ -70,7 +71,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -88,6 +89,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">OutputData Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="OutputData_8hpp_source.html">OutputData.hpp</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for OutputData:</div>
 <div class="dyncontent">
@@ -99,13 +102,97 @@ Inheritance diagram for OutputData:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ace4030723dec150164b15d0d405c51dc"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ace4030723dec150164b15d0d405c51dc"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>OutputData</b> (std::shared_ptr&lt; <a class="el" href="classOutputData.html">OutputData</a> &gt; parent, std::unique_ptr&lt; <a class="el" href="classTensor.html">Tensor</a> &gt; value)</td></tr>
+<tr class="memitem:ace4030723dec150164b15d0d405c51dc"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOutputData.html#ace4030723dec150164b15d0d405c51dc">OutputData</a> (std::shared_ptr&lt; <a class="el" href="classOutputData.html">OutputData</a> &gt; parent, std::unique_ptr&lt; <a class="el" href="classTensor.html">Tensor</a> &gt; value)</td></tr>
 <tr class="separator:ace4030723dec150164b15d0d405c51dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa747bb293643e6e81aa4ff723b5e8229"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa747bb293643e6e81aa4ff723b5e8229"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>writeToFile</b> (const std::string path, const unsigned fleetSize) const </td></tr>
+<tr class="memitem:aa747bb293643e6e81aa4ff723b5e8229"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOutputData.html#aa747bb293643e6e81aa4ff723b5e8229">writeToFile</a> (const std::string path, const unsigned fleetSize) const </td></tr>
 <tr class="separator:aa747bb293643e6e81aa4ff723b5e8229"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Node of the search tree that is created when exploring various car-ride distributions. Each node can traverse its parent tree and create an output file. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="ace4030723dec150164b15d0d405c51dc"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">OutputData::OutputData </td>
+          <td>(</td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="classOutputData.html">OutputData</a> &gt;&#160;</td>
+          <td class="paramname"><em>parent</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::unique_ptr&lt; <a class="el" href="classTensor.html">Tensor</a> &gt;&#160;</td>
+          <td class="paramname"><em>value</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Creates a new node associated with a parent tree and containing a value.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">parent</td><td>parent node </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">value</td><td><a class="el" href="classTensor.html">Tensor</a> value of this node </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="aa747bb293643e6e81aa4ff723b5e8229"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void OutputData::writeToFile </td>
+          <td>(</td>
+          <td class="paramtype">const std::string&#160;</td>
+          <td class="paramname"><em>path</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const unsigned&#160;</td>
+          <td class="paramname"><em>fleetSize</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Writes the value of this node and of all its parents to a specified file.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">path</td><td>specified file </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">fleetSize</td><td>number of lines the file will contain </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::fstream::failure</td><td>if file couldn't be opened/created </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>src/DataHandlers/<a class="el" href="OutputData_8hpp_source.html">OutputData.hpp</a></li>
 <li>src/DataHandlers/OutputData.cpp</li>

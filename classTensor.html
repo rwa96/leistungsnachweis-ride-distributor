@@ -63,6 +63,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
       <li><a href="classes.html"><span>Class&#160;Index</span></a></li>
       <li><a href="hierarchy.html"><span>Class&#160;Hierarchy</span></a></li>
+      <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
 <!-- window showing the filter options -->
@@ -70,7 +71,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -88,31 +89,273 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">Tensor Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="Tensor_8hpp_source.html">Tensor.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a78d7003d8db2cf42645f9c11c6b1d510"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a78d7003d8db2cf42645f9c11c6b1d510"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Tensor</b> (std::initializer_list&lt; unsigned &gt;)</td></tr>
-<tr class="separator:a78d7003d8db2cf42645f9c11c6b1d510"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad00a29592b9b05bdb152ae56b422111d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad00a29592b9b05bdb152ae56b422111d"></a>
-std::string&#160;</td><td class="memItemRight" valign="bottom"><b>str</b> () const </td></tr>
+<tr class="memitem:a4420e3cacf3811f54a0363db56d9379d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTensor.html#a4420e3cacf3811f54a0363db56d9379d">Tensor</a> ()</td></tr>
+<tr class="separator:a4420e3cacf3811f54a0363db56d9379d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a492267e990803df4b082a7f37ae5a7e6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTensor.html#a492267e990803df4b082a7f37ae5a7e6">Tensor</a> (std::initializer_list&lt; unsigned &gt; args)</td></tr>
+<tr class="separator:a492267e990803df4b082a7f37ae5a7e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad00a29592b9b05bdb152ae56b422111d"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTensor.html#ad00a29592b9b05bdb152ae56b422111d">str</a> () const </td></tr>
 <tr class="separator:ad00a29592b9b05bdb152ae56b422111d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a335fe057a0a0d29efdb8f4d82853f983"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a335fe057a0a0d29efdb8f4d82853f983"></a>
-int &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator()</b> (const int x)</td></tr>
+<tr class="memitem:a335fe057a0a0d29efdb8f4d82853f983"><td class="memItemLeft" align="right" valign="top">int &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTensor.html#a335fe057a0a0d29efdb8f4d82853f983">operator()</a> (const int x)</td></tr>
 <tr class="separator:a335fe057a0a0d29efdb8f4d82853f983"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a790aa56c84a914245099aca3de969747"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a790aa56c84a914245099aca3de969747"></a>
-int &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator()</b> (const int x, const int y)</td></tr>
+<tr class="memitem:a790aa56c84a914245099aca3de969747"><td class="memItemLeft" align="right" valign="top">int &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTensor.html#a790aa56c84a914245099aca3de969747">operator()</a> (const int x, const int y)</td></tr>
 <tr class="separator:a790aa56c84a914245099aca3de969747"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a874778db0a54fd6e323b4fa39b9a1f03"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a874778db0a54fd6e323b4fa39b9a1f03"></a>
-int &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator()</b> (const int x, const int y, const int z)</td></tr>
+<tr class="memitem:a874778db0a54fd6e323b4fa39b9a1f03"><td class="memItemLeft" align="right" valign="top">int &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTensor.html#a874778db0a54fd6e323b4fa39b9a1f03">operator()</a> (const int x, const int y, const int z)</td></tr>
 <tr class="separator:a874778db0a54fd6e323b4fa39b9a1f03"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abf195e0a962e4735ee7e3d540b8aaa77"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abf195e0a962e4735ee7e3d540b8aaa77"></a>
-const unsigned&#160;</td><td class="memItemRight" valign="bottom"><b>getSize</b> () const </td></tr>
+<tr class="memitem:abf195e0a962e4735ee7e3d540b8aaa77"><td class="memItemLeft" align="right" valign="top">const unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTensor.html#abf195e0a962e4735ee7e3d540b8aaa77">getSize</a> () const </td></tr>
 <tr class="separator:abf195e0a962e4735ee7e3d540b8aaa77"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab7046a93c43ecd0715aa8db9e933394b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab7046a93c43ecd0715aa8db9e933394b"></a>
-const std::vector&lt; unsigned &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>getDims</b> () const </td></tr>
+<tr class="memitem:ab7046a93c43ecd0715aa8db9e933394b"><td class="memItemLeft" align="right" valign="top">const std::vector&lt; unsigned &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTensor.html#ab7046a93c43ecd0715aa8db9e933394b">getDims</a> () const </td></tr>
 <tr class="separator:ab7046a93c43ecd0715aa8db9e933394b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Low level representation of a n-dimensional array.</p>
+<dl class="section attention"><dt>Attention</dt><dd>There is no fault tolerance for any input parameters to achieve more performance. </dd></dl>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a4420e3cacf3811f54a0363db56d9379d"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Tensor::Tensor </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Creates an empty <a class="el" href="classTensor.html">Tensor</a>. </p>
+
+</div>
+</div>
+<a class="anchor" id="a492267e990803df4b082a7f37ae5a7e6"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Tensor::Tensor </td>
+          <td>(</td>
+          <td class="paramtype">std::initializer_list&lt; unsigned &gt;&#160;</td>
+          <td class="paramname"><em>args</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Creates a n-dimensional <a class="el" href="classTensor.html">Tensor</a>.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">args</td><td>list that defines the dimensions of this <a class="el" href="classTensor.html">Tensor</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="ab7046a93c43ecd0715aa8db9e933394b"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::vector&lt;unsigned&gt; Tensor::getDims </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>List of dimension of this <a class="el" href="classTensor.html">Tensor</a>.</p>
+<dl class="section return"><dt>Returns</dt><dd>std::vector&lt;unsigned&gt; list of dimensions </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="abf195e0a962e4735ee7e3d540b8aaa77"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const unsigned Tensor::getSize </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Total number of elements that can be stored in this tensor.</p>
+<dl class="section return"><dt>Returns</dt><dd>unsigned size of the internal data structure. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a335fe057a0a0d29efdb8f4d82853f983"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int&amp; Tensor::operator() </td>
+          <td>(</td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>x</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>One dimensional array access (list index)</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">x</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>int&amp; data at given index </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a790aa56c84a914245099aca3de969747"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int&amp; Tensor::operator() </td>
+          <td>(</td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>y</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Two dimensional array access (matrix)</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">x</td><td></td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">y</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>int&amp; data at given position </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a874778db0a54fd6e323b4fa39b9a1f03"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int&amp; Tensor::operator() </td>
+          <td>(</td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>z</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Three dimensional array access (3D matrix)</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">x</td><td></td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">y</td><td></td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">z</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>int&amp; data at given position </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ad00a29592b9b05bdb152ae56b422111d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string Tensor::str </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Returns a string representation of the stored data. </p>
+<dl class="section note"><dt>Note</dt><dd>this should only be used for debug purposes</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>std::string String represenation of internal data </dd></dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>src/Numeric/<a class="el" href="Tensor_8hpp_source.html">Tensor.hpp</a></li>
 <li>src/Numeric/Tensor.cpp</li>

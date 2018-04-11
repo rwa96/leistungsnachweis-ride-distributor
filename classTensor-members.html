@@ -63,6 +63,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
       <li><a href="classes.html"><span>Class&#160;Index</span></a></li>
       <li><a href="hierarchy.html"><span>Class&#160;Hierarchy</span></a></li>
+      <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
 <!-- window showing the filter options -->
@@ -70,7 +71,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -88,14 +89,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <p>This is the complete list of members for <a class="el" href="classTensor.html">Tensor</a>, including all inherited members.</p>
 <table class="directory">
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>getDims</b>() const  (defined in <a class="el" href="classTensor.html">Tensor</a>)</td><td class="entry"><a class="el" href="classTensor.html">Tensor</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>getSize</b>() const  (defined in <a class="el" href="classTensor.html">Tensor</a>)</td><td class="entry"><a class="el" href="classTensor.html">Tensor</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>operator()</b>(const int x) (defined in <a class="el" href="classTensor.html">Tensor</a>)</td><td class="entry"><a class="el" href="classTensor.html">Tensor</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>operator()</b>(const int x, const int y) (defined in <a class="el" href="classTensor.html">Tensor</a>)</td><td class="entry"><a class="el" href="classTensor.html">Tensor</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>operator()</b>(const int x, const int y, const int z) (defined in <a class="el" href="classTensor.html">Tensor</a>)</td><td class="entry"><a class="el" href="classTensor.html">Tensor</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>str</b>() const  (defined in <a class="el" href="classTensor.html">Tensor</a>)</td><td class="entry"><a class="el" href="classTensor.html">Tensor</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>Tensor</b>() (defined in <a class="el" href="classTensor.html">Tensor</a>)</td><td class="entry"><a class="el" href="classTensor.html">Tensor</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>Tensor</b>(std::initializer_list&lt; unsigned &gt;) (defined in <a class="el" href="classTensor.html">Tensor</a>)</td><td class="entry"><a class="el" href="classTensor.html">Tensor</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classTensor.html#ab7046a93c43ecd0715aa8db9e933394b">getDims</a>() const </td><td class="entry"><a class="el" href="classTensor.html">Tensor</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="classTensor.html#abf195e0a962e4735ee7e3d540b8aaa77">getSize</a>() const </td><td class="entry"><a class="el" href="classTensor.html">Tensor</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classTensor.html#a335fe057a0a0d29efdb8f4d82853f983">operator()</a>(const int x)</td><td class="entry"><a class="el" href="classTensor.html">Tensor</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="classTensor.html#a790aa56c84a914245099aca3de969747">operator()</a>(const int x, const int y)</td><td class="entry"><a class="el" href="classTensor.html">Tensor</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classTensor.html#a874778db0a54fd6e323b4fa39b9a1f03">operator()</a>(const int x, const int y, const int z)</td><td class="entry"><a class="el" href="classTensor.html">Tensor</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="classTensor.html#ad00a29592b9b05bdb152ae56b422111d">str</a>() const </td><td class="entry"><a class="el" href="classTensor.html">Tensor</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classTensor.html#a4420e3cacf3811f54a0363db56d9379d">Tensor</a>()</td><td class="entry"><a class="el" href="classTensor.html">Tensor</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="classTensor.html#a492267e990803df4b082a7f37ae5a7e6">Tensor</a>(std::initializer_list&lt; unsigned &gt; args)</td><td class="entry"><a class="el" href="classTensor.html">Tensor</a></td><td class="entry"></td></tr>
 </table></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

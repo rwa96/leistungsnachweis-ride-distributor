@@ -63,6 +63,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
       <li><a href="classes.html"><span>Class&#160;Index</span></a></li>
       <li><a href="hierarchy.html"><span>Class&#160;Hierarchy</span></a></li>
+      <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
 <!-- window showing the filter options -->
@@ -70,7 +71,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -89,58 +90,266 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">InputData Struct Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="InputData_8hpp_source.html">InputData.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a2d5327ff44717d101d4b8a132bde530b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2d5327ff44717d101d4b8a132bde530b"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>InputData</b> (const std::string path)</td></tr>
+<tr class="memitem:a2d5327ff44717d101d4b8a132bde530b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structInputData.html#a2d5327ff44717d101d4b8a132bde530b">InputData</a> (const std::string path)</td></tr>
 <tr class="separator:a2d5327ff44717d101d4b8a132bde530b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a70b0cf52456a7a070f22d451c66991d0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a70b0cf52456a7a070f22d451c66991d0"></a>
-std::string&#160;</td><td class="memItemRight" valign="bottom"><b>str</b> () const </td></tr>
+<tr class="memitem:a70b0cf52456a7a070f22d451c66991d0"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structInputData.html#a70b0cf52456a7a070f22d451c66991d0">str</a> () const </td></tr>
 <tr class="separator:a70b0cf52456a7a070f22d451c66991d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a7c6979f960bff3bb4e90763929200f41"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7c6979f960bff3bb4e90763929200f41"></a>
-unsigned&#160;</td><td class="memItemRight" valign="bottom"><b>rows</b></td></tr>
+<tr class="memitem:a7c6979f960bff3bb4e90763929200f41"><td class="memItemLeft" align="right" valign="top">unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structInputData.html#a7c6979f960bff3bb4e90763929200f41">rows</a></td></tr>
 <tr class="separator:a7c6979f960bff3bb4e90763929200f41"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a083cb7a4462dd4476a8f05d901772ac5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a083cb7a4462dd4476a8f05d901772ac5"></a>
-unsigned&#160;</td><td class="memItemRight" valign="bottom"><b>cols</b></td></tr>
+<tr class="memitem:a083cb7a4462dd4476a8f05d901772ac5"><td class="memItemLeft" align="right" valign="top">unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structInputData.html#a083cb7a4462dd4476a8f05d901772ac5">cols</a></td></tr>
 <tr class="separator:a083cb7a4462dd4476a8f05d901772ac5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad9b03b375720b434b943588caf960d69"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad9b03b375720b434b943588caf960d69"></a>
-unsigned&#160;</td><td class="memItemRight" valign="bottom"><b>fleetSize</b></td></tr>
+<tr class="memitem:ad9b03b375720b434b943588caf960d69"><td class="memItemLeft" align="right" valign="top">unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structInputData.html#ad9b03b375720b434b943588caf960d69">fleetSize</a></td></tr>
 <tr class="separator:ad9b03b375720b434b943588caf960d69"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a385c963b59ad73fdfb381bafac4a6849"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a385c963b59ad73fdfb381bafac4a6849"></a>
-unsigned&#160;</td><td class="memItemRight" valign="bottom"><b>nRides</b></td></tr>
+<tr class="memitem:a385c963b59ad73fdfb381bafac4a6849"><td class="memItemLeft" align="right" valign="top">unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structInputData.html#a385c963b59ad73fdfb381bafac4a6849">nRides</a></td></tr>
 <tr class="separator:a385c963b59ad73fdfb381bafac4a6849"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a45b292eedbc9a995ec5f869258417e81"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a45b292eedbc9a995ec5f869258417e81"></a>
-unsigned&#160;</td><td class="memItemRight" valign="bottom"><b>bonus</b></td></tr>
+<tr class="memitem:a45b292eedbc9a995ec5f869258417e81"><td class="memItemLeft" align="right" valign="top">unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structInputData.html#a45b292eedbc9a995ec5f869258417e81">bonus</a></td></tr>
 <tr class="separator:a45b292eedbc9a995ec5f869258417e81"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a926c9deab25dac35e8ece4feebe48e47"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a926c9deab25dac35e8ece4feebe48e47"></a>
-unsigned&#160;</td><td class="memItemRight" valign="bottom"><b>maxTime</b></td></tr>
+<tr class="memitem:a926c9deab25dac35e8ece4feebe48e47"><td class="memItemLeft" align="right" valign="top">unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structInputData.html#a926c9deab25dac35e8ece4feebe48e47">maxTime</a></td></tr>
 <tr class="separator:a926c9deab25dac35e8ece4feebe48e47"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1db700550d9aae27f1987dd9b87a7bf9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1db700550d9aae27f1987dd9b87a7bf9"></a>
-<a class="el" href="classTensor.html">Tensor</a>&#160;</td><td class="memItemRight" valign="bottom"><b>startX</b></td></tr>
+<tr class="memitem:a1db700550d9aae27f1987dd9b87a7bf9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classTensor.html">Tensor</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structInputData.html#a1db700550d9aae27f1987dd9b87a7bf9">startX</a></td></tr>
 <tr class="separator:a1db700550d9aae27f1987dd9b87a7bf9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a19bd1e31da01a7c64b93988c6d95f902"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a19bd1e31da01a7c64b93988c6d95f902"></a>
-<a class="el" href="classTensor.html">Tensor</a>&#160;</td><td class="memItemRight" valign="bottom"><b>startY</b></td></tr>
+<tr class="memitem:a19bd1e31da01a7c64b93988c6d95f902"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classTensor.html">Tensor</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structInputData.html#a19bd1e31da01a7c64b93988c6d95f902">startY</a></td></tr>
 <tr class="separator:a19bd1e31da01a7c64b93988c6d95f902"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a05bc6d4c2112d30c0d17a1baa6cd5e98"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a05bc6d4c2112d30c0d17a1baa6cd5e98"></a>
-<a class="el" href="classTensor.html">Tensor</a>&#160;</td><td class="memItemRight" valign="bottom"><b>endX</b></td></tr>
+<tr class="memitem:a05bc6d4c2112d30c0d17a1baa6cd5e98"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classTensor.html">Tensor</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structInputData.html#a05bc6d4c2112d30c0d17a1baa6cd5e98">endX</a></td></tr>
 <tr class="separator:a05bc6d4c2112d30c0d17a1baa6cd5e98"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2f15f3919b7b678b2c00322ea135c5d6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2f15f3919b7b678b2c00322ea135c5d6"></a>
-<a class="el" href="classTensor.html">Tensor</a>&#160;</td><td class="memItemRight" valign="bottom"><b>endY</b></td></tr>
+<tr class="memitem:a2f15f3919b7b678b2c00322ea135c5d6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classTensor.html">Tensor</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structInputData.html#a2f15f3919b7b678b2c00322ea135c5d6">endY</a></td></tr>
 <tr class="separator:a2f15f3919b7b678b2c00322ea135c5d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a267814962e17787fec0f42d0ade9359b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a267814962e17787fec0f42d0ade9359b"></a>
-<a class="el" href="classTensor.html">Tensor</a>&#160;</td><td class="memItemRight" valign="bottom"><b>startT</b></td></tr>
+<tr class="memitem:a267814962e17787fec0f42d0ade9359b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classTensor.html">Tensor</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structInputData.html#a267814962e17787fec0f42d0ade9359b">startT</a></td></tr>
 <tr class="separator:a267814962e17787fec0f42d0ade9359b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a11ed9512e1808215b67cd36b0cd71459"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a11ed9512e1808215b67cd36b0cd71459"></a>
-<a class="el" href="classTensor.html">Tensor</a>&#160;</td><td class="memItemRight" valign="bottom"><b>endT</b></td></tr>
+<tr class="memitem:a11ed9512e1808215b67cd36b0cd71459"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classTensor.html">Tensor</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structInputData.html#a11ed9512e1808215b67cd36b0cd71459">endT</a></td></tr>
 <tr class="separator:a11ed9512e1808215b67cd36b0cd71459"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:add30d2d19603d8055094b6a2ac698f6b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="add30d2d19603d8055094b6a2ac698f6b"></a>
-<a class="el" href="classTensor.html">Tensor</a>&#160;</td><td class="memItemRight" valign="bottom"><b>distances</b></td></tr>
+<tr class="memitem:add30d2d19603d8055094b6a2ac698f6b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classTensor.html">Tensor</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structInputData.html#add30d2d19603d8055094b6a2ac698f6b">distances</a></td></tr>
 <tr class="separator:add30d2d19603d8055094b6a2ac698f6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Represenation of the input file defined by Google-HashCode's problem statement</p>
+<dl class="section attention"><dt>Attention</dt><dd>When parsing a file no format checks are made which could lead to undefined  behaviour if the file format is invalid. </dd></dl>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a2d5327ff44717d101d4b8a132bde530b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">InputData::InputData </td>
+          <td>(</td>
+          <td class="paramtype">const std::string&#160;</td>
+          <td class="paramname"><em>path</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Parses a file specified with path.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">path</td><td>file to fetch data from </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::fstream::failure</td><td>if unable to open specified file </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a70b0cf52456a7a070f22d451c66991d0"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string InputData::str </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Returns a string represenation of the input data.</p>
+<dl class="section return"><dt>Returns</dt><dd>std::string </dd></dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a class="anchor" id="a45b292eedbc9a995ec5f869258417e81"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned InputData::bonus</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>per-ride bonus for starting the ride on time. </p>
+
+</div>
+</div>
+<a class="anchor" id="a083cb7a4462dd4476a8f05d901772ac5"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned InputData::cols</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Number of columns of the grid. </p>
+
+</div>
+</div>
+<a class="anchor" id="add30d2d19603d8055094b6a2ac698f6b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classTensor.html">Tensor</a> InputData::distances</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>distances of each ride. </p>
+
+</div>
+</div>
+<a class="anchor" id="a11ed9512e1808215b67cd36b0cd71459"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classTensor.html">Tensor</a> InputData::endT</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>latest finishes. </p>
+
+</div>
+</div>
+<a class="anchor" id="a05bc6d4c2112d30c0d17a1baa6cd5e98"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classTensor.html">Tensor</a> InputData::endX</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>row coordinate of all finish intersections. </p>
+
+</div>
+</div>
+<a class="anchor" id="a2f15f3919b7b678b2c00322ea135c5d6"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classTensor.html">Tensor</a> InputData::endY</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>column of all finish intersections. </p>
+
+</div>
+</div>
+<a class="anchor" id="ad9b03b375720b434b943588caf960d69"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned InputData::fleetSize</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>number of vehicles in the fleet. </p>
+
+</div>
+</div>
+<a class="anchor" id="a926c9deab25dac35e8ece4feebe48e47"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned InputData::maxTime</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>number of steps in the simulation. </p>
+
+</div>
+</div>
+<a class="anchor" id="a385c963b59ad73fdfb381bafac4a6849"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned InputData::nRides</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>number of rides. </p>
+
+</div>
+</div>
+<a class="anchor" id="a7c6979f960bff3bb4e90763929200f41"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned InputData::rows</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Number of rows of the grid. </p>
+
+</div>
+</div>
+<a class="anchor" id="a267814962e17787fec0f42d0ade9359b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classTensor.html">Tensor</a> InputData::startT</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>earliest starts. </p>
+
+</div>
+</div>
+<a class="anchor" id="a1db700550d9aae27f1987dd9b87a7bf9"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classTensor.html">Tensor</a> InputData::startX</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>row coordinate of all starting intersections. </p>
+
+</div>
+</div>
+<a class="anchor" id="a19bd1e31da01a7c64b93988c6d95f902"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classTensor.html">Tensor</a> InputData::startY</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>column coordinate of all starting intersections. </p>
+
+</div>
+</div>
 <hr/>The documentation for this struct was generated from the following files:<ul>
 <li>src/DataHandlers/<a class="el" href="InputData_8hpp_source.html">InputData.hpp</a></li>
 <li>src/DataHandlers/InputData.cpp</li>

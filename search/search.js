@@ -7,14 +7,18 @@
 
 var indexSectionsWithContent =
 {
-  0: "iot",
-  1: "iot"
+  0: "bcdefgimnorstw",
+  1: "iot",
+  2: "giostw",
+  3: "bcdefmnrs"
 };
 
 var indexSectionNames =
 {
   0: "all",
-  1: "classes"
+  1: "classes",
+  2: "functions",
+  3: "variables"
 };
 
 function convertToId(search)
