@@ -2,8 +2,6 @@
 #include <algorithm>
 #include "Tensor.hpp"
 
-#define MAX_SHOWN_ENTRIES (unsigned)20
-
 
 Tensor::Tensor(std::initializer_list<unsigned> args):dims(args){
     size = 1;

@@ -18,11 +18,7 @@ void InputDataTest::SetUp() {
 };
 
 void InputDataTest::TearDown() {
-    #if defined(WIN32) || defined(_WIN32) || defined(__WIN32) && !defined(__CYGWIN__)
-    DeleteFile(inputFile)
-    #else
     remove(inputFile.c_str());
-    #endif
 };
 
 TEST_F(InputDataTest, memberVariables) {
