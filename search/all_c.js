@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['tensor',['Tensor',['../classTensor.html',1,'Tensor'],['../classTensor.html#a4420e3cacf3811f54a0363db56d9379d',1,'Tensor::Tensor()'],['../classTensor.html#a492267e990803df4b082a7f37ae5a7e6',1,'Tensor::Tensor(std::initializer_list&lt; unsigned &gt; args)']]]
+  ['tensor',['Tensor',['../classTensor.html',1,'Tensor&lt; T &gt;'],['../classTensor.html#ae966f3807d5bfb78c049cf8c494e16ba',1,'Tensor::Tensor()']]],
+  ['tensor_3c_20int_20_3e',['Tensor&lt; int &gt;',['../classTensor.html',1,'']]]
 ];
