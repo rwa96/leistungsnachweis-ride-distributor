@@ -18,6 +18,11 @@ public:
 	/** Creates an empty Tensor. */
     Tensor():size(0){};
 
+    /**
+     * Creates a n-dimensional Tensor.
+     *
+     * \param [in] args list that defines the dimensions of this Tensor
+     */
     Tensor(std::initializer_list<unsigned> args):dims(args){
         size = 1;
         for(auto& dim: dims){
@@ -29,6 +34,12 @@ public:
         data = std::make_unique<T[]>(size);
     };
 
+    /**
+     * Returns a string representation of the stored data.
+     * \note this should only be used for debug purposes
+     *
+     * \return std::string String represenation of internal data
+     */
     std::string str() const{
         std::ostringstream result;
 
@@ -43,12 +54,33 @@ public:
         return result.str();
     };
 
+    /**
+	 * One dimensional array access (list index)
+	 *
+	 * \param [in] x
+	 * \return T& data at given index
+	 */
     inline T& operator()(const int x)
     {return data[x];};
 
+    /**
+     * Two dimensional array access (matrix)
+     *
+     * \param [in] x
+     * \param [in] y
+     * \return T& data at given position
+     */
     inline T& operator()(const int x, const int y)
     {return data[x*dims[1] + y];};
 
+    /**
+     * Three dimensional array access (3D matrix)
+     *
+     * \param [in] x
+     * \param [in] y
+     * \param [in] z
+     * \return T& data at given position
+     */
     inline T& operator()(const int x, const int y, const int z)
     {return data[x*dims[1]*dims[2] + y*dims[2] + z];};
 
@@ -75,6 +107,8 @@ private:
 
 	/** Dimensions defined at initialization. */
     std::vector<unsigned> dims;
+
+    /** Internal data structure. */
     std::unique_ptr<T[]> data;
 
 };
