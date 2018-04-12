@@ -1,5 +1,6 @@
 add_executable(TensorTest Numeric/TensorTest.cpp)
-target_link_libraries(TensorTest PRIVATE gtest gmock Tensor)
+target_link_libraries(TensorTest PRIVATE gtest gmock)
+target_include_directories(TensorTest PRIVATE ${PROJECT_SOURCE_DIR}/src/Numeric)
 add_test(NAME TensorTest COMMAND TensorTest)
 
 add_executable(InputDataTest DataHandlers/InputDataTest.cpp)

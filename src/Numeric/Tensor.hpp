@@ -5,24 +5,50 @@
 #include <memory>
 #include <initializer_list>
 #include <vector>
+#include <sstream>
+#include <algorithm>
+
+#define MAX_SHOWN_ENTRIES (unsigned)20
 
 
+template<typename T>
 class Tensor{
 public:
 
     Tensor():size(0){};
 
-    Tensor(std::initializer_list<unsigned>);
+    Tensor(std::initializer_list<unsigned> args):dims(args){
+        size = 1;
+        for(auto& dim: dims){
+            size *= dim;
+        }
+        if(size == 0){
+            dims.clear();
+        }
+        data = std::make_unique<T[]>(size);
+    };
 
-    std::string str() const;
+    std::string str() const{
+        std::ostringstream result;
 
-    inline int& operator()(const int x)
+        result << '[';
+        for(unsigned i = 0; i < std::min(size, MAX_SHOWN_ENTRIES); ++i){
+            result << data[i];
+            if(i < size-1){result << ", ";}
+            else if(size > MAX_SHOWN_ENTRIES){result << "...";}
+        }
+        result << ']' << std::endl;
+
+        return result.str();
+    };
+
+    inline T& operator()(const int x)
     {return data[x];};
 
-    inline int& operator()(const int x, const int y)
+    inline T& operator()(const int x, const int y)
     {return data[x*dims[1] + y];};
 
-    inline int& operator()(const int x, const int y, const int z)
+    inline T& operator()(const int x, const int y, const int z)
     {return data[x*dims[1]*dims[2] + y*dims[2] + z];};
 
     inline const unsigned getSize() const
@@ -35,7 +61,7 @@ private:
 
     unsigned size;
     std::vector<unsigned> dims;
-    std::unique_ptr<int[]> data;
+    std::unique_ptr<T[]> data;
 
 };
 
