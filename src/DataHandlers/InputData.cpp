@@ -8,13 +8,13 @@ InputData::InputData(const std::string path){
 	inFile.open(path, std::fstream::in);
 	inFile >> rows >> cols >> fleetSize >> nRides >> bonus >> maxTime;
 
-    startX = Tensor({nRides});
-    startY = Tensor({nRides});
-    endX = Tensor({nRides});
-    endY = Tensor({nRides});
-    startT = Tensor({nRides});
-    endT = Tensor({nRides});
-    distances = Tensor({nRides});
+    startX = Tensor<int>({nRides});
+    startY = Tensor<int>({nRides});
+    endX = Tensor<int>({nRides});
+    endY = Tensor<int>({nRides});
+    startT = Tensor<int>({nRides});
+    endT = Tensor<int>({nRides});
+    distances = Tensor<int>({nRides});
 
 	for (unsigned short i = 0; i < nRides; i++) {
 		inFile >> startX(i) >> startY(i);

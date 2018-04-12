@@ -7,7 +7,7 @@
 
 /**
  * Represenation of the input file defined by Google-HashCode's problem statement
- * 
+ *
  * \attention When parsing a file no format checks are made which could lead to undefined
  * \attenrion behaviour if the file format is invalid.
  */
@@ -17,7 +17,7 @@ struct InputData{
 	 * Parses a file specified with path.
 	 *
 	 * \param [in] path file to fetch data from
-	 * \throw std::fstream::failure if unable to open specified file 
+	 * \throw std::fstream::failure if unable to open specified file
 	 */
     InputData(const std::string path);
 
@@ -37,23 +37,23 @@ struct InputData{
 	/** number of rides. */
 	unsigned nRides;
 	/** per-ride bonus for starting the ride on time. */
-	unsigned bonus; 
+	unsigned bonus;
 	/** number of steps in the simulation. */
 	unsigned maxTime;
 	/** row coordinate of all starting intersections. */
-	Tensor startX;
+	Tensor<int> startX;
 	/** column coordinate of all starting intersections. */
-	Tensor startY;
+	Tensor<int> startY;
 	/** row coordinate of all finish intersections. */
-	Tensor endX;
+	Tensor<int> endX;
 	/** column of all finish intersections. */
-	Tensor endY;
+	Tensor<int> endY;
 	/** earliest starts. */
-	Tensor startT;
+	Tensor<int> startT;
 	/** latest finishes. */
-	Tensor endT; 
+	Tensor<int> endT;
 	/** distances of each ride. */
-	Tensor distances;
+	Tensor<int> distances;
 
 };
 

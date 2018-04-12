@@ -3,19 +3,19 @@
 #include "Tensor.hpp"
 
 TEST(TensorTest, EmptyInitiation){
-    const Tensor empty;
+    const Tensor<int> empty;
     EXPECT_EQ(empty.getSize(), 0);
     EXPECT_TRUE(empty.getDims().empty());
 
-    const Tensor singleDimEmpty({0});
+    const Tensor<int> singleDimEmpty({0});
     EXPECT_EQ(singleDimEmpty.getSize(), 0);
     EXPECT_TRUE(singleDimEmpty.getDims().empty());
 
-    const Tensor twoDimEmpty({0, 0});
+    const Tensor<int> twoDimEmpty({0, 0});
     EXPECT_EQ(twoDimEmpty.getSize(), 0);
     EXPECT_TRUE(twoDimEmpty.getDims().empty());
 
-    const Tensor threeDimEmpty({0,0,0});
+    const Tensor<int> threeDimEmpty({0,0,0});
     EXPECT_EQ(threeDimEmpty.getSize(), 0);
     EXPECT_TRUE(threeDimEmpty.getDims().empty());
 }
@@ -23,21 +23,21 @@ TEST(TensorTest, EmptyInitiation){
 TEST(TensorTest, RandomValueInitialization){
     const unsigned randomValue = 42;
 
-    const Tensor singleDim({randomValue});
+    const Tensor<int> singleDim({randomValue});
     EXPECT_EQ(singleDim.getSize(), randomValue);
     EXPECT_THAT(singleDim.getDims(), ::testing::ContainerEq(std::vector<unsigned>(1, randomValue)));
 
-    const Tensor twoDim({randomValue, randomValue});
+    const Tensor<int> twoDim({randomValue, randomValue});
     EXPECT_EQ(twoDim.getSize(), randomValue*randomValue);
     EXPECT_THAT(twoDim.getDims(), ::testing::ContainerEq(std::vector<unsigned>(2, randomValue)));
 
-    const Tensor threeDim({randomValue, randomValue, randomValue});
+    const Tensor<int> threeDim({randomValue, randomValue, randomValue});
     EXPECT_EQ(threeDim.getSize(), randomValue*randomValue*randomValue);
     EXPECT_THAT(threeDim.getDims(), ::testing::ContainerEq(std::vector<unsigned>(3, randomValue)));
 }
 
 TEST(TensorTest, 2DIndexAccess) {
-	Tensor threeDim({ 2, 2 });
+	Tensor<int> threeDim({ 2, 2 });
 	for (unsigned listIndex = 0; listIndex < threeDim.getSize(); ++listIndex) {
 		threeDim(listIndex) = listIndex;
 	}
@@ -51,7 +51,7 @@ TEST(TensorTest, 2DIndexAccess) {
 }
 
 TEST (TensorTest, 3DIndexAccess) {
-	Tensor threeDim({ 2, 2, 2 });
+	Tensor<int> threeDim({ 2, 2, 2 });
 	for (unsigned listIndex = 0; listIndex < threeDim.getSize(); ++listIndex) {
 		threeDim(listIndex) = listIndex;
 	}
@@ -67,7 +67,7 @@ TEST (TensorTest, 3DIndexAccess) {
 }
 
 TEST(TensorTest, StringRepresenation) {
-	Tensor sample({4});
+	Tensor<int> sample({4});
 	for (unsigned listIndex = 0; listIndex < sample.getSize(); ++listIndex) {
 		sample(listIndex) = listIndex;
 	}

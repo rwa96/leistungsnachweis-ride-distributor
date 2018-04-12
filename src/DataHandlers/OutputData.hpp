@@ -4,6 +4,7 @@
 #include <memory>
 #include <string>
 #include <vector>
+#include <list>
 #include "Tensor.hpp"
 
 /**
@@ -19,7 +20,7 @@ public:
 	 * \param [in] parent parent node
 	 * \param [in] value Tensor value of this node
 	 */
-	OutputData(std::shared_ptr<OutputData> parent, std::unique_ptr<Tensor> value) 
+	OutputData(std::shared_ptr<OutputData> parent, std::unique_ptr<Tensor<unsigned>> value)
 		:parent(parent), value(std::move(value)) {};
 
 	/**
@@ -36,7 +37,7 @@ private:
 	/** Parent node. */
 	std::shared_ptr<OutputData> parent;
 	/** Value of this node. */
-	std::unique_ptr<Tensor> value;
+	std::unique_ptr<Tensor<unsigned>> value;
 
 	/**
 	 * Creates a 2D vector of values while traversing parent nodes.
@@ -45,7 +46,7 @@ private:
 	 * \param [in] fleetSize number of vectors in 2D-vector
 	 * \return std::vector<std::vector<int>>
 	 */
-	std::vector<std::vector<int>> createDataStructure(std::shared_ptr<const OutputData> start, const unsigned fleetSize) const;
+	std::vector<std::list<unsigned>> createDataStructure(std::shared_ptr<const OutputData> start, const unsigned fleetSize) const;
 
 };
 
