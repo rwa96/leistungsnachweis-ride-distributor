@@ -15,6 +15,7 @@ template<typename T>
 class Tensor{
 public:
 
+	/** Creates an empty Tensor. */
     Tensor():size(0){};
 
     Tensor(std::initializer_list<unsigned> args):dims(args){
@@ -51,15 +52,28 @@ public:
     inline T& operator()(const int x, const int y, const int z)
     {return data[x*dims[1]*dims[2] + y*dims[2] + z];};
 
+	/**
+	 * Total number of elements that can be stored in this tensor.
+	 *
+	 * \return unsigned size of the internal data structure.
+	 */
     inline const unsigned getSize() const
     {return size;};
 
+	/**
+	 * List of dimension of this Tensor.
+	 *
+	 * \return std::vector<unsigned> list of dimensions
+	 */
     const std::vector<unsigned> getDims() const
     {return dims;};
 
 private:
 
+	/** Size of internal data structure. */
     unsigned size;
+
+	/** Dimensions defined at initialization. */
     std::vector<unsigned> dims;
     std::unique_ptr<T[]> data;
 

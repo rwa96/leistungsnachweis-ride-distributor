@@ -22,8 +22,8 @@ script:
   - cmake --build .build --target doc
   - cd .build && ctest -VV
 
-after_success:
-  - coveralls --root . -E ".*googletest.*" -E ".*CMakeFiles.*"
+#after_success:
+#  - coveralls -E ".build/googletest.*" -E ".build/CMakeFiles.*" --gcov-options "\-lp" -r
 
 deploy:
   provider:     pages
