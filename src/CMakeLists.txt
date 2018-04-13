@@ -12,5 +12,16 @@ target_include_directories(InputData
         ${CMAKE_CURRENT_SOURCE_DIR}/Numeric
 )
 
+add_library(Generator Algorithm/Generator.cpp)
+target_include_directories(Generator
+	PUBLIC
+		${CMAKE_CURRENT_SOURCE_DIR}/Algorithm
+		${CMAKE_CURRENT_SOURCE_DIR}/Numeric
+)
+target_link_libraries(Generator 
+	PUBLIC
+		InputData
+)
+
 add_executable(RideDistributor main.cpp)
 target_link_libraries(RideDistributor PRIVATE OutputData InputData)
