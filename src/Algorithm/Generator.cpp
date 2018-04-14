@@ -1,8 +1,8 @@
 #include <cmath>
 #include "Generator.hpp"
 
-Types::Choices Generator::generate(InputData& inputData, std::unique_ptr<Tensor<int>> unassigned, std::unique_ptr<Types::CarData> cars){
-	
+Types::Choices Generator::generate(std::unique_ptr<Tensor<int>> unassigned, std::unique_ptr<Types::CarData> cars){
+
 	std::unique_ptr<Tensor<int>> result(new Tensor<int>({ inputData.fleetSize, unassigned->getSize() }));
 
 	for (unsigned uIndex = 0, ride = (*unassigned)(0); uIndex < unassigned->getSize(); ride = (*unassigned)(++uIndex)) {
@@ -19,4 +19,4 @@ Types::Choices Generator::generate(InputData& inputData, std::unique_ptr<Tensor<
 	}
 
 	return {};
-}
+};
