@@ -8,7 +8,7 @@
 var indexSectionsWithContent =
 {
   0: "bcdefgimnorstw",
-  1: "iot",
+  1: "cgiot",
   2: "giostw",
   3: "bcdefmnrs"
 };
