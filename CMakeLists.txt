@@ -13,7 +13,9 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
 # Code coverage
-#set(CMAKE_CXX_FLAGS ${CMAKE_CXX_FLAGS} -fprofile-arcs -ftest-coverage)
+if(${CMAKE_CXX_COMPILER_ID} STREQUAL "GNU")
+    set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -g -O0 -Wall -fprofile-arcs -ftest-coverage")
+endif()
 
 # Windows stuff
 if(MSVC)
