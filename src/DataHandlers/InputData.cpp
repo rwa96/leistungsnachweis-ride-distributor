@@ -1,22 +1,36 @@
 #include <sstream>
 #include "InputData.hpp"
 
-InputData::InputData(const std::string path){
+std::shared_ptr<InputData> InputData::genFromFile(const std::string path){
 	std::fstream inFile;
 	inFile.exceptions(std::fstream::failbit | std::fstream::badbit);
 
 	inFile.open(path, std::fstream::in);
+    unsigned rows, cols, fleetSize, nRides, bonus, maxTime;
 	inFile >> rows >> cols >> fleetSize >> nRides >> bonus >> maxTime;
 
-    startX = Tensor<int>({nRides});
-    startY = Tensor<int>({nRides});
-    endX = Tensor<int>({nRides});
-    endY = Tensor<int>({nRides});
-    startT = Tensor<int>({nRides});
-    endT = Tensor<int>({nRides});
-    distances = Tensor<int>({nRides});
+    return std::shared_ptr<InputData>(new InputData(rows, cols, fleetSize, nRides, bonus, maxTime, inFile));
+};
 
-	for (unsigned short i = 0; i < nRides; i++) {
+
+InputData::InputData(
+    const unsigned rows,
+    const unsigned cols,
+    const unsigned fleetSize,
+    const unsigned nRides,
+    const unsigned bonus,
+    const unsigned maxTime,
+    std::fstream& inFile
+):
+    startX({nRides}),
+    startY({nRides}),
+    endX({nRides}),
+    endY({nRides}),
+    startT({nRides}),
+    endT({nRides}),
+    distances({nRides})
+{
+    for (unsigned short i = 0; i < nRides; i++) {
 		inFile >> startX(i) >> startY(i);
         inFile >> endX(i) >> endY(i);
         inFile >> startT(i) >> endT(i);

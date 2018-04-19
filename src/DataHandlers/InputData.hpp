@@ -3,6 +3,7 @@
 
 #include <fstream>
 #include <string>
+#include <memory>
 #include "Tensor.hpp"
 
 /**
@@ -13,13 +14,7 @@
  */
 struct InputData{
 
-	/**
-	 * Parses a file specified with path.
-	 *
-	 * \param [in] path file to fetch data from
-	 * \throw std::fstream::failure if unable to open specified file
-	 */
-    InputData(const std::string path);
+    static std::shared_ptr<InputData> genFromFile(const std::string path);
 
 	/**
 	 * Returns a string represenation of the input data.
@@ -54,6 +49,18 @@ struct InputData{
 	Tensor<int> endT;
 	/** distances of each ride. */
 	Tensor<int> distances;
+
+private:
+
+    InputData(
+    	const unsigned rows,
+    	const unsigned cols,
+    	const unsigned fleetSize,
+    	const unsigned nRides,
+    	const unsigned bonus,
+    	const unsigned maxTime,
+        std::fstream& file
+    );
 
 };
 

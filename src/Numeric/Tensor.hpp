@@ -3,7 +3,6 @@
 
 #include <string>
 #include <memory>
-#include <initializer_list>
 #include <vector>
 #include <sstream>
 #include <algorithm>
@@ -23,15 +22,21 @@ public:
      *
      * \param [in] args list that defines the dimensions of this Tensor
      */
-    Tensor(std::initializer_list<unsigned> args):dims(args){
+    Tensor(const std::vector<unsigned> dims):dims(dims){
         size = 1;
         for(auto& dim: dims){
             size *= dim;
         }
         if(size == 0){
-            dims.clear();
+            this->dims.clear();
         }
         data = std::make_unique<T[]>(size);
+    };
+
+    Tensor(Tensor<T>& other):Tensor(other.getDims()){
+        for(unsigned i = 0; i < size; ++i){
+            (*this)(i) = other(i);
+        }
     };
 
     /**

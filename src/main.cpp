@@ -5,8 +5,7 @@
 int main(int argc, char* argv[]){
 	if (argc == 2) {
 		try {
-			InputData inputData(argv[1]);
-            std::cout << inputData.str();
+            std::cout << InputData::genFromFile(argv[1])->str();
 		}
 		catch (const std::fstream::failure e) {
 			std::cerr << e.what() << "(Invalid file or path)" << std::endl;
