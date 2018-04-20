@@ -7,13 +7,13 @@
 
 class InputDataTest: public ::testing::Test {
 protected:
-	InputDataTest();
+    InputDataTest();
     virtual void SetUp();
     virtual void TearDown();
-	std::string exampleInputString;
-	std::string inputFile;
-	std::string noneExistingInputFile;
-	std::string invalidInputFile;
+    std::string exampleInputString;
+    std::string inputFile;
+    std::string noneExistingInputFile;
+    std::string invalidInputFile;
 };
 
 #endif // INPUT_DATA_TEST_H
