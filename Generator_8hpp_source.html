@@ -100,18 +100,18 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <a class="code" href="classGenerator.html">Generator</a>(<a class="code" href="structInputData.html">InputData</a>&amp; inputData, <span class="keywordtype">unsigned</span> expandSize, <span class="keywordtype">unsigned</span> nTries, <span class="keywordtype">unsigned</span> kBest) :</div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;        inputData(inputData), expandSize(expandSize), nTries(nTries), kBest(kBest) {};</div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    Types::Choices generate(std::unique_ptr&lt;<a class="code" href="classTensor.html">Tensor&lt;int&gt;</a>&gt; unassigned, std::unique_ptr&lt;Types::CarData&gt; cars);</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <a class="code" href="structInputData.html">InputData</a>&amp; inputData;</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keywordtype">unsigned</span> expandSize, nTries, kBest;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;};</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#endif // GENERATOR_H</span></div>
-<div class="ttc" id="structInputData_html"><div class="ttname"><a href="structInputData.html">InputData</a></div><div class="ttdef"><b>Definition:</b> InputData.hpp:14</div></div>
-<div class="ttc" id="classTensor_html"><div class="ttname"><a href="classTensor.html">Tensor&lt; int &gt;</a></div></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="keywordtype">void</span> generate(Types::Choices&amp; output, std::vector&lt;int&gt;&amp; unassigned,</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;                  std::unique_ptr&lt;Types::CarData&gt; cars);</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <a class="code" href="structInputData.html">InputData</a>&amp; inputData;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keywordtype">unsigned</span> expandSize, nTries, kBest;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;};</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#endif // GENERATOR_H</span></div>
+<div class="ttc" id="structInputData_html"><div class="ttname"><a href="structInputData.html">InputData</a></div><div class="ttdef"><b>Definition:</b> InputData.hpp:15</div></div>
 <div class="ttc" id="classGenerator_html"><div class="ttname"><a href="classGenerator.html">Generator</a></div><div class="ttdef"><b>Definition:</b> Generator.hpp:8</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->

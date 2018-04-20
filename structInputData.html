@@ -84,6 +84,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="structInputData-members.html">List of all members</a>  </div>
   <div class="headertitle">
@@ -95,10 +96,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a2d5327ff44717d101d4b8a132bde530b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structInputData.html#a2d5327ff44717d101d4b8a132bde530b">InputData</a> (const std::string path)</td></tr>
-<tr class="separator:a2d5327ff44717d101d4b8a132bde530b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a70b0cf52456a7a070f22d451c66991d0"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structInputData.html#a70b0cf52456a7a070f22d451c66991d0">str</a> () const </td></tr>
 <tr class="separator:a70b0cf52456a7a070f22d451c66991d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:a3a1654cd70915a755388c8f4f327d686"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr&lt; <a class="el" href="structInputData.html">InputData</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structInputData.html#a3a1654cd70915a755388c8f4f327d686">genFromFile</a> (const std::string path)</td></tr>
+<tr class="separator:a3a1654cd70915a755388c8f4f327d686"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -132,37 +136,40 @@ Public Attributes</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Represenation of the input file defined by Google-HashCode's problem statement</p>
 <dl class="section attention"><dt>Attention</dt><dd>When parsing a file no format checks are made which could lead to undefined  behaviour if the file format is invalid. </dd></dl>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a2d5327ff44717d101d4b8a132bde530b"></a>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a3a1654cd70915a755388c8f4f327d686"></a>
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">InputData::InputData </td>
+          <td class="memname">std::shared_ptr&lt; <a class="el" href="structInputData.html">InputData</a> &gt; InputData::genFromFile </td>
           <td>(</td>
           <td class="paramtype">const std::string&#160;</td>
           <td class="paramname"><em>path</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
-<p>Parses a file specified with path.</p>
+<p>Given a valid path to an input file, this method creates a <a class="el" href="structInputData.html">InputData</a> representation of it. </p>
+<dl class="section note"><dt>Note</dt><dd>no format checks on the file are performed.</dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">path</td><td>file to fetch data from </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">path</td><td>Path to input file  std::fstream::failure if invalid file/path </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="exception"><dt>Exceptions</dt><dd>
-  <table class="exception">
-    <tr><td class="paramname">std::fstream::failure</td><td>if unable to open specified file </td></tr>
-  </table>
-  </dd>
-</dl>
+<dl class="section return"><dt>Returns</dt><dd>std::shared_ptr&lt;InputData&gt; generated object </dd></dl>
 
 </div>
 </div>
-<h2 class="groupheader">Member Function Documentation</h2>
 <a class="anchor" id="a70b0cf52456a7a070f22d451c66991d0"></a>
 <div class="memitem">
 <div class="memproto">

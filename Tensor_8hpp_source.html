@@ -92,80 +92,92 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;memory&gt;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;initializer_list&gt;</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;sstream&gt;</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;algorithm&gt;</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#define MAX_SHOWN_ENTRIES (unsigned)20</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="classTensor.html">   15</a></span>&#160;<span class="keyword">class </span><a class="code" href="classTensor.html">Tensor</a>{</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
-<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="classTensor.html#ae966f3807d5bfb78c049cf8c494e16ba">   19</a></span>&#160;    <a class="code" href="classTensor.html#ae966f3807d5bfb78c049cf8c494e16ba">Tensor</a>():size(0){};</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
-<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="classTensor.html#a8c040ce26275ca1b4cdd68ed88af3a1b">   26</a></span>&#160;    <a class="code" href="classTensor.html#a8c040ce26275ca1b4cdd68ed88af3a1b">Tensor</a>(std::initializer_list&lt;unsigned&gt; args):dims(args){</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        size = 1;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        <span class="keywordflow">for</span>(<span class="keyword">auto</span>&amp; dim: dims){</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;sstream&gt;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;algorithm&gt;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#define MAX_SHOWN_ENTRIES (unsigned)20</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="classTensor.html">   14</a></span>&#160;<span class="keyword">class </span><a class="code" href="classTensor.html">Tensor</a> {</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="classTensor.html#ae966f3807d5bfb78c049cf8c494e16ba">   18</a></span>&#160;    <a class="code" href="classTensor.html#ae966f3807d5bfb78c049cf8c494e16ba">Tensor</a>(): size(0) {};</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
+<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="classTensor.html#adf0e07f9cd7b6d3af89ace481eead0df">   25</a></span>&#160;    <a class="code" href="classTensor.html#adf0e07f9cd7b6d3af89ace481eead0df">Tensor</a>(<span class="keyword">const</span> std::vector&lt;unsigned&gt; dims): dims(dims) {</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        size = 1;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        <span class="keywordflow">for</span>(<span class="keyword">auto</span>&amp; dim : dims) {</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;            size *= dim;</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        }</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        <span class="keywordflow">if</span>(size == 0){</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;            dims.clear();</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        }</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        data = std::make_unique&lt;T[]&gt;(size);</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    };</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
-<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="classTensor.html#aa95a8da663a246348cc52c2e459c4b9f">   43</a></span>&#160;    std::string <a class="code" href="classTensor.html#aa95a8da663a246348cc52c2e459c4b9f">str</a>()<span class="keyword"> const</span>{</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        std::ostringstream result;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        result &lt;&lt; <span class="charliteral">&#39;[&#39;</span>;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">unsigned</span> i = 0; i &lt; std::min(size, MAX_SHOWN_ENTRIES); ++i){</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;            result &lt;&lt; data[i];</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;            <span class="keywordflow">if</span>(i &lt; size-1){result &lt;&lt; <span class="stringliteral">&quot;, &quot;</span>;}</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;            <span class="keywordflow">else</span> <span class="keywordflow">if</span>(size &gt; MAX_SHOWN_ENTRIES){result &lt;&lt; <span class="stringliteral">&quot;...&quot;</span>;}</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        }</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        result &lt;&lt; <span class="charliteral">&#39;]&#39;</span> &lt;&lt; std::endl;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <span class="keywordflow">return</span> result.str();</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    };</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
-<div class="line"><a name="l00063"></a><span class="lineno"><a class="line" href="classTensor.html#aa0f9ecd39e817deecbaef08f7a31898f">   63</a></span>&#160;    <span class="keyword">inline</span> T&amp; <a class="code" href="classTensor.html#aa0f9ecd39e817deecbaef08f7a31898f">operator()</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> x)</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    {<span class="keywordflow">return</span> data[x];};</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
-<div class="line"><a name="l00073"></a><span class="lineno"><a class="line" href="classTensor.html#a5115dcc8a7adb06f8442bc18d3c3f74c">   73</a></span>&#160;    <span class="keyword">inline</span> T&amp; <a class="code" href="classTensor.html#a5115dcc8a7adb06f8442bc18d3c3f74c">operator()</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> x, <span class="keyword">const</span> <span class="keywordtype">int</span> y)</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    {<span class="keywordflow">return</span> data[x*dims[1] + y];};</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;</div>
-<div class="line"><a name="l00084"></a><span class="lineno"><a class="line" href="classTensor.html#a789cc917e5c9d14d12bb4a788d429acd">   84</a></span>&#160;    <span class="keyword">inline</span> T&amp; <a class="code" href="classTensor.html#a789cc917e5c9d14d12bb4a788d429acd">operator()</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> x, <span class="keyword">const</span> <span class="keywordtype">int</span> y, <span class="keyword">const</span> <span class="keywordtype">int</span> z)</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    {<span class="keywordflow">return</span> data[x*dims[1]*dims[2] + y*dims[2] + z];};</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;</div>
-<div class="line"><a name="l00092"></a><span class="lineno"><a class="line" href="classTensor.html#a2c521cf109af84b28f943cafa45bc08b">   92</a></span>&#160;    <span class="keyword">inline</span> <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <a class="code" href="classTensor.html#a2c521cf109af84b28f943cafa45bc08b">getSize</a>()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="keyword">    </span>{<span class="keywordflow">return</span> size;};</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;</div>
-<div class="line"><a name="l00100"></a><span class="lineno"><a class="line" href="classTensor.html#a28f9b32e90ea65f0e0534b983d81de06">  100</a></span>&#160;    <span class="keyword">const</span> std::vector&lt;unsigned&gt; <a class="code" href="classTensor.html#a28f9b32e90ea65f0e0534b983d81de06">getDims</a>()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;<span class="keyword">    </span>{<span class="keywordflow">return</span> dims;};</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        <span class="keywordflow">if</span>(size == 0) {</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;            this-&gt;dims.clear();</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        }</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        data = std::make_unique&lt;T[]&gt;(size);</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    };</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
+<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="classTensor.html#ad34719ebad82abc3a89903f46bc905d6">   44</a></span>&#160;    <a class="code" href="classTensor.html#ad34719ebad82abc3a89903f46bc905d6">Tensor</a>(<a class="code" href="classTensor.html">Tensor&lt;T&gt;</a>&amp; other): <a class="code" href="classTensor.html">Tensor</a>(other.<a class="code" href="classTensor.html#a28f9b32e90ea65f0e0534b983d81de06">getDims</a>()) {</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">unsigned</span> i = 0; i &lt; size; ++i) {</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;            (*this)(i) = other(i);</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        }</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    };</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
+<div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="classTensor.html#aa95a8da663a246348cc52c2e459c4b9f">   56</a></span>&#160;    std::string <a class="code" href="classTensor.html#aa95a8da663a246348cc52c2e459c4b9f">str</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        std::ostringstream result;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        result &lt;&lt; <span class="charliteral">&#39;[&#39;</span>;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">unsigned</span> i = 0; i &lt; std::min(size, MAX_SHOWN_ENTRIES); ++i) {</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;            result &lt;&lt; data[i];</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;            <span class="keywordflow">if</span>(i &lt; size - 1) {result &lt;&lt; <span class="stringliteral">&quot;, &quot;</span>;}</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;            <span class="keywordflow">else</span> <span class="keywordflow">if</span>(size &gt; MAX_SHOWN_ENTRIES) {result &lt;&lt; <span class="stringliteral">&quot;...&quot;</span>;}</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        }</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        result &lt;&lt; <span class="charliteral">&#39;]&#39;</span> &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        <span class="keywordflow">return</span> result.str();</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    };</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;</div>
+<div class="line"><a name="l00079"></a><span class="lineno"><a class="line" href="classTensor.html#aa0f9ecd39e817deecbaef08f7a31898f">   79</a></span>&#160;    <span class="keyword">inline</span> T&amp; <a class="code" href="classTensor.html#aa0f9ecd39e817deecbaef08f7a31898f">operator()</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> x)</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    {<span class="keywordflow">return</span> data[x];};</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;</div>
+<div class="line"><a name="l00089"></a><span class="lineno"><a class="line" href="classTensor.html#a5115dcc8a7adb06f8442bc18d3c3f74c">   89</a></span>&#160;    <span class="keyword">inline</span> T&amp; <a class="code" href="classTensor.html#a5115dcc8a7adb06f8442bc18d3c3f74c">operator()</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> x, <span class="keyword">const</span> <span class="keywordtype">int</span> y)</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    {<span class="keywordflow">return</span> data[x * dims[1] + y];};</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;</div>
+<div class="line"><a name="l00100"></a><span class="lineno"><a class="line" href="classTensor.html#a789cc917e5c9d14d12bb4a788d429acd">  100</a></span>&#160;    <span class="keyword">inline</span> T&amp; <a class="code" href="classTensor.html#a789cc917e5c9d14d12bb4a788d429acd">operator()</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> x, <span class="keyword">const</span> <span class="keywordtype">int</span> y, <span class="keyword">const</span> <span class="keywordtype">int</span> z)</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    {<span class="keywordflow">return</span> data[x * dims[1] * dims[2] + y * dims[2] + z];};</div>
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    <span class="keywordtype">unsigned</span> size;</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    std::vector&lt;unsigned&gt; dims;</div>
+<div class="line"><a name="l00108"></a><span class="lineno"><a class="line" href="classTensor.html#a2c521cf109af84b28f943cafa45bc08b">  108</a></span>&#160;    <span class="keyword">inline</span> <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <a class="code" href="classTensor.html#a2c521cf109af84b28f943cafa45bc08b">getSize</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;<span class="keyword">    </span>{<span class="keywordflow">return</span> size;};</div>
 <div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    std::unique_ptr&lt;T[]&gt; data;</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;};</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;<span class="preprocessor">#endif // TENSOR_H</span></div>
-<div class="ttc" id="classTensor_html_aa95a8da663a246348cc52c2e459c4b9f"><div class="ttname"><a href="classTensor.html#aa95a8da663a246348cc52c2e459c4b9f">Tensor::str</a></div><div class="ttdeci">std::string str() const </div><div class="ttdef"><b>Definition:</b> Tensor.hpp:43</div></div>
-<div class="ttc" id="classTensor_html_a789cc917e5c9d14d12bb4a788d429acd"><div class="ttname"><a href="classTensor.html#a789cc917e5c9d14d12bb4a788d429acd">Tensor::operator()</a></div><div class="ttdeci">T &amp; operator()(const int x, const int y, const int z)</div><div class="ttdef"><b>Definition:</b> Tensor.hpp:84</div></div>
-<div class="ttc" id="classTensor_html_ae966f3807d5bfb78c049cf8c494e16ba"><div class="ttname"><a href="classTensor.html#ae966f3807d5bfb78c049cf8c494e16ba">Tensor::Tensor</a></div><div class="ttdeci">Tensor()</div><div class="ttdef"><b>Definition:</b> Tensor.hpp:19</div></div>
-<div class="ttc" id="classTensor_html_a2c521cf109af84b28f943cafa45bc08b"><div class="ttname"><a href="classTensor.html#a2c521cf109af84b28f943cafa45bc08b">Tensor::getSize</a></div><div class="ttdeci">const unsigned getSize() const </div><div class="ttdef"><b>Definition:</b> Tensor.hpp:92</div></div>
-<div class="ttc" id="classTensor_html_a28f9b32e90ea65f0e0534b983d81de06"><div class="ttname"><a href="classTensor.html#a28f9b32e90ea65f0e0534b983d81de06">Tensor::getDims</a></div><div class="ttdeci">const std::vector&lt; unsigned &gt; getDims() const </div><div class="ttdef"><b>Definition:</b> Tensor.hpp:100</div></div>
-<div class="ttc" id="classTensor_html_aa0f9ecd39e817deecbaef08f7a31898f"><div class="ttname"><a href="classTensor.html#aa0f9ecd39e817deecbaef08f7a31898f">Tensor::operator()</a></div><div class="ttdeci">T &amp; operator()(const int x)</div><div class="ttdef"><b>Definition:</b> Tensor.hpp:63</div></div>
-<div class="ttc" id="classTensor_html_a8c040ce26275ca1b4cdd68ed88af3a1b"><div class="ttname"><a href="classTensor.html#a8c040ce26275ca1b4cdd68ed88af3a1b">Tensor::Tensor</a></div><div class="ttdeci">Tensor(std::initializer_list&lt; unsigned &gt; args)</div><div class="ttdef"><b>Definition:</b> Tensor.hpp:26</div></div>
-<div class="ttc" id="classTensor_html_a5115dcc8a7adb06f8442bc18d3c3f74c"><div class="ttname"><a href="classTensor.html#a5115dcc8a7adb06f8442bc18d3c3f74c">Tensor::operator()</a></div><div class="ttdeci">T &amp; operator()(const int x, const int y)</div><div class="ttdef"><b>Definition:</b> Tensor.hpp:73</div></div>
-<div class="ttc" id="classTensor_html"><div class="ttname"><a href="classTensor.html">Tensor</a></div><div class="ttdef"><b>Definition:</b> Tensor.hpp:15</div></div>
+<div class="line"><a name="l00116"></a><span class="lineno"><a class="line" href="classTensor.html#a28f9b32e90ea65f0e0534b983d81de06">  116</a></span>&#160;    <span class="keyword">const</span> std::vector&lt;unsigned&gt; <a class="code" href="classTensor.html#a28f9b32e90ea65f0e0534b983d81de06">getDims</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;<span class="keyword">    </span>{<span class="keywordflow">return</span> dims;};</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    <span class="keywordtype">unsigned</span> size;</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    std::vector&lt;unsigned&gt; dims;</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    std::unique_ptr&lt;T[]&gt; data;</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;};</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;<span class="preprocessor">#endif // TENSOR_H</span></div>
+<div class="ttc" id="classTensor_html_aa95a8da663a246348cc52c2e459c4b9f"><div class="ttname"><a href="classTensor.html#aa95a8da663a246348cc52c2e459c4b9f">Tensor::str</a></div><div class="ttdeci">std::string str() const </div><div class="ttdef"><b>Definition:</b> Tensor.hpp:56</div></div>
+<div class="ttc" id="classTensor_html_a789cc917e5c9d14d12bb4a788d429acd"><div class="ttname"><a href="classTensor.html#a789cc917e5c9d14d12bb4a788d429acd">Tensor::operator()</a></div><div class="ttdeci">T &amp; operator()(const int x, const int y, const int z)</div><div class="ttdef"><b>Definition:</b> Tensor.hpp:100</div></div>
+<div class="ttc" id="classTensor_html_ae966f3807d5bfb78c049cf8c494e16ba"><div class="ttname"><a href="classTensor.html#ae966f3807d5bfb78c049cf8c494e16ba">Tensor::Tensor</a></div><div class="ttdeci">Tensor()</div><div class="ttdef"><b>Definition:</b> Tensor.hpp:18</div></div>
+<div class="ttc" id="classTensor_html_a2c521cf109af84b28f943cafa45bc08b"><div class="ttname"><a href="classTensor.html#a2c521cf109af84b28f943cafa45bc08b">Tensor::getSize</a></div><div class="ttdeci">const unsigned getSize() const </div><div class="ttdef"><b>Definition:</b> Tensor.hpp:108</div></div>
+<div class="ttc" id="classTensor_html_a28f9b32e90ea65f0e0534b983d81de06"><div class="ttname"><a href="classTensor.html#a28f9b32e90ea65f0e0534b983d81de06">Tensor::getDims</a></div><div class="ttdeci">const std::vector&lt; unsigned &gt; getDims() const </div><div class="ttdef"><b>Definition:</b> Tensor.hpp:116</div></div>
+<div class="ttc" id="classTensor_html_aa0f9ecd39e817deecbaef08f7a31898f"><div class="ttname"><a href="classTensor.html#aa0f9ecd39e817deecbaef08f7a31898f">Tensor::operator()</a></div><div class="ttdeci">T &amp; operator()(const int x)</div><div class="ttdef"><b>Definition:</b> Tensor.hpp:79</div></div>
+<div class="ttc" id="classTensor_html_a5115dcc8a7adb06f8442bc18d3c3f74c"><div class="ttname"><a href="classTensor.html#a5115dcc8a7adb06f8442bc18d3c3f74c">Tensor::operator()</a></div><div class="ttdeci">T &amp; operator()(const int x, const int y)</div><div class="ttdef"><b>Definition:</b> Tensor.hpp:89</div></div>
+<div class="ttc" id="classTensor_html_adf0e07f9cd7b6d3af89ace481eead0df"><div class="ttname"><a href="classTensor.html#adf0e07f9cd7b6d3af89ace481eead0df">Tensor::Tensor</a></div><div class="ttdeci">Tensor(const std::vector&lt; unsigned &gt; dims)</div><div class="ttdef"><b>Definition:</b> Tensor.hpp:25</div></div>
+<div class="ttc" id="classTensor_html"><div class="ttname"><a href="classTensor.html">Tensor</a></div><div class="ttdef"><b>Definition:</b> Tensor.hpp:14</div></div>
+<div class="ttc" id="classTensor_html_ad34719ebad82abc3a89903f46bc905d6"><div class="ttname"><a href="classTensor.html#ad34719ebad82abc3a89903f46bc905d6">Tensor::Tensor</a></div><div class="ttdeci">Tensor(Tensor&lt; T &gt; &amp;other)</div><div class="ttdef"><b>Definition:</b> Tensor.hpp:44</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

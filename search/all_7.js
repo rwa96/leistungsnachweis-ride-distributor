@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['maxtime',['maxTime',['../structInputData.html#a926c9deab25dac35e8ece4feebe48e47',1,'InputData']]]
+  ['inputdata',['InputData',['../structInputData.html',1,'']]],
+  ['inputdatatest',['InputDataTest',['../classInputDataTest.html',1,'']]]
 ];

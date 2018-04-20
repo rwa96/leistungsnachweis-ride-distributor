@@ -1,5 +1,7 @@
 var searchData=
 [
-  ['inputdata',['InputData',['../structInputData.html',1,'InputData'],['../structInputData.html#a2d5327ff44717d101d4b8a132bde530b',1,'InputData::InputData()']]],
-  ['inputdatatest',['InputDataTest',['../classInputDataTest.html',1,'']]]
+  ['generator',['Generator',['../classGenerator.html',1,'']]],
+  ['genfromfile',['genFromFile',['../structInputData.html#a3a1654cd70915a755388c8f4f327d686',1,'InputData']]],
+  ['getdims',['getDims',['../classTensor.html#a28f9b32e90ea65f0e0534b983d81de06',1,'Tensor']]],
+  ['getsize',['getSize',['../classTensor.html#a2c521cf109af84b28f943cafa45bc08b',1,'Tensor']]]
 ];
