@@ -22,13 +22,9 @@ InputData::InputData(
     const unsigned maxTime,
     std::fstream& inFile
 ):
-    startX({nRides}),
-    startY({nRides}),
-    endX({nRides}),
-    endY({nRides}),
-    startT({nRides}),
-    endT({nRides}),
-    distances({nRides})
+    rows(rows), cols(cols), fleetSize(fleetSize), nRides(nRides), bonus(bonus),
+    maxTime(maxTime), startX({nRides}), startY({nRides}), endX({nRides}),
+    endY({nRides}), startT({nRides}), endT({nRides}), distances({nRides})
 {
     for (unsigned short i = 0; i < nRides; i++) {
 		inFile >> startX(i) >> startY(i);
