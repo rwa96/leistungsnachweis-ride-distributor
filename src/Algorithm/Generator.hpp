@@ -11,7 +11,7 @@ public:
 	Generator(InputData& inputData, unsigned expandSize, unsigned nTries, unsigned kBest) :
 		inputData(inputData), expandSize(expandSize), nTries(nTries), kBest(kBest) {};
 
-	Types::Choices generate(std::unique_ptr<Tensor<int>> unassigned, std::unique_ptr<Types::CarData> cars);
+	void generate(Types::Choices& output, std::vector<int>& unassigned, std::unique_ptr<Types::CarData> cars);
 
 private:
 

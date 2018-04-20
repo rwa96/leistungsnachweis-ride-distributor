@@ -20,7 +20,7 @@ public:
     /**
      * Creates a n-dimensional Tensor.
      *
-     * \param [in] args list that defines the dimensions of this Tensor
+     * \param [in] dims list that defines the dimensions of this Tensor
      */
     Tensor(const std::vector<unsigned> dims):dims(dims){
         size = 1;
@@ -33,6 +33,11 @@ public:
         data = std::make_unique<T[]>(size);
     };
 
+	/**
+	 * Creates a deep copy of a given Tensor.
+	 *
+	 * \param [in] other Tensor to copy
+	 */
     Tensor(Tensor<T>& other):Tensor(other.getDims()){
         for(unsigned i = 0; i < size; ++i){
             (*this)(i) = other(i);

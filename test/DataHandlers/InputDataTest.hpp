@@ -12,6 +12,8 @@ protected:
     virtual void TearDown();
 	std::string exampleInputString;
 	std::string inputFile;
+	std::string noneExistingInputFile;
+	std::string invalidInputFile;
 };
 
 #endif // INPUT_DATA_TEST_H

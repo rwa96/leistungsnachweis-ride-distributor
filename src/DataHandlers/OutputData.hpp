@@ -44,7 +44,7 @@ private:
 	 *
 	 * \param [in] start first node for traversal
 	 * \param [in] fleetSize number of vectors in 2D-vector
-	 * \return std::vector<std::vector<int>>
+	 * \return std::vector<std::list<int>> each list represents a car and its rides
 	 */
 	std::vector<std::list<unsigned>> createDataStructure(std::shared_ptr<const OutputData> start, const unsigned fleetSize) const;
 

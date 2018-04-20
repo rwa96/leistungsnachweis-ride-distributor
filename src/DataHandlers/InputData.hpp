@@ -14,6 +14,14 @@
  */
 struct InputData{
 
+	/**
+	 * Given a valid path to an input file, this method creates a InputData representation of it.
+	 * \note no format checks on the file are performed.
+	 *
+	 * \param [in] path Path to input file
+	 * \trhow std::fstream::failure if invalid file/path
+	 * \return std::shared_ptr<InputData> generated object
+	 */
     static std::shared_ptr<InputData> genFromFile(const std::string path);
 
 	/**
@@ -52,6 +60,18 @@ struct InputData{
 
 private:
 
+	/**
+	 * Used by InputData::genFromFile to create an instance.
+	 *
+	 * \param [in] rows Rows of the road network
+	 * \param [in] cols Columsn of road network
+	 * \param [in] fleetSize number of cars available
+	 * \param [in] nRides number of rides to be assigned
+	 * \param [in] bonus Bonus for in time arivals
+	 * \param [in] maxTime Steps of the simulation
+	 * \param [in,out] file input file
+	 * \trhow std::fstream::failure if invalid file/path
+	 */
     InputData(
     	const unsigned rows,
     	const unsigned cols,
