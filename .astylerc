@@ -1,0 +1,111 @@
+# Google style uses attached braces and indented class access modifiers.
+# See the indent-modifiers option for an example of the indented modifiers format.
+# This is not actually a unique brace style, but is Java style with a non-brace
+# variation. This style frequently is used with an indent of 2 spaces.
+--style=java
+
+# --indent=spaces / --indent=spaces=# / -s#
+# Indent using # spaces per indent (e.g. -s3 --indent=spaces=3). # must be
+# between 2 and 20. Not specifying # will result in a default of 4 spaces per indent.
+#--indent=spaces=4
+
+# --indent-continuation=# / -xt#
+# Set the continuation indent for a line that ends with an opening paren '('
+# or an assignment '='. This includes function definitions and declarations.
+# It will also modify the previous indent-after-paren option. The value for #
+# indicates a number of indents. The valid values are the integer values
+# from 0 thru 4. If this option is not used, the default value of 1 is used.
+#--indent-continuation=1
+
+# Set the minimal indent that is added when a header is built of multiple lines.
+# This indent helps to easily separate the header from the command statements
+# that follow. The value for # indicates a number of indents and is a minimum value.
+# The indent may be greater to align with the data on the previous line.
+#
+# The valid values are:
+# 0 - no minimal indent. The lines will be aligned with the paren on the preceding line.
+# 1 - indent at least one additional indent.
+# 2 - indent at least two additional indents.
+# 3 - indent at least one-half an additional indent. This is intended for large indents (e.g. 8).
+# The default value is 2, two additional indents.
+#--min-conditional-indent=1
+
+# Pad empty lines around header blocks (e.g. 'if', 'for', 'while'...).
+#--break-blocks
+
+# Insert space padding around operators. This will also pad commas.
+# Any end of line comments will remain in the original column, if possible.
+# Note that there is no option to unpad. Once padded, they stay padded.
+#--pad-oper
+
+# Insert space padding after commas. This is not needed if pad-oper is used.
+# Any end of line comments will remain in the original column, if possible.
+# Note that there is no option to unpad. Once padded, they stay padded.
+#--pad-comma
+
+# Remove extra space padding around parens on the inside and outside.
+# Any end of line comments will remain in the original column, if possible.
+# This option can be used in combination with the paren padding options pad‑paren,
+# pad‑paren‑out, pad‑paren‑in, and pad‑header above.
+# Only padding that has not been requested by other options will be removed.
+#
+# For example, if a source has parens padded on both the inside and outside,
+# and you want inside only. You need to use unpad-paren to remove the outside padding,
+# and pad‑paren‑in to retain the inside padding.
+# Using only pad‑paren‑in> would not remove the outside padding.
+#--unpad-paren
+
+# Attach a pointer or reference operator (*, &, or ^) to either the variable type (left)
+# or variable name (right), or place it between the type and name (middle).
+# The spacing between the type and name will be preserved, if possible.
+# This option is for C/C++, C++/CLI, and C# files. To format references separately,
+# use the following align-reference option.
+#--align-reference=type
+
+# Add braces to unbraced one line conditional statements (e.g. 'if', 'for', 'while'...).
+# The statement must be on a single line.
+# The braces will be added according to the requested brace style.
+# If no style is requested the braces will be attached.
+#
+# Braces will NOT be added to a multi-statement line if keep-one-line-statements is requested.
+# Braces will NOT be added to a one line block if keep-one-line-blocks is requested.
+# If used with --add-one-line-braces, the result will be one line braces.
+#--add-braces
+
+# Add one line braces to unbraced one line conditional statements (e.g. 'if', 'for', 'while'...).
+# The statement must be on a single line. The option implies --keep-one-line-blocks and will not break the one line blocks.
+#--add-one-line-braces
+
+# The option max‑code‑length will break a line if the code exceeds # characters.
+# The valid values are 50 thru 200. Lines without logical conditionals will
+# break on a logical conditional (||, &&, ...), comma, paren, semicolon, or space.
+#
+# Some code will not be broken, such as comments, quotes, and arrays.
+# If used with keep‑one‑line‑blocks or add-one-line-braces the blocks will NOT be broken.
+# If used with keep‑one‑line‑statements the statements will be broken at a
+# semicolon if the line goes over the maximum length.
+# If there is no available break point within the max code length,
+# the line will be broken at the first available break point after the max code length.
+#
+# By default logical conditionals will be placed first in the new line.
+# The option break‑after‑logical will cause the logical conditionals to be placed
+# last on the previous line. This option has no effect without max‑code‑length.
+#--max-code-length=90
+#--break-after-logical
+
+# Specify a file or subdirectory #### to be excluded from processing.
+--exclude=".build/"
+
+# Force use of the specified line end style. Valid options are windows (CRLF), linux (LF), and macold (CR).
+# MacOld style is the format for Mac OS 9 and earlier. MacOS and OS X uses the Linux style.
+# If one of these options is not used, the line ends will be determined automatically from the input file.
+#
+# When redirection is used on Windows the output will always have Windows line ends.
+# This option will be ignored.
+--lineend=linux
+
+# --suffix=####
+# Append the suffix #### instead of '.orig' to original file name
+# (e.g. --suffix=.bak. If this is to be a file extension, the dot '.' must be included.
+# Otherwise the suffix will be appended to the current file extension.
+--suffix=none
