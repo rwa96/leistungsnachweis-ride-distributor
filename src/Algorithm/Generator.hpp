@@ -16,6 +16,12 @@ public:
 
 private:
 
+    void selectFromSearchSpace(Types::Choices& output, Tensor<int>& finishTimes,
+                               Tensor<int>& finishPoints, std::vector<int>& unassigned,
+                               std::unique_ptr<Types::CarData>& cars);
+    void createSearchSpace(Tensor<int>& finishTimes, Tensor<int>& finishPoints,
+                           std::vector<int>& unassigned, std::unique_ptr<Types::CarData>& cars);
+
     InputData& inputData;
     unsigned expandSize, nTries, kBest;
 
