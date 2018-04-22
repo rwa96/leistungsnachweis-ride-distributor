@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['bonus',['bonus',['../structInputData.html#a45b292eedbc9a995ec5f869258417e81',1,'InputData']]]
+  ['aggregate',['aggregate',['../classAggregator.html#a220ad38d56d7607ad49197afb5acbcf8',1,'Aggregator']]]
 ];

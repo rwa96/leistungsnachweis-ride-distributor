@@ -38,6 +38,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -61,6 +62,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
       <li><a href="files.html"><span>File&#160;List</span></a></li>
+      <li><a href="globals.html"><span>File&#160;Members</span></a></li>
     </ul>
   </div>
 <!-- window showing the filter options -->
@@ -68,7 +70,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Macros</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -87,19 +89,19 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">Types.hpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef TYPES_H</span></div>
+<a href="Types_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef TYPES_H</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define TYPES_H</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;memory&gt;</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;initializer_list&gt;</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;Tensor.hpp&quot;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Tensor_8hpp.html">Tensor.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">namespace </span>Types {</div>
+<div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="namespaceTypes.html">    9</a></span>&#160;<span class="keyword">namespace </span>Types {</div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
 <div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="structTypes_1_1CarData.html">   14</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structTypes_1_1CarData.html">CarData</a> {</div>
 <div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="structTypes_1_1CarData.html#a4167d91f341c708e81eb901b6e0dd44b">   20</a></span>&#160;    <a class="code" href="structTypes_1_1CarData.html#a4167d91f341c708e81eb901b6e0dd44b">CarData</a>(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> size) :</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        <a class="code" href="structTypes_1_1CarData.html#ad98dfdd2cf12072afc8a2d598e144b67">x</a>({size}), <a class="code" href="structTypes_1_1CarData.html#abfd9d750e1edd49eeff7eef7064fac38">y</a>({size}), <a class="code" href="structTypes_1_1CarData.html#a38627a92ff294f3dd2195342c49c9696">t</a>({size}), <a class="code" href="structTypes_1_1CarData.html#ab15b43a9c74d12b8eff496beb090787f">p</a>({size}) {};</div>
+<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="structTypes_1_1CarData.html#a15230648346dcaea0a985f7278aaf00a">   21</a></span>&#160;        <a class="code" href="structTypes_1_1CarData.html#ad98dfdd2cf12072afc8a2d598e144b67">x</a>({size}), <a class="code" href="structTypes_1_1CarData.html#abfd9d750e1edd49eeff7eef7064fac38">y</a>({size}), <a class="code" href="structTypes_1_1CarData.html#a38627a92ff294f3dd2195342c49c9696">t</a>({size}), <a class="code" href="structTypes_1_1CarData.html#ab15b43a9c74d12b8eff496beb090787f">p</a>({size}) {};</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
 <div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="structTypes_1_1CarData.html#a02f983ce89ca59c0dfc13897d9838704">   28</a></span>&#160;    <a class="code" href="structTypes_1_1CarData.html#a02f983ce89ca59c0dfc13897d9838704">CarData</a>(<a class="code" href="structTypes_1_1CarData.html">CarData</a>&amp; other):</div>
 <div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="structTypes_1_1CarData.html#ad98dfdd2cf12072afc8a2d598e144b67">   29</a></span>&#160;        <a class="code" href="structTypes_1_1CarData.html#ad98dfdd2cf12072afc8a2d598e144b67">x</a>(other.<a class="code" href="structTypes_1_1CarData.html#ad98dfdd2cf12072afc8a2d598e144b67">x</a>), <a class="code" href="structTypes_1_1CarData.html#abfd9d750e1edd49eeff7eef7064fac38">y</a>(other.<a class="code" href="structTypes_1_1CarData.html#abfd9d750e1edd49eeff7eef7064fac38">y</a>), <a class="code" href="structTypes_1_1CarData.html#a38627a92ff294f3dd2195342c49c9696">t</a>(other.<a class="code" href="structTypes_1_1CarData.html#a38627a92ff294f3dd2195342c49c9696">t</a>), <a class="code" href="structTypes_1_1CarData.html#ab15b43a9c74d12b8eff496beb090787f">p</a>(other.<a class="code" href="structTypes_1_1CarData.html#ab15b43a9c74d12b8eff496beb090787f">p</a>) {};</div>
@@ -119,17 +121,19 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="structTypes_1_1Choice.html#a3cf1f69908ae7669a356f225b950fc91">   60</a></span>&#160;    <span class="keywordtype">float</span> <a class="code" href="structTypes_1_1Choice.html#a3cf1f69908ae7669a356f225b950fc91">score</a>;</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;};</div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="keyword">using</span> Choices = std::vector&lt;std::unique_ptr&lt;Choice&gt;&gt;;</div>
+<div class="line"><a name="l00064"></a><span class="lineno"><a class="line" href="namespaceTypes.html#a387f895428bdde44da5cc4240c890df4">   64</a></span>&#160;<span class="keyword">using</span> <a class="code" href="namespaceTypes.html#a387f895428bdde44da5cc4240c890df4">Choices</a> = std::vector&lt;std::unique_ptr&lt;Choice&gt;&gt;;</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;}</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="preprocessor">#endif // TYPES_H</span></div>
+<div class="ttc" id="namespaceTypes_html_a387f895428bdde44da5cc4240c890df4"><div class="ttname"><a href="namespaceTypes.html#a387f895428bdde44da5cc4240c890df4">Types::Choices</a></div><div class="ttdeci">std::vector&lt; std::unique_ptr&lt; Choice &gt;&gt; Choices</div><div class="ttdef"><b>Definition:</b> Types.hpp:64</div></div>
 <div class="ttc" id="structTypes_1_1CarData_html_ab15b43a9c74d12b8eff496beb090787f"><div class="ttname"><a href="structTypes_1_1CarData.html#ab15b43a9c74d12b8eff496beb090787f">Types::CarData::p</a></div><div class="ttdeci">Tensor&lt; int &gt; p</div><div class="ttdef"><b>Definition:</b> Types.hpp:38</div></div>
 <div class="ttc" id="structTypes_1_1Choice_html"><div class="ttname"><a href="structTypes_1_1Choice.html">Types::Choice</a></div><div class="ttdef"><b>Definition:</b> Types.hpp:45</div></div>
 <div class="ttc" id="structTypes_1_1CarData_html_abfd9d750e1edd49eeff7eef7064fac38"><div class="ttname"><a href="structTypes_1_1CarData.html#abfd9d750e1edd49eeff7eef7064fac38">Types::CarData::y</a></div><div class="ttdeci">Tensor&lt; int &gt; y</div><div class="ttdef"><b>Definition:</b> Types.hpp:34</div></div>
 <div class="ttc" id="structTypes_1_1CarData_html_a02f983ce89ca59c0dfc13897d9838704"><div class="ttname"><a href="structTypes_1_1CarData.html#a02f983ce89ca59c0dfc13897d9838704">Types::CarData::CarData</a></div><div class="ttdeci">CarData(CarData &amp;other)</div><div class="ttdef"><b>Definition:</b> Types.hpp:28</div></div>
 <div class="ttc" id="structTypes_1_1Choice_html_aa441c9a7a7bb832604092b57cde06375"><div class="ttname"><a href="structTypes_1_1Choice.html#aa441c9a7a7bb832604092b57cde06375">Types::Choice::cars</a></div><div class="ttdeci">CarData cars</div><div class="ttdef"><b>Definition:</b> Types.hpp:53</div></div>
 <div class="ttc" id="structTypes_1_1Choice_html_a3cf1f69908ae7669a356f225b950fc91"><div class="ttname"><a href="structTypes_1_1Choice.html#a3cf1f69908ae7669a356f225b950fc91">Types::Choice::score</a></div><div class="ttdeci">float score</div><div class="ttdef"><b>Definition:</b> Types.hpp:60</div></div>
+<div class="ttc" id="Tensor_8hpp_html"><div class="ttname"><a href="Tensor_8hpp.html">Tensor.hpp</a></div></div>
 <div class="ttc" id="classTensor_html"><div class="ttname"><a href="classTensor.html">Tensor&lt; int &gt;</a></div></div>
 <div class="ttc" id="structTypes_1_1CarData_html_a38627a92ff294f3dd2195342c49c9696"><div class="ttname"><a href="structTypes_1_1CarData.html#a38627a92ff294f3dd2195342c49c9696">Types::CarData::t</a></div><div class="ttdeci">Tensor&lt; int &gt; t</div><div class="ttdef"><b>Definition:</b> Types.hpp:36</div></div>
 <div class="ttc" id="structTypes_1_1Choice_html_a76c6f8ac6449cb91dddfbea49b02df43"><div class="ttname"><a href="structTypes_1_1Choice.html#a76c6f8ac6449cb91dddfbea49b02df43">Types::Choice::unassigned</a></div><div class="ttdeci">std::vector&lt; int &gt; unassigned</div><div class="ttdef"><b>Definition:</b> Types.hpp:58</div></div>

@@ -38,6 +38,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -61,6 +62,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
       <li><a href="files.html"><span>File&#160;List</span></a></li>
+      <li><a href="globals.html"><span>File&#160;Members</span></a></li>
     </ul>
   </div>
 <!-- window showing the filter options -->
@@ -68,7 +70,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Macros</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -87,26 +89,34 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">InputDataTest.hpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef INPUT_DATA_TEST_H</span></div>
+<a href="InputDataTest_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef INPUT_DATA_TEST_H</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define INPUT_DATA_TEST_H</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;gtest/gtest.h&gt;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;InputData.hpp&quot;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="InputData_8hpp.html">InputData.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div>
 <div class="line"><a name="l00008"></a><span class="lineno"><a class="line" href="classInputDataTest.html">    8</a></span>&#160;<span class="keyword">class </span><a class="code" href="classInputDataTest.html">InputDataTest</a>: <span class="keyword">public</span> ::testing::Test {</div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <a class="code" href="classInputDataTest.html">InputDataTest</a>();</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> SetUp();</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> TearDown();</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    std::string exampleInputString;</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    std::string inputFile;</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    std::string noneExistingInputFile;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    std::string invalidInputFile;</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <a class="code" href="classInputDataTest.html#ac87d524c48115396926c8d447d37739a">InputDataTest</a>();</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classInputDataTest.html#a763193299b079f253db9be1d1de295cb">SetUp</a>();</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classInputDataTest.html#afa6e922414e34a0bdd81f76b3b77d825">TearDown</a>();</div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="classInputDataTest.html#a0cc5bb5f9c0fa91e572e5c5869e120a2">   13</a></span>&#160;    std::string <a class="code" href="classInputDataTest.html#a0cc5bb5f9c0fa91e572e5c5869e120a2">exampleInputString</a>;</div>
+<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="classInputDataTest.html#ab6a9752040ec6354921176ec7664d559">   14</a></span>&#160;    std::string <a class="code" href="classInputDataTest.html#ab6a9752040ec6354921176ec7664d559">inputFile</a>;</div>
+<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="classInputDataTest.html#a80803871c2df98bfa0f76e6ab584abb4">   15</a></span>&#160;    std::string <a class="code" href="classInputDataTest.html#a80803871c2df98bfa0f76e6ab584abb4">noneExistingInputFile</a>;</div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="classInputDataTest.html#acc5f9b7acc7b2966391a9f14fe3c95a0">   16</a></span>&#160;    std::string <a class="code" href="classInputDataTest.html#acc5f9b7acc7b2966391a9f14fe3c95a0">invalidInputFile</a>;</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;};</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#endif // INPUT_DATA_TEST_H</span></div>
+<div class="ttc" id="classInputDataTest_html_a0cc5bb5f9c0fa91e572e5c5869e120a2"><div class="ttname"><a href="classInputDataTest.html#a0cc5bb5f9c0fa91e572e5c5869e120a2">InputDataTest::exampleInputString</a></div><div class="ttdeci">std::string exampleInputString</div><div class="ttdef"><b>Definition:</b> InputDataTest.hpp:13</div></div>
+<div class="ttc" id="classInputDataTest_html_afa6e922414e34a0bdd81f76b3b77d825"><div class="ttname"><a href="classInputDataTest.html#afa6e922414e34a0bdd81f76b3b77d825">InputDataTest::TearDown</a></div><div class="ttdeci">virtual void TearDown()</div><div class="ttdef"><b>Definition:</b> InputDataTest.cpp:27</div></div>
+<div class="ttc" id="classInputDataTest_html_a80803871c2df98bfa0f76e6ab584abb4"><div class="ttname"><a href="classInputDataTest.html#a80803871c2df98bfa0f76e6ab584abb4">InputDataTest::noneExistingInputFile</a></div><div class="ttdeci">std::string noneExistingInputFile</div><div class="ttdef"><b>Definition:</b> InputDataTest.hpp:15</div></div>
+<div class="ttc" id="classInputDataTest_html_ac87d524c48115396926c8d447d37739a"><div class="ttname"><a href="classInputDataTest.html#ac87d524c48115396926c8d447d37739a">InputDataTest::InputDataTest</a></div><div class="ttdeci">InputDataTest()</div><div class="ttdef"><b>Definition:</b> InputDataTest.cpp:5</div></div>
+<div class="ttc" id="classInputDataTest_html_ab6a9752040ec6354921176ec7664d559"><div class="ttname"><a href="classInputDataTest.html#ab6a9752040ec6354921176ec7664d559">InputDataTest::inputFile</a></div><div class="ttdeci">std::string inputFile</div><div class="ttdef"><b>Definition:</b> InputDataTest.hpp:14</div></div>
 <div class="ttc" id="classInputDataTest_html"><div class="ttname"><a href="classInputDataTest.html">InputDataTest</a></div><div class="ttdef"><b>Definition:</b> InputDataTest.hpp:8</div></div>
+<div class="ttc" id="InputData_8hpp_html"><div class="ttname"><a href="InputData_8hpp.html">InputData.hpp</a></div></div>
+<div class="ttc" id="classInputDataTest_html_acc5f9b7acc7b2966391a9f14fe3c95a0"><div class="ttname"><a href="classInputDataTest.html#acc5f9b7acc7b2966391a9f14fe3c95a0">InputDataTest::invalidInputFile</a></div><div class="ttdeci">std::string invalidInputFile</div><div class="ttdef"><b>Definition:</b> InputDataTest.hpp:16</div></div>
+<div class="ttc" id="classInputDataTest_html_a763193299b079f253db9be1d1de295cb"><div class="ttname"><a href="classInputDataTest.html#a763193299b079f253db9be1d1de295cb">InputDataTest::SetUp</a></div><div class="ttdeci">virtual void SetUp()</div><div class="ttdef"><b>Definition:</b> InputDataTest.cpp:13</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

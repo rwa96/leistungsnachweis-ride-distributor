@@ -38,6 +38,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -61,6 +62,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
       <li><a href="files.html"><span>File&#160;List</span></a></li>
+      <li><a href="globals.html"><span>File&#160;Members</span></a></li>
     </ul>
   </div>
 <!-- window showing the filter options -->
@@ -68,7 +70,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Macros</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -87,25 +89,25 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">Generator.hpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef GENERATOR_H</span></div>
+<a href="Generator_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef GENERATOR_H</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define GENERATOR_H</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;Types.hpp&quot;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;Tensor.hpp&quot;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;InputData.hpp&quot;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Types_8hpp.html">Types.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Tensor_8hpp.html">Tensor.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="InputData_8hpp.html">InputData.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div>
 <div class="line"><a name="l00008"></a><span class="lineno"><a class="line" href="classGenerator.html">    8</a></span>&#160;<span class="keyword">class </span><a class="code" href="classGenerator.html">Generator</a> {</div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">public</span>:</div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <a class="code" href="classGenerator.html">Generator</a>(<a class="code" href="structInputData.html">InputData</a>&amp; inputData, <span class="keywordtype">unsigned</span> expandSize, <span class="keywordtype">unsigned</span> nTries, <span class="keywordtype">unsigned</span> kBest) :</div>
+<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="classGenerator.html#aaec0be9f6643e971d891c7f45fefcfd0">   11</a></span>&#160;    <a class="code" href="classGenerator.html#aaec0be9f6643e971d891c7f45fefcfd0">Generator</a>(<a class="code" href="structInputData.html">InputData</a>&amp; inputData, <span class="keywordtype">unsigned</span> expandSize, <span class="keywordtype">unsigned</span> nTries, <span class="keywordtype">unsigned</span> kBest) :</div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;        inputData(inputData), expandSize(expandSize), nTries(nTries), kBest(kBest) {};</div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="keywordtype">void</span> generate(Types::Choices&amp; output, std::vector&lt;int&gt;&amp; unassigned,</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classGenerator.html#a773879b7859bea6c726bd7ab0820243e">generate</a>(<a class="code" href="namespaceTypes.html#a387f895428bdde44da5cc4240c890df4">Types::Choices</a>&amp; output, std::vector&lt;int&gt;&amp; unassigned,</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;                  std::unique_ptr&lt;Types::CarData&gt; cars);</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">private</span>:</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keywordtype">void</span> selectFromSearchSpace(Types::Choices&amp; output, <a class="code" href="classTensor.html">Tensor&lt;int&gt;</a>&amp; finishTimes,</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keywordtype">void</span> selectFromSearchSpace(<a class="code" href="namespaceTypes.html#a387f895428bdde44da5cc4240c890df4">Types::Choices</a>&amp; output, <a class="code" href="classTensor.html">Tensor&lt;int&gt;</a>&amp; finishTimes,</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;                               <a class="code" href="classTensor.html">Tensor&lt;int&gt;</a>&amp; finishPoints, std::vector&lt;int&gt;&amp; unassigned,</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;                               std::unique_ptr&lt;Types::CarData&gt;&amp; cars);</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keywordtype">void</span> createSearchSpace(<a class="code" href="classTensor.html">Tensor&lt;int&gt;</a>&amp; finishTimes, <a class="code" href="classTensor.html">Tensor&lt;int&gt;</a>&amp; finishPoints,</div>
@@ -117,7 +119,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;};</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#endif // GENERATOR_H</span></div>
+<div class="ttc" id="classGenerator_html_aaec0be9f6643e971d891c7f45fefcfd0"><div class="ttname"><a href="classGenerator.html#aaec0be9f6643e971d891c7f45fefcfd0">Generator::Generator</a></div><div class="ttdeci">Generator(InputData &amp;inputData, unsigned expandSize, unsigned nTries, unsigned kBest)</div><div class="ttdef"><b>Definition:</b> Generator.hpp:11</div></div>
 <div class="ttc" id="structInputData_html"><div class="ttname"><a href="structInputData.html">InputData</a></div><div class="ttdef"><b>Definition:</b> InputData.hpp:15</div></div>
+<div class="ttc" id="namespaceTypes_html_a387f895428bdde44da5cc4240c890df4"><div class="ttname"><a href="namespaceTypes.html#a387f895428bdde44da5cc4240c890df4">Types::Choices</a></div><div class="ttdeci">std::vector&lt; std::unique_ptr&lt; Choice &gt;&gt; Choices</div><div class="ttdef"><b>Definition:</b> Types.hpp:64</div></div>
+<div class="ttc" id="InputData_8hpp_html"><div class="ttname"><a href="InputData_8hpp.html">InputData.hpp</a></div></div>
+<div class="ttc" id="Types_8hpp_html"><div class="ttname"><a href="Types_8hpp.html">Types.hpp</a></div></div>
+<div class="ttc" id="Tensor_8hpp_html"><div class="ttname"><a href="Tensor_8hpp.html">Tensor.hpp</a></div></div>
+<div class="ttc" id="classGenerator_html_a773879b7859bea6c726bd7ab0820243e"><div class="ttname"><a href="classGenerator.html#a773879b7859bea6c726bd7ab0820243e">Generator::generate</a></div><div class="ttdeci">void generate(Types::Choices &amp;output, std::vector&lt; int &gt; &amp;unassigned, std::unique_ptr&lt; Types::CarData &gt; cars)</div><div class="ttdef"><b>Definition:</b> Generator.cpp:102</div></div>
 <div class="ttc" id="classTensor_html"><div class="ttname"><a href="classTensor.html">Tensor&lt; int &gt;</a></div></div>
 <div class="ttc" id="classGenerator_html"><div class="ttname"><a href="classGenerator.html">Generator</a></div><div class="ttdef"><b>Definition:</b> Generator.hpp:8</div></div>
 </div><!-- fragment --></div><!-- contents -->

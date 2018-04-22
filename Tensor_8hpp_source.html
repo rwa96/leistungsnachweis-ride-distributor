@@ -38,6 +38,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -61,6 +62,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
       <li><a href="files.html"><span>File&#160;List</span></a></li>
+      <li><a href="globals.html"><span>File&#160;Members</span></a></li>
     </ul>
   </div>
 <!-- window showing the filter options -->
@@ -68,7 +70,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Macros</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -87,7 +89,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">Tensor.hpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef TENSOR_H</span></div>
+<a href="Tensor_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef TENSOR_H</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define TENSOR_H</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
@@ -96,7 +98,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;sstream&gt;</span></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;algorithm&gt;</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#define MAX_SHOWN_ENTRIES (unsigned)20</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="Tensor_8hpp.html#a0448a43ae10f108bdd6ab01e299b4597">   10</a></span>&#160;<span class="preprocessor">#define MAX_SHOWN_ENTRIES (unsigned)20</span></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
@@ -136,11 +138,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        result &lt;&lt; <span class="charliteral">&#39;[&#39;</span>;</div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">unsigned</span> i = 0; i &lt; std::min(size, MAX_SHOWN_ENTRIES); ++i) {</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">unsigned</span> i = 0; i &lt; std::min(size, <a class="code" href="Tensor_8hpp.html#a0448a43ae10f108bdd6ab01e299b4597">MAX_SHOWN_ENTRIES</a>); ++i) {</div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;            result &lt;&lt; data[i];</div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;</div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;            <span class="keywordflow">if</span>(i &lt; size - 1) {result &lt;&lt; <span class="stringliteral">&quot;, &quot;</span>;}</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;            <span class="keywordflow">else</span> <span class="keywordflow">if</span>(size &gt; MAX_SHOWN_ENTRIES) {result &lt;&lt; <span class="stringliteral">&quot;...&quot;</span>;}</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;            <span class="keywordflow">else</span> <span class="keywordflow">if</span>(size &gt; <a class="code" href="Tensor_8hpp.html#a0448a43ae10f108bdd6ab01e299b4597">MAX_SHOWN_ENTRIES</a>) {result &lt;&lt; <span class="stringliteral">&quot;...&quot;</span>;}</div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        }</div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;</div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        result &lt;&lt; <span class="charliteral">&#39;]&#39;</span> &lt;&lt; std::endl;</div>
@@ -175,6 +177,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;</div>
 <div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;<span class="preprocessor">#endif // TENSOR_H</span></div>
 <div class="ttc" id="classTensor_html_aa95a8da663a246348cc52c2e459c4b9f"><div class="ttname"><a href="classTensor.html#aa95a8da663a246348cc52c2e459c4b9f">Tensor::str</a></div><div class="ttdeci">std::string str() const </div><div class="ttdef"><b>Definition:</b> Tensor.hpp:68</div></div>
+<div class="ttc" id="Tensor_8hpp_html_a0448a43ae10f108bdd6ab01e299b4597"><div class="ttname"><a href="Tensor_8hpp.html#a0448a43ae10f108bdd6ab01e299b4597">MAX_SHOWN_ENTRIES</a></div><div class="ttdeci">#define MAX_SHOWN_ENTRIES</div><div class="ttdef"><b>Definition:</b> Tensor.hpp:10</div></div>
 <div class="ttc" id="classTensor_html_ae966f3807d5bfb78c049cf8c494e16ba"><div class="ttname"><a href="classTensor.html#ae966f3807d5bfb78c049cf8c494e16ba">Tensor::Tensor</a></div><div class="ttdeci">Tensor()</div><div class="ttdef"><b>Definition:</b> Tensor.hpp:18</div></div>
 <div class="ttc" id="classTensor_html_a2c521cf109af84b28f943cafa45bc08b"><div class="ttname"><a href="classTensor.html#a2c521cf109af84b28f943cafa45bc08b">Tensor::getSize</a></div><div class="ttdeci">const unsigned getSize() const </div><div class="ttdef"><b>Definition:</b> Tensor.hpp:120</div></div>
 <div class="ttc" id="classTensor_html_a28f9b32e90ea65f0e0534b983d81de06"><div class="ttname"><a href="classTensor.html#a28f9b32e90ea65f0e0534b983d81de06">Tensor::getDims</a></div><div class="ttdeci">const std::vector&lt; unsigned &gt; getDims() const </div><div class="ttdef"><b>Definition:</b> Tensor.hpp:128</div></div>

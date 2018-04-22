@@ -38,6 +38,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -61,6 +62,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
       <li><a href="files.html"><span>File&#160;List</span></a></li>
+      <li><a href="globals.html"><span>File&#160;Members</span></a></li>
     </ul>
   </div>
 <!-- window showing the filter options -->
@@ -68,7 +70,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Macros</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -87,7 +89,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">OutputDataTest.hpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef OUTPUT_DATA_TEST_H</span></div>
+<a href="OutputDataTest_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef OUTPUT_DATA_TEST_H</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define OUTPUT_DATA_TEST_H</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
@@ -95,14 +97,18 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div>
 <div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="classOutputDataTest.html">    7</a></span>&#160;<span class="keyword">class </span><a class="code" href="classOutputDataTest.html">OutputDataTest</a>: <span class="keyword">public</span> ::testing::Test {</div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    <a class="code" href="classOutputDataTest.html">OutputDataTest</a>();</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> TearDown();</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    std::string getOutputFileContent();</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    std::string outputFile;</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    <a class="code" href="classOutputDataTest.html#ade9f423462226ab227b4eb8785c1458a">OutputDataTest</a>();</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classOutputDataTest.html#ad339620546e6a07fb7c35e92ed2715b8">TearDown</a>();</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    std::string <a class="code" href="classOutputDataTest.html#aba94887aa3f0dfd0ca39780454848014">getOutputFileContent</a>();</div>
+<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="classOutputDataTest.html#ae5f893a81e68d592679dbd24db8fe232">   12</a></span>&#160;    std::string <a class="code" href="classOutputDataTest.html#ae5f893a81e68d592679dbd24db8fe232">outputFile</a>;</div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;};</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#endif // OUTPUT_DATA_TEST_H</span></div>
 <div class="ttc" id="classOutputDataTest_html"><div class="ttname"><a href="classOutputDataTest.html">OutputDataTest</a></div><div class="ttdef"><b>Definition:</b> OutputDataTest.hpp:7</div></div>
+<div class="ttc" id="classOutputDataTest_html_ae5f893a81e68d592679dbd24db8fe232"><div class="ttname"><a href="classOutputDataTest.html#ae5f893a81e68d592679dbd24db8fe232">OutputDataTest::outputFile</a></div><div class="ttdeci">std::string outputFile</div><div class="ttdef"><b>Definition:</b> OutputDataTest.hpp:12</div></div>
+<div class="ttc" id="classOutputDataTest_html_ade9f423462226ab227b4eb8785c1458a"><div class="ttname"><a href="classOutputDataTest.html#ade9f423462226ab227b4eb8785c1458a">OutputDataTest::OutputDataTest</a></div><div class="ttdeci">OutputDataTest()</div><div class="ttdef"><b>Definition:</b> OutputDataTest.cpp:6</div></div>
+<div class="ttc" id="classOutputDataTest_html_aba94887aa3f0dfd0ca39780454848014"><div class="ttname"><a href="classOutputDataTest.html#aba94887aa3f0dfd0ca39780454848014">OutputDataTest::getOutputFileContent</a></div><div class="ttdeci">std::string getOutputFileContent()</div><div class="ttdef"><b>Definition:</b> OutputDataTest.cpp:12</div></div>
+<div class="ttc" id="classOutputDataTest_html_ad339620546e6a07fb7c35e92ed2715b8"><div class="ttname"><a href="classOutputDataTest.html#ad339620546e6a07fb7c35e92ed2715b8">OutputDataTest::TearDown</a></div><div class="ttdeci">virtual void TearDown()</div><div class="ttdef"><b>Definition:</b> OutputDataTest.cpp:8</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

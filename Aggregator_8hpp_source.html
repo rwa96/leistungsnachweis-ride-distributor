@@ -38,6 +38,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -61,6 +62,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
       <li><a href="files.html"><span>File&#160;List</span></a></li>
+      <li><a href="globals.html"><span>File&#160;Members</span></a></li>
     </ul>
   </div>
 <!-- window showing the filter options -->
@@ -68,7 +70,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Macros</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -87,10 +89,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">Aggregator.hpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef AGGREGATOR_H</span></div>
+<a href="Aggregator_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef AGGREGATOR_H</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define AGGREGATOR_H</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;Types.hpp&quot;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Types_8hpp.html">Types.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div>
 <div class="line"><a name="l00006"></a><span class="lineno"><a class="line" href="classAggregator.html">    6</a></span>&#160;<span class="keyword">class </span><a class="code" href="classAggregator.html">Aggregator</a> {</div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">public</span>:</div>
@@ -98,7 +100,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    <a class="code" href="classAggregator.html">Aggregator</a>(<a class="code" href="structInputData.html">InputData</a>&amp; inputData, <span class="keywordtype">unsigned</span> beamSize) :</div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;        inputData(inputData), beamSize(beamSize);</div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <span class="keywordtype">void</span> aggregate(Types::Choices &amp; choices);</div>
+<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="classAggregator.html#a220ad38d56d7607ad49197afb5acbcf8">   12</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classAggregator.html#a220ad38d56d7607ad49197afb5acbcf8">aggregate</a>(<a class="code" href="namespaceTypes.html#a387f895428bdde44da5cc4240c890df4">Types::Choices</a> &amp; choices);</div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">private</span>:</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
@@ -110,6 +112,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#endif // AGGREGATOR_H</span></div>
 <div class="ttc" id="structInputData_html"><div class="ttname"><a href="structInputData.html">InputData</a></div><div class="ttdef"><b>Definition:</b> InputData.hpp:15</div></div>
 <div class="ttc" id="classAggregator_html"><div class="ttname"><a href="classAggregator.html">Aggregator</a></div><div class="ttdef"><b>Definition:</b> Aggregator.hpp:6</div></div>
+<div class="ttc" id="namespaceTypes_html_a387f895428bdde44da5cc4240c890df4"><div class="ttname"><a href="namespaceTypes.html#a387f895428bdde44da5cc4240c890df4">Types::Choices</a></div><div class="ttdeci">std::vector&lt; std::unique_ptr&lt; Choice &gt;&gt; Choices</div><div class="ttdef"><b>Definition:</b> Types.hpp:64</div></div>
+<div class="ttc" id="Types_8hpp_html"><div class="ttname"><a href="Types_8hpp.html">Types.hpp</a></div></div>
+<div class="ttc" id="classAggregator_html_a220ad38d56d7607ad49197afb5acbcf8"><div class="ttname"><a href="classAggregator.html#a220ad38d56d7607ad49197afb5acbcf8">Aggregator::aggregate</a></div><div class="ttdeci">Aggregator(InputData &amp;inputData, unsigned beamSize) void aggregate(Types::Choices &amp;choices)</div><div class="ttdef"><b>Definition:</b> Aggregator.hpp:12</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
