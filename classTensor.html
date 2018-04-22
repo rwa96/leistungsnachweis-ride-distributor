@@ -96,16 +96,18 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ae966f3807d5bfb78c049cf8c494e16ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adf0e07f9cd7b6d3af89ace481eead0df"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTensor.html#adf0e07f9cd7b6d3af89ace481eead0df">Tensor</a> (const std::vector&lt; unsigned &gt; dims)</td></tr>
 <tr class="separator:adf0e07f9cd7b6d3af89ace481eead0df"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae7572da1ffa12abc71e60e4b8f5253cc"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTensor.html#ae7572da1ffa12abc71e60e4b8f5253cc">Tensor</a> (const std::vector&lt; unsigned &gt; dims, const std::vector&lt; T &gt; data)</td></tr>
+<tr class="separator:ae7572da1ffa12abc71e60e4b8f5253cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad34719ebad82abc3a89903f46bc905d6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTensor.html#ad34719ebad82abc3a89903f46bc905d6">Tensor</a> (<a class="el" href="classTensor.html">Tensor</a>&lt; T &gt; &amp;other)</td></tr>
 <tr class="separator:ad34719ebad82abc3a89903f46bc905d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa95a8da663a246348cc52c2e459c4b9f"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTensor.html#aa95a8da663a246348cc52c2e459c4b9f">str</a> () const </td></tr>
 <tr class="separator:aa95a8da663a246348cc52c2e459c4b9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa0f9ecd39e817deecbaef08f7a31898f"><td class="memItemLeft" align="right" valign="top">T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTensor.html#aa0f9ecd39e817deecbaef08f7a31898f">operator()</a> (const int x)</td></tr>
-<tr class="separator:aa0f9ecd39e817deecbaef08f7a31898f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5115dcc8a7adb06f8442bc18d3c3f74c"><td class="memItemLeft" align="right" valign="top">T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTensor.html#a5115dcc8a7adb06f8442bc18d3c3f74c">operator()</a> (const int x, const int y)</td></tr>
-<tr class="separator:a5115dcc8a7adb06f8442bc18d3c3f74c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a789cc917e5c9d14d12bb4a788d429acd"><td class="memItemLeft" align="right" valign="top">T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTensor.html#a789cc917e5c9d14d12bb4a788d429acd">operator()</a> (const int x, const int y, const int z)</td></tr>
-<tr class="separator:a789cc917e5c9d14d12bb4a788d429acd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac3f576717cb3532421eb6074ae390693"><td class="memItemLeft" align="right" valign="top">T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTensor.html#ac3f576717cb3532421eb6074ae390693">operator()</a> (const int i)</td></tr>
+<tr class="separator:ac3f576717cb3532421eb6074ae390693"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8ad07f10842e74620f50fad67df8ca52"><td class="memItemLeft" align="right" valign="top">T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTensor.html#a8ad07f10842e74620f50fad67df8ca52">operator()</a> (const int row, const int col)</td></tr>
+<tr class="separator:a8ad07f10842e74620f50fad67df8ca52"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0957d4a29bf9b530c7998ff3453bb5b6"><td class="memItemLeft" align="right" valign="top">T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTensor.html#a0957d4a29bf9b530c7998ff3453bb5b6">operator()</a> (const int row, const int col, const int offset)</td></tr>
+<tr class="separator:a0957d4a29bf9b530c7998ff3453bb5b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2c521cf109af84b28f943cafa45bc08b"><td class="memItemLeft" align="right" valign="top">const unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTensor.html#a2c521cf109af84b28f943cafa45bc08b">getSize</a> () const </td></tr>
 <tr class="separator:a2c521cf109af84b28f943cafa45bc08b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a28f9b32e90ea65f0e0534b983d81de06"><td class="memItemLeft" align="right" valign="top">const std::vector&lt; unsigned &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTensor.html#a28f9b32e90ea65f0e0534b983d81de06">getDims</a> () const </td></tr>
@@ -165,6 +167,50 @@ template&lt;typename T&gt; </div>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">dims</td><td>list that defines the dimensions of this <a class="el" href="classTensor.html">Tensor</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="ae7572da1ffa12abc71e60e4b8f5253cc"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classTensor.html">Tensor</a>&lt; T &gt;::<a class="el" href="classTensor.html">Tensor</a> </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; unsigned &gt;&#160;</td>
+          <td class="paramname"><em>dims</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::vector&lt; T &gt;&#160;</td>
+          <td class="paramname"><em>data</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Creates a tensor from an existing array.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">dims</td><td>list that defines the dimensions of this <a class="el" href="classTensor.html">Tensor</a> </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">data</td><td>pointer to existing array </td></tr>
   </table>
   </dd>
 </dl>
@@ -259,7 +305,7 @@ template&lt;typename T&gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="aa0f9ecd39e817deecbaef08f7a31898f"></a>
+<a class="anchor" id="ac3f576717cb3532421eb6074ae390693"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
@@ -272,7 +318,7 @@ template&lt;typename T&gt; </div>
           <td class="memname">T&amp; <a class="el" href="classTensor.html">Tensor</a>&lt; T &gt;::operator() </td>
           <td>(</td>
           <td class="paramtype">const int&#160;</td>
-          <td class="paramname"><em>x</em></td><td>)</td>
+          <td class="paramname"><em>i</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -285,7 +331,7 @@ template&lt;typename T&gt; </div>
 <p>One dimensional array access (list index)</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">x</td><td></td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">i</td><td></td></tr>
   </table>
   </dd>
 </dl>
@@ -293,7 +339,7 @@ template&lt;typename T&gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="a5115dcc8a7adb06f8442bc18d3c3f74c"></a>
+<a class="anchor" id="a8ad07f10842e74620f50fad67df8ca52"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
@@ -306,13 +352,13 @@ template&lt;typename T&gt; </div>
           <td class="memname">T&amp; <a class="el" href="classTensor.html">Tensor</a>&lt; T &gt;::operator() </td>
           <td>(</td>
           <td class="paramtype">const int&#160;</td>
-          <td class="paramname"><em>x</em>, </td>
+          <td class="paramname"><em>row</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const int&#160;</td>
-          <td class="paramname"><em>y</em>&#160;</td>
+          <td class="paramname"><em>col</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -329,8 +375,8 @@ template&lt;typename T&gt; </div>
 <p>Two dimensional array access (matrix)</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">x</td><td></td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">y</td><td></td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">row</td><td></td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">col</td><td></td></tr>
   </table>
   </dd>
 </dl>
@@ -338,7 +384,7 @@ template&lt;typename T&gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="a789cc917e5c9d14d12bb4a788d429acd"></a>
+<a class="anchor" id="a0957d4a29bf9b530c7998ff3453bb5b6"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
@@ -351,19 +397,19 @@ template&lt;typename T&gt; </div>
           <td class="memname">T&amp; <a class="el" href="classTensor.html">Tensor</a>&lt; T &gt;::operator() </td>
           <td>(</td>
           <td class="paramtype">const int&#160;</td>
-          <td class="paramname"><em>x</em>, </td>
+          <td class="paramname"><em>row</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const int&#160;</td>
-          <td class="paramname"><em>y</em>, </td>
+          <td class="paramname"><em>col</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const int&#160;</td>
-          <td class="paramname"><em>z</em>&#160;</td>
+          <td class="paramname"><em>offset</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -380,9 +426,9 @@ template&lt;typename T&gt; </div>
 <p>Three dimensional array access (3D matrix)</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">x</td><td></td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">y</td><td></td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">z</td><td></td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">row</td><td></td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">col</td><td></td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">offset</td><td></td></tr>
   </table>
   </dd>
 </dl>

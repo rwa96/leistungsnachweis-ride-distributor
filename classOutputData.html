@@ -91,26 +91,20 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="contents">
 
 <p><code>#include &lt;<a class="el" href="OutputData_8hpp_source.html">OutputData.hpp</a>&gt;</code></p>
-<div class="dynheader">
-Inheritance diagram for OutputData:</div>
-<div class="dyncontent">
- <div class="center">
-  <img src="classOutputData.png" usemap="#OutputData_map" alt=""/>
-  <map id="OutputData_map" name="OutputData_map">
-</map>
- </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aa70fb9ef9d074983236cdb5b7e16e436"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOutputData.html#aa70fb9ef9d074983236cdb5b7e16e436">OutputData</a> (std::shared_ptr&lt; <a class="el" href="classOutputData.html">OutputData</a> &gt; parent, std::unique_ptr&lt; <a class="el" href="classTensor.html">Tensor</a>&lt; unsigned &gt;&gt; value)</td></tr>
-<tr class="separator:aa70fb9ef9d074983236cdb5b7e16e436"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3d95c4111813dbbb72cbc7fa0243e6c9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOutputData.html#a3d95c4111813dbbb72cbc7fa0243e6c9">OutputData</a> (std::unique_ptr&lt; <a class="el" href="classTensor.html">Tensor</a>&lt; unsigned &gt;&gt; &amp;value)</td></tr>
+<tr class="separator:a3d95c4111813dbbb72cbc7fa0243e6c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae159920f2d5c6012a13d69af2c264109"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOutputData.html#ae159920f2d5c6012a13d69af2c264109">OutputData</a> (std::shared_ptr&lt; <a class="el" href="classOutputData.html">OutputData</a> &gt; &amp;parent, std::unique_ptr&lt; <a class="el" href="classTensor.html">Tensor</a>&lt; unsigned &gt;&gt; &amp;value)</td></tr>
+<tr class="separator:ae159920f2d5c6012a13d69af2c264109"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa747bb293643e6e81aa4ff723b5e8229"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOutputData.html#aa747bb293643e6e81aa4ff723b5e8229">writeToFile</a> (const std::string path, const unsigned fleetSize) const </td></tr>
 <tr class="separator:aa747bb293643e6e81aa4ff723b5e8229"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Node of the search tree that is created when exploring various car-ride distributions. Each node can traverse its parent tree and create an output file. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="aa70fb9ef9d074983236cdb5b7e16e436"></a>
+<a class="anchor" id="a3d95c4111813dbbb72cbc7fa0243e6c9"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -120,13 +114,44 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">OutputData::OutputData </td>
           <td>(</td>
-          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="classOutputData.html">OutputData</a> &gt;&#160;</td>
+          <td class="paramtype">std::unique_ptr&lt; <a class="el" href="classTensor.html">Tensor</a>&lt; unsigned &gt;&gt; &amp;&#160;</td>
+          <td class="paramname"><em>value</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Creates a new root node (no parent) containing a value.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">value</td><td><a class="el" href="classTensor.html">Tensor</a> value of this node </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="ae159920f2d5c6012a13d69af2c264109"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">OutputData::OutputData </td>
+          <td>(</td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="classOutputData.html">OutputData</a> &gt; &amp;&#160;</td>
           <td class="paramname"><em>parent</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::unique_ptr&lt; <a class="el" href="classTensor.html">Tensor</a>&lt; unsigned &gt;&gt;&#160;</td>
+          <td class="paramtype">std::unique_ptr&lt; <a class="el" href="classTensor.html">Tensor</a>&lt; unsigned &gt;&gt; &amp;&#160;</td>
           <td class="paramname"><em>value</em>&#160;</td>
         </tr>
         <tr>
@@ -144,8 +169,8 @@ Public Member Functions</h2></td></tr>
 <p>Creates a new node associated with a parent tree and containing a value.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">parent</td><td>parent node </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">value</td><td><a class="el" href="classTensor.html">Tensor</a> value of this node </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">parent</td><td>parent node </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">value</td><td><a class="el" href="classTensor.html">Tensor</a> value of this node </td></tr>
   </table>
   </dd>
 </dl>
