@@ -4,8 +4,7 @@
 void OutputData::writeToFile(const std::string path, const unsigned fleetSize) const {
     std::fstream outFile;
     outFile.exceptions(std::fstream::failbit | std::fstream::badbit);
-    std::vector<std::list<unsigned>> data = createDataStructure(shared_from_this(),
-                                            fleetSize);
+    std::vector<std::list<unsigned>> data = createDataStructure(fleetSize);
 
     outFile.open(path, std::fstream::out);
 
@@ -21,12 +20,19 @@ void OutputData::writeToFile(const std::string path, const unsigned fleetSize) c
 }
 
 std::vector<std::list<unsigned>> OutputData::createDataStructure(
-std::shared_ptr<const OutputData> start, const unsigned fleetSize) const {
+const unsigned fleetSize) const {
+
     std::vector<std::list<unsigned>> data(fleetSize, std::list<unsigned>());
-    std::shared_ptr<const OutputData> current_node(start);
+
+    for(unsigned row = 0; value->getSize() > 0 && row < value->getDims()[0]; ++row) {
+        data[(*value)(row, 0)].push_front((*value)(row, 1));
+    }
+
+    std::shared_ptr<const OutputData> current_node = parent;
 
     while(current_node) {
-        for(unsigned row = 0; row < current_node->value->getDims()[1]; ++row) {
+        for(unsigned row = 0; current_node->value->getSize() > 0 &&
+            row < current_node->value->getDims()[0]; ++row) {
             data[(*current_node->value)(row, 0)].push_front((*current_node->value)(row, 1));
         }
 

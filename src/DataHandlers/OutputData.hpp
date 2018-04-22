@@ -11,16 +11,23 @@
  * Node of the search tree that is created when exploring various car-ride distributions.
  * Each node can traverse its parent tree and create an output file.
  */
-class OutputData : public std::enable_shared_from_this<OutputData> {
+class OutputData {
 public:
+
+    /**
+     * Creates a new root node (no parent) containing a value.
+     *
+     * \param [in,out] value Tensor value of this node
+     */
+    OutputData(std::unique_ptr<Tensor<unsigned>>& value): value(std::move(value)) {};
 
     /**
      * Creates a new node associated with a parent tree and containing a value.
      *
-     * \param [in] parent parent node
-     * \param [in] value Tensor value of this node
+     * \param [in,out] parent parent node
+     * \param [in,out] value Tensor value of this node
      */
-    OutputData(std::shared_ptr<OutputData> parent, std::unique_ptr<Tensor<unsigned>> value)
+    OutputData(std::shared_ptr<OutputData>& parent, std::unique_ptr<Tensor<unsigned>>& value)
         : parent(parent), value(std::move(value)) {};
 
     /**
@@ -36,6 +43,7 @@ private:
 
     /** Parent node. */
     std::shared_ptr<OutputData> parent;
+
     /** Value of this node. */
     std::unique_ptr<Tensor<unsigned>> value;
 
@@ -46,8 +54,7 @@ private:
      * \param [in] fleetSize number of vectors in 2D-vector
      * \return std::vector<std::list<int>> each list represents a car and its rides
      */
-    std::vector<std::list<unsigned>> createDataStructure(std::shared_ptr<const OutputData>
-                                  start, const unsigned fleetSize) const;
+    std::vector<std::list<unsigned>> createDataStructure(const unsigned fleetSize) const;
 
 };
 

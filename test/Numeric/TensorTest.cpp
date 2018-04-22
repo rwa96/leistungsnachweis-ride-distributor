@@ -2,7 +2,7 @@
 #include <gmock/gmock.h>
 #include "Tensor.hpp"
 
-TEST(TensorTest, EmptyInitiation) {
+TEST(TensorTest, EmptyInitialization) {
     const Tensor<int> empty;
     EXPECT_EQ(empty.getSize(), 0);
     EXPECT_TRUE(empty.getDims().empty());
@@ -20,23 +20,47 @@ TEST(TensorTest, EmptyInitiation) {
     EXPECT_TRUE(threeDimEmpty.getDims().empty());
 }
 
-TEST(TensorTest, RandomValueInitialization) {
-    const unsigned randomValue = 42;
+TEST(TensorTest, DimensionsInitialization) {
+    const unsigned sampleValue = 42;
 
-    const Tensor<int> singleDim({randomValue});
-    EXPECT_EQ(singleDim.getSize(), randomValue);
+    const Tensor<int> singleDim({sampleValue});
+    EXPECT_EQ(singleDim.getSize(), sampleValue);
     EXPECT_THAT(singleDim.getDims(), ::testing::ContainerEq(std::vector<unsigned>(1,
-                randomValue)));
+                sampleValue)));
 
-    const Tensor<int> twoDim({randomValue, randomValue});
-    EXPECT_EQ(twoDim.getSize(), randomValue * randomValue);
+    const Tensor<int> twoDim({sampleValue, sampleValue});
+    EXPECT_EQ(twoDim.getSize(), sampleValue * sampleValue);
     EXPECT_THAT(twoDim.getDims(), ::testing::ContainerEq(std::vector<unsigned>(2,
-                randomValue)));
+                sampleValue)));
 
-    const Tensor<int> threeDim({randomValue, randomValue, randomValue});
-    EXPECT_EQ(threeDim.getSize(), randomValue * randomValue * randomValue);
+    const Tensor<int> threeDim({sampleValue, sampleValue, sampleValue});
+    EXPECT_EQ(threeDim.getSize(), sampleValue * sampleValue * sampleValue);
     EXPECT_THAT(threeDim.getDims(), ::testing::ContainerEq(std::vector<unsigned>(3,
-                randomValue)));
+                sampleValue)));
+}
+
+TEST(TensorTest, ValueInitialization) {
+    const std::vector<int> sampleValues = {1, 2, 3, 4, 5, 6, 7, 8};
+    Tensor<int> sut({2, 2, 2}, sampleValues);
+
+    auto sampleValueItr = sampleValues.begin();
+
+    for(int i = 0; i < sut.getSize(); ++i) {
+        EXPECT_EQ(sut(i), *sampleValueItr++);
+    }
+}
+
+TEST(TensorTest, CopyConstructor) {
+    const std::vector<int> sampleValues = {1, 2, 3, 4, 5, 6, 7, 8};
+    Tensor<int> sut1({2, 2, 2}, sampleValues);
+    Tensor<int> sut2(sut1);
+
+    EXPECT_THAT(sut1.getDims(), ::testing::ContainerEq(sut2.getDims()));
+    EXPECT_EQ(sut1.getSize(), sut2.getSize());
+
+    for(int i = 0; i < sut1.getSize(); ++i) {
+        EXPECT_EQ(sut1(i), sut2(i));
+    }
 }
 
 TEST(TensorTest, 2DIndexAccess) {

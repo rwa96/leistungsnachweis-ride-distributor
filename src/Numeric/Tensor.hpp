@@ -31,9 +31,21 @@ public:
 
         if(size == 0) {
             this->dims.clear();
+        } else {
+            data = std::make_unique<T[]>(size);
         }
+    };
 
-        data = std::make_unique<T[]>(size);
+    /**
+     * Creates a tensor from an existing array.
+     *
+     * \param [in] dims list that defines the dimensions of this Tensor
+     * \param [in] data pointer to existing array
+     */
+    Tensor(const std::vector<unsigned> dims, const std::vector<T> data): Tensor(dims) {
+        for(unsigned i = 0; i < getSize(); ++i) {
+            (*this)(i) = data[i];
+        }
     };
 
     /**
@@ -73,32 +85,32 @@ public:
     /**
      * One dimensional array access (list index)
      *
-     * \param [in] x
+     * \param [in] i
      * \return T& data at given index
      */
-    inline T& operator()(const int x)
-    {return data[x];};
+    inline T& operator()(const int i)
+    {return data[i];};
 
     /**
      * Two dimensional array access (matrix)
      *
-     * \param [in] x
-     * \param [in] y
+     * \param [in] row
+     * \param [in] col
      * \return T& data at given position
      */
-    inline T& operator()(const int x, const int y)
-    {return data[x * dims[1] + y];};
+    inline T& operator()(const int row, const int col)
+    {return data[row * dims[1] + col];};
 
     /**
      * Three dimensional array access (3D matrix)
      *
-     * \param [in] x
-     * \param [in] y
-     * \param [in] z
+     * \param [in] row
+     * \param [in] col
+     * \param [in] offset
      * \return T& data at given position
      */
-    inline T& operator()(const int x, const int y, const int z)
-    {return data[x * dims[1] * dims[2] + y * dims[2] + z];};
+    inline T& operator()(const int row, const int col, const int offset)
+    {return data[row * dims[1] * dims[2] + col * dims[2] + offset];};
 
     /**
      * Total number of elements that can be stored in this tensor.
