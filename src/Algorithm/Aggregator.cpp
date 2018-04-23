@@ -1,16 +1,13 @@
+#include <iostream>
 #include <algorithm>
 #include "Aggregator.hpp"
 
 /** Sort Choices descending by score function. */
-bool sortByScore(const Choice& lhs, const Choice& rhs) { return lhs.score > rhs.score; }
+bool Aggregator::sortByScore(const std::unique_ptr<Types::Choice>& lhs, const std::unique_ptr<Types::Choice>& rhs) { return lhs->score > rhs->score; }
 
-void aggregate(Types::Choices& choices) {
+void Aggregator::aggregate(Types::Choices& choices) {
 
-    std::sort(choices.begin(), choices.end(), sortByScore);
-
-    for(Choice& choice : choices) {
-        std::cout << choice->score;
-    }
+	std::sort(choices.begin(), choices.end(), sortByScore);
 
     if(beamSize < choices.size()) {
 		choices.resize(beamSize);

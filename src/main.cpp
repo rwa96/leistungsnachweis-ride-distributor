@@ -4,10 +4,12 @@
 #include <numeric>
 #include "InputData.hpp"
 #include "Generator.hpp"
+#include "Aggregator.hpp"
 
 int main(int argc, char* argv[]) {
     if(argc == 2) {
         try {
+			// InputData + Generator
 			std::shared_ptr<InputData> inputData = InputData::genFromFile(argv[1]);
 			Generator generator(*inputData, 4, 2);
 			Types::Choices choices;
@@ -24,6 +26,17 @@ int main(int argc, char* argv[]) {
 				std::cout << '\t' << "p: " << choice->cars.p.str();
 				std::cout << '\t' << "Score: " << choice->score << std::endl;
 			}
+
+
+			// Aggregator
+			Aggregator aggregator(*inputData, 2);
+			aggregator.aggregate(choices);
+
+			std::cout << '\n' << "Picked beamsize best choices." << std::endl;
+			for (std::unique_ptr<Types::Choice>& choice : choices) {
+				std::cout << "Score: " << choice->score << std::endl;
+			}
+
         } catch(const std::fstream::failure e) {
             std::cerr << e.what() << "(Invalid file or path)" << std::endl;
             return 1;

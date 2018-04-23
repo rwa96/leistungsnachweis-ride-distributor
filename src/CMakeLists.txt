@@ -23,5 +23,16 @@ target_link_libraries(Generator
 		InputData
 )
 
+add_library(Aggregator Algorithm/Aggregator.cpp)
+target_include_directories(Aggregator
+	PUBLIC
+		${CMAKE_CURRENT_SOURCE_DIR}/Algorithm
+		${CMAKE_CURRENT_SOURCE_DIR}/Numeric
+)
+target_link_libraries(Aggregator 
+	PUBLIC
+		InputData
+)
+
 add_executable(RideDistributor main.cpp)
-target_link_libraries(RideDistributor PRIVATE OutputData InputData Generator)
+target_link_libraries(RideDistributor PRIVATE OutputData InputData Generator Aggregator)

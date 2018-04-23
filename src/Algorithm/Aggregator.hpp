@@ -2,6 +2,7 @@
 #define AGGREGATOR_H
 
 #include "Types.hpp"
+#include "InputData.hpp"
 
 class Aggregator {
 public:
@@ -13,7 +14,9 @@ public:
 
 private:
 
-    InputData & inputData;
+	static bool sortByScore(const std::unique_ptr<Types::Choice>& lhs, const std::unique_ptr<Types::Choice>& rhs);
+
+    InputData& inputData;
     unsigned beamSize;
 
 };
