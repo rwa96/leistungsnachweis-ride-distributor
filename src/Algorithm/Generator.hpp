@@ -8,8 +8,8 @@
 class Generator {
 public:
 
-    Generator(InputData& inputData, unsigned expandSize, unsigned nTries, unsigned kBest) :
-        inputData(inputData), expandSize(expandSize), nTries(nTries), kBest(kBest) {};
+    Generator(InputData& inputData, unsigned nTries, unsigned kBest) :
+        inputData(inputData), nTries(nTries), kBest(kBest) {};
 
     void generate(Types::Choices& output, std::vector<int>& unassigned,
                   std::unique_ptr<Types::CarData> cars);
@@ -23,7 +23,7 @@ private:
                            std::vector<int>& unassigned, std::unique_ptr<Types::CarData>& cars);
 
     InputData& inputData;
-    unsigned expandSize, nTries, kBest;
+    unsigned nTries, kBest;
 
 };
 

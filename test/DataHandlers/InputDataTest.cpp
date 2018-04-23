@@ -29,11 +29,19 @@ void InputDataTest::TearDown() {
     remove(invalidInputFile.c_str());
 };
 
+/**
+ * \test Successfull if exceptions are thrown when invalid files/filepath
+ *       are used as input parameters for InputData::genFromFile.
+ */
 TEST_F(InputDataTest, invalidFile) {
-    ASSERT_THROW(InputData::genFromFile(""), std::fstream::failure);
-    ASSERT_ANY_THROW(InputData::genFromFile(invalidInputFile));
+    EXPECT_THROW(InputData::genFromFile(""), std::fstream::failure);
+    EXPECT_ANY_THROW(InputData::genFromFile(invalidInputFile));
 }
 
+/**
+ * \test Checks if the file provided by InputDataTest#inputFile was
+ *       parsed correctly.
+ */
 TEST_F(InputDataTest, memberVariables) {
     const InputData exampleInputData = *InputData::genFromFile(inputFile);
     EXPECT_EQ(exampleInputData.rows, 3);
@@ -44,6 +52,9 @@ TEST_F(InputDataTest, memberVariables) {
     EXPECT_EQ(exampleInputData.maxTime, 10);
 };
 
+/**
+ * \test Checks the output of InputData#str
+ */
 TEST_F(InputDataTest, stringOutput) {
     const InputData exampleInputData = *InputData::genFromFile(inputFile);
     const std::string expectedOutput =

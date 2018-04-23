@@ -13,7 +13,6 @@ std::shared_ptr<InputData> InputData::genFromFile(const std::string path) {
                                       maxTime, inFile));
 };
 
-
 InputData::InputData(
     const unsigned rows,
     const unsigned cols,

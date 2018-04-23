@@ -2,6 +2,10 @@
 #include <gmock/gmock.h>
 #include "Tensor.hpp"
 
+/**
+ * \test All possible inputs for Tensor#Tensor that will create
+ *       an empty instance.
+ */
 TEST(TensorTest, EmptyInitialization) {
     const Tensor<int> empty;
     EXPECT_EQ(empty.getSize(), 0);
@@ -20,6 +24,7 @@ TEST(TensorTest, EmptyInitialization) {
     EXPECT_TRUE(threeDimEmpty.getDims().empty());
 }
 
+/** \test Initialization of a 1D, 2D and 3D Tensor. */
 TEST(TensorTest, DimensionsInitialization) {
     const unsigned sampleValue = 42;
 
@@ -39,6 +44,7 @@ TEST(TensorTest, DimensionsInitialization) {
                 sampleValue)));
 }
 
+/** \test Checks the constructor that uses a value vector. */
 TEST(TensorTest, ValueInitialization) {
     const std::vector<int> sampleValues = {1, 2, 3, 4, 5, 6, 7, 8};
     Tensor<int> sut({2, 2, 2}, sampleValues);
@@ -50,6 +56,7 @@ TEST(TensorTest, ValueInitialization) {
     }
 }
 
+/** \test Success if copy constructor copys internal values correctly. */
 TEST(TensorTest, CopyConstructor) {
     const std::vector<int> sampleValues = {1, 2, 3, 4, 5, 6, 7, 8};
     Tensor<int> sut1({2, 2, 2}, sampleValues);
@@ -63,6 +70,7 @@ TEST(TensorTest, CopyConstructor) {
     }
 }
 
+/** \test Checks if 2D index access works correctly. */
 TEST(TensorTest, 2DIndexAccess) {
     Tensor<int> threeDim({ 2, 2 });
 
@@ -72,13 +80,14 @@ TEST(TensorTest, 2DIndexAccess) {
 
     unsigned listIndex = 0;
 
-    for(unsigned x = 0; x < threeDim.getDims()[0]; ++x) {
-        for(unsigned y = 0; y < threeDim.getDims()[1]; ++y) {
-            EXPECT_EQ(threeDim(x, y), listIndex++);
+    for(unsigned row = 0; row < threeDim.getDims()[0]; ++row) {
+        for(unsigned col = 0; col < threeDim.getDims()[1]; ++col) {
+            EXPECT_EQ(threeDim(row, col), listIndex++);
         }
     }
 }
 
+/** \test Checks if 3D index access works correctly. */
 TEST(TensorTest, 3DIndexAccess) {
     Tensor<int> threeDim({ 2, 2, 2 });
 
@@ -88,15 +97,16 @@ TEST(TensorTest, 3DIndexAccess) {
 
     unsigned listIndex = 0;
 
-    for(unsigned x = 0; x < threeDim.getDims()[0]; ++x) {
-        for(unsigned y = 0; y < threeDim.getDims()[1]; ++y) {
-            for(unsigned z = 0; z < threeDim.getDims()[2]; ++z) {
-                EXPECT_EQ(threeDim(x, y, z), listIndex++);
+    for(unsigned row = 0; row < threeDim.getDims()[0]; ++row) {
+        for(unsigned col = 0; col < threeDim.getDims()[1]; ++col) {
+            for(unsigned height = 0; height < threeDim.getDims()[2]; ++height) {
+                EXPECT_EQ(threeDim(row, col, height), listIndex++);
             }
         }
     }
 }
 
+/** \test Checks if Tensor#str works correctly. */
 TEST(TensorTest, StringRepresenation) {
     Tensor<int> sample({4});
 

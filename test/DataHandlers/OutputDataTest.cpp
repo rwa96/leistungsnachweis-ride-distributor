@@ -17,6 +17,10 @@ std::string OutputDataTest::getOutputFileContent() {
                        std::istreambuf_iterator<char>());
 }
 
+/**
+ * \test Checks the behavior of OutputData#writeToFile when OutputData#parent
+ *       is not set.
+ */
 TEST_F(OutputDataTest, NoParent) {
     std::unique_ptr<Tensor<unsigned>> singleEntry(new Tensor<unsigned>());
     const OutputData noParent(singleEntry);
@@ -25,6 +29,10 @@ TEST_F(OutputDataTest, NoParent) {
     EXPECT_EQ(getOutputFileContent(), "0 \n");
 }
 
+/**
+ * \test Successfull when OuputData#writeToFile writes own contents
+ *       and contents of its' parents
+ */
 TEST_F(OutputDataTest, Parent) {
     std::unique_ptr<Tensor<unsigned>> entries1(new Tensor<unsigned>({1, 2}, {0, 0}));
     std::unique_ptr<Tensor<unsigned>> entries2(new Tensor<unsigned>({1, 2}, {1, 1}));
@@ -36,6 +44,7 @@ TEST_F(OutputDataTest, Parent) {
     EXPECT_EQ(getOutputFileContent(), "1 0 \n1 1 \n");
 }
 
+/** \test More cars than rides ( -> some lines only contain '0' ). */
 TEST_F(OutputDataTest, MultipleCars) {
     std::unique_ptr<Tensor<unsigned>> multipleEntries(new Tensor<unsigned>({2, 2}, {0, 1, 2, 0}));
     const OutputData sut(multipleEntries);
@@ -45,6 +54,7 @@ TEST_F(OutputDataTest, MultipleCars) {
     EXPECT_EQ(getOutputFileContent(), "1 1 \n0 \n1 0 \n0 \n");
 }
 
+/** \test More rides than cars ( -> lines contain multiple entries ). */
 TEST_F(OutputDataTest, multipleEntries) {
     std::unique_ptr<Tensor<unsigned>> entries1(new Tensor<unsigned>({1, 2}, {0, 0}));
     std::unique_ptr<Tensor<unsigned>> entries2(new Tensor<unsigned>({1, 2}, {0, 1}));

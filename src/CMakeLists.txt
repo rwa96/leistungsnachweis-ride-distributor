@@ -24,4 +24,4 @@ target_link_libraries(Generator
 )
 
 add_executable(RideDistributor main.cpp)
-target_link_libraries(RideDistributor PRIVATE OutputData InputData)
+target_link_libraries(RideDistributor PRIVATE OutputData InputData Generator)

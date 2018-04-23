@@ -13,12 +13,17 @@ namespace Types {
  */
 struct CarData {
     /**
-     * Creates an empty CarData object for a given amount of cars.
+     * Creates a zero initialized CarData object for a given amount of cars.
      *
      * \param [in] size Number of cars
      */
     CarData(const unsigned size) :
-        x({size}), y({size}), t({size}), p({size}) {};
+        x({size}), y({size}), t({size}), p({size}) 
+	{
+		for (unsigned i = 0; i < size; ++i) {
+			x(i) = 0; y(i) = 0; t(i) = 0; p(i) = 0;
+		}
+	};
 
     /**
      * Creates a copy of an existing CarData object.

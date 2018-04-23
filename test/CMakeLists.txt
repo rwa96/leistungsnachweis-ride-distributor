@@ -12,3 +12,8 @@ add_executable(OutputDataTest DataHandlers/OutputDataTest.cpp)
 target_include_directories(OutputDataTest PRIVATE DataHandlers)
 target_link_libraries(OutputDataTest PRIVATE gtest gmock OutputData)
 add_test(NAME OutputDataTest COMMAND OutputDataTest)
+
+add_executable(GeneratorTest Algorithm/GeneratorTest.cpp)
+target_include_directories(GeneratorTest PRIVATE Algorithm)
+target_link_libraries(GeneratorTest PRIVATE gtest gmock Generator)
+#add_test(NAME GeneratorTest COMMAND GeneratorTest)
