@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['maxtime',['maxTime',['../structInputData.html#a926c9deab25dac35e8ece4feebe48e47',1,'InputData']]]
+  ['noneexistinginputfile',['noneExistingInputFile',['../classInputDataTest.html#a80803871c2df98bfa0f76e6ab584abb4',1,'InputDataTest']]],
+  ['nrides',['nRides',['../structInputData.html#a385c963b59ad73fdfb381bafac4a6849',1,'InputData']]]
 ];
