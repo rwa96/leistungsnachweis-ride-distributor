@@ -58,6 +58,8 @@ struct Choice {
     std::vector<int> unassigned;
     /** Score of this choice. */
     float score;
+	/** Parent of this choice. */
+	Choice* parent;
 };
 
 /** Independed Choices on could take (same level on the search graph). */

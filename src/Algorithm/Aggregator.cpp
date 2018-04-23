@@ -12,7 +12,8 @@ void aggregate(Types::Choices& choices) {
         std::cout << choice->score;
     }
 
-    if(beamSize < choices.size())
-    { choices.resize(beamSize); }
+    if(beamSize < choices.size()) {
+		choices.resize(beamSize);
+	}
 
 }

@@ -6,10 +6,10 @@
 class Aggregator {
 public:
 
-    Aggregator(InputData& inputData, unsigned beamSize) :
-        inputData(inputData), beamSize(beamSize);
+	Aggregator(InputData& inputData, unsigned beamSize) :
+		inputData(inputData), beamSize(beamSize) {};
 
-    void aggregate(Types::Choices & choices);
+    void aggregate(Types::Choices& choices);
 
 private:
 
