@@ -14,7 +14,8 @@ var indexSectionsWithContent =
   4: "acdegimopstwy",
   5: "bcdefimnoprstuxy",
   6: "c",
-  7: "m"
+  7: "m",
+  8: "t"
 };
 
 var indexSectionNames =
@@ -26,7 +27,8 @@ var indexSectionNames =
   4: "functions",
   5: "variables",
   6: "typedefs",
-  7: "defines"
+  7: "defines",
+  8: "pages"
 };
 
 function convertToId(search)
