@@ -18,12 +18,14 @@ struct CarData {
      * \param [in] size Number of cars
      */
     CarData(const unsigned size) :
-        x({size}), y({size}), t({size}), p({size}) 
-	{
-		for (unsigned i = 0; i < size; ++i) {
-			x(i) = 0; y(i) = 0; t(i) = 0; p(i) = 0;
-		}
-	};
+        x({size}), y({size}), t({size}), p({size}) {
+        for(unsigned i = 0; i < size; ++i) {
+            x(i) = 0;
+            y(i) = 0;
+            t(i) = 0;
+            p(i) = 0;
+        }
+    };
 
     /**
      * Creates a copy of an existing CarData object.
@@ -63,8 +65,8 @@ struct Choice {
     std::vector<int> unassigned;
     /** Score of this choice. */
     float score;
-	/** Parent of this choice. */
-	Choice* parent;
+    /** Parent of this choice. */
+    Choice* parent;
 };
 
 /** Independed Choices on could take (same level on the search graph). */
