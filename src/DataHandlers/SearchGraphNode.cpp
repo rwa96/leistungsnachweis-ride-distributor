@@ -1,7 +1,8 @@
 #include <fstream>
-#include "OutputData.hpp"
+#include "SearchGraphNode.hpp"
 
-void OutputData::writeToFile(const std::string path, const unsigned fleetSize) const {
+void SearchGraphNode::writeToFile(const std::string path,
+                                  const unsigned fleetSize) const {
     std::fstream outFile;
     outFile.exceptions(std::fstream::failbit | std::fstream::badbit);
     std::vector<std::list<unsigned>> data = createDataStructure(fleetSize);
@@ -19,7 +20,7 @@ void OutputData::writeToFile(const std::string path, const unsigned fleetSize) c
     }
 }
 
-std::vector<std::list<unsigned>> OutputData::createDataStructure(
+std::vector<std::list<unsigned>> SearchGraphNode::createDataStructure(
 const unsigned fleetSize) const {
 
     std::vector<std::list<unsigned>> data(fleetSize, std::list<unsigned>());
@@ -28,7 +29,7 @@ const unsigned fleetSize) const {
         data[(*value)(row, 0)].push_front((*value)(row, 1));
     }
 
-    std::shared_ptr<const OutputData> current_node = parent;
+    std::shared_ptr<const SearchGraphNode> current_node = parent;
 
     while(current_node) {
         for(unsigned row = 0; current_node->value->getSize() > 0 &&

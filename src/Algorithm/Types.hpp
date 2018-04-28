@@ -5,6 +5,7 @@
 #include <vector>
 #include <initializer_list>
 #include "Tensor.hpp"
+#include "SearchGraphNode.hpp"
 
 namespace Types {
 
@@ -18,12 +19,14 @@ struct CarData {
      * \param [in] size Number of cars
      */
     CarData(const unsigned size) :
-        x({size}), y({size}), t({size}), p({size}) 
-	{
-		for (unsigned i = 0; i < size; ++i) {
-			x(i) = 0; y(i) = 0; t(i) = 0; p(i) = 0;
-		}
-	};
+        x({size}), y({size}), t({size}), p({size}) {
+        for(unsigned i = 0; i < size; ++i) {
+            x(i) = 0;
+            y(i) = 0;
+            t(i) = 0;
+            p(i) = 0;
+        }
+    };
 
     /**
      * Creates a copy of an existing CarData object.
@@ -54,8 +57,7 @@ struct Choice {
      *
      * \param [in] other CarData object to copy
      */
-    Choice(CarData& other):
-        cars(other), score(0) {};
+    Choice(CarData& other): cars(other), score(0) {};
 
     /** Resulting CarData for this choice. */
     CarData cars;
@@ -63,8 +65,8 @@ struct Choice {
     std::vector<int> unassigned;
     /** Score of this choice. */
     float score;
-	/** Parent of this choice. */
-	Choice* parent;
+    /** SearchGraphNode that represents this choice. */
+    std::shared_ptr<SearchGraphNode> searchGraphNode;
 };
 
 /** Independed Choices on could take (same level on the search graph). */

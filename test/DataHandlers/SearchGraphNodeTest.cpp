@@ -1,15 +1,15 @@
 #include <fstream>
 #include <stdio.h>
-#include "OutputDataTest.hpp"
-#include "OutputData.hpp"
+#include "SearchGraphNodeTest.hpp"
+#include "SearchGraphNode.hpp"
 
-OutputDataTest::OutputDataTest(): outputFile("testFile.out") {};
+SearchGraphNodeTest::SearchGraphNodeTest(): outputFile("testFile.out") {};
 
-void OutputDataTest::TearDown() {
+void SearchGraphNodeTest::TearDown() {
     remove(outputFile.c_str());
 }
 
-std::string OutputDataTest::getOutputFileContent() {
+std::string SearchGraphNodeTest::getOutputFileContent() {
     std::fstream inFile;
     inFile.exceptions(std::fstream::failbit | std::fstream::badbit);
     inFile.open(outputFile, std::fstream::in);
@@ -21,9 +21,9 @@ std::string OutputDataTest::getOutputFileContent() {
  * \test Checks the behavior of OutputData#writeToFile when OutputData#parent
  *       is not set.
  */
-TEST_F(OutputDataTest, NoParent) {
+TEST_F(SearchGraphNodeTest, NoParent) {
     std::unique_ptr<Tensor<unsigned>> singleEntry(new Tensor<unsigned>());
-    const OutputData noParent(singleEntry);
+    const SearchGraphNode noParent(singleEntry);
     noParent.writeToFile(outputFile, 1);
 
     EXPECT_EQ(getOutputFileContent(), "0 \n");
@@ -33,11 +33,11 @@ TEST_F(OutputDataTest, NoParent) {
  * \test Successfull when OuputData#writeToFile writes own contents
  *       and contents of its' parents
  */
-TEST_F(OutputDataTest, Parent) {
+TEST_F(SearchGraphNodeTest, Parent) {
     std::unique_ptr<Tensor<unsigned>> entries1(new Tensor<unsigned>({1, 2}, {0, 0}));
     std::unique_ptr<Tensor<unsigned>> entries2(new Tensor<unsigned>({1, 2}, {1, 1}));
-    std::shared_ptr<OutputData> parent(new OutputData(entries1));
-    OutputData sut(parent, entries2);
+    std::shared_ptr<SearchGraphNode> parent(new SearchGraphNode(entries1));
+    SearchGraphNode sut(parent, entries2);
 
     sut.writeToFile(outputFile, 2);
 
@@ -45,9 +45,9 @@ TEST_F(OutputDataTest, Parent) {
 }
 
 /** \test More cars than rides ( -> some lines only contain '0' ). */
-TEST_F(OutputDataTest, MultipleCars) {
+TEST_F(SearchGraphNodeTest, MultipleCars) {
     std::unique_ptr<Tensor<unsigned>> multipleEntries(new Tensor<unsigned>({2, 2}, {0, 1, 2, 0}));
-    const OutputData sut(multipleEntries);
+    const SearchGraphNode sut(multipleEntries);
     const unsigned fleetSize = 4;
     sut.writeToFile(outputFile, fleetSize);
 
@@ -55,11 +55,11 @@ TEST_F(OutputDataTest, MultipleCars) {
 }
 
 /** \test More rides than cars ( -> lines contain multiple entries ). */
-TEST_F(OutputDataTest, multipleEntries) {
+TEST_F(SearchGraphNodeTest, multipleEntries) {
     std::unique_ptr<Tensor<unsigned>> entries1(new Tensor<unsigned>({1, 2}, {0, 0}));
     std::unique_ptr<Tensor<unsigned>> entries2(new Tensor<unsigned>({1, 2}, {0, 1}));
-    std::shared_ptr<OutputData> parent(new OutputData(entries1));
-    OutputData sut(parent, entries2);
+    std::shared_ptr<SearchGraphNode> parent(new SearchGraphNode(entries1));
+    SearchGraphNode sut(parent, entries2);
 
     sut.writeToFile(outputFile, 1);
 

@@ -45,7 +45,8 @@ void Generator::createSearchSpace(Tensor<int>& finishTimes, Tensor<int>& finishP
     }
 }
 
-void Generator::selectFromSearchSpace(Types::Choices& output, Tensor<int>& finishTimes,
+void Generator::selectFromSearchSpace(Types::Choices& output,
+                                      std::shared_ptr<SearchGraphNode>& prevNode, Tensor<int>& finishTimes,
                                       Tensor<int>& finishPoints, std::vector<int>& unassigned,
                                       std::unique_ptr<Types::CarData>& cars) {
     // set up data structure to permutate though finishTimes and finishTimes
@@ -65,6 +66,7 @@ void Generator::selectFromSearchSpace(Types::Choices& output, Tensor<int>& finis
         std::shuffle(rideIndices.begin(), rideIndices.end(), rng);
 
         // create choice (representation of the results of this random permutation)
+        std::unique_ptr<Tensor<unsigned>> searchNodeValue(new Tensor<unsigned>({ nAssignments, 2 }));
         std::unique_ptr<Types::Choice> choice(new Types::Choice(*cars));
 
         // setup data structure to evaluate this permutation and create the choice
@@ -87,6 +89,9 @@ void Generator::selectFromSearchSpace(Types::Choices& output, Tensor<int>& finis
             choice->cars.t(car) += finishTimes(car, uIndex);
             choice->cars.p(car) += finishPoints(car, uIndex);
 
+            (*searchNodeValue)(assignIndex, 0) = car;
+            (*searchNodeValue)(assignIndex, 1) = ride;
+
             timeSum += choice->cars.t(car);
             pointSum += choice->cars.p(car);
         }
@@ -95,11 +100,14 @@ void Generator::selectFromSearchSpace(Types::Choices& output, Tensor<int>& finis
         choice->score = inputData.maxTime - timeSum / nAssignments + pointSum / nAssignments;
         choice->unassigned.insert(choice->unassigned.begin(), newUnassigned.begin(),
                                   newUnassigned.end());
+        choice->searchGraphNode = std::shared_ptr<SearchGraphNode>(new SearchGraphNode(prevNode,
+                                  searchNodeValue));
         output.push_back(std::move(choice));
     }
 }
 
-void Generator::generate(Types::Choices& output, std::vector<int>& unassigned,
+void Generator::generate(Types::Choices& output,
+                         std::shared_ptr<SearchGraphNode>& prevNode, std::vector<int>& unassigned,
                          std::unique_ptr<Types::CarData> cars) {
 
     // Time after each car was assigned to each unassigned ride (2D matrix)
@@ -107,6 +115,6 @@ void Generator::generate(Types::Choices& output, std::vector<int>& unassigned,
     // Points after each car was assigned to each unassigned ride (2D matrix)
     Tensor<int> finishPoints({ inputData.fleetSize, static_cast<unsigned>(unassigned.size()) });
     createSearchSpace(finishTimes, finishPoints, unassigned, cars);
-    selectFromSearchSpace(output, finishTimes, finishPoints, unassigned, cars);
+    selectFromSearchSpace(output, prevNode, finishTimes, finishPoints, unassigned, cars);
 
 };

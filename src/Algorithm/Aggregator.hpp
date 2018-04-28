@@ -7,14 +7,15 @@
 class Aggregator {
 public:
 
-	Aggregator(InputData& inputData, unsigned beamSize) :
-		inputData(inputData), beamSize(beamSize) {};
+    Aggregator(InputData& inputData, unsigned beamSize) :
+        inputData(inputData), beamSize(beamSize) {};
 
     void aggregate(Types::Choices& choices);
 
 private:
 
-	static bool sortByScore(const std::unique_ptr<Types::Choice>& lhs, const std::unique_ptr<Types::Choice>& rhs);
+    static bool sortByScore(const std::unique_ptr<Types::Choice>& lhs,
+                            const std::unique_ptr<Types::Choice>& rhs);
 
     InputData& inputData;
     unsigned beamSize;

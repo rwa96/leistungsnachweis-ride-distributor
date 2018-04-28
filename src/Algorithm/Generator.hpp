@@ -4,6 +4,7 @@
 #include "Types.hpp"
 #include "Tensor.hpp"
 #include "InputData.hpp"
+#include "SearchGraphNode.hpp"
 
 class Generator {
 public:
@@ -11,12 +12,14 @@ public:
     Generator(InputData& inputData, unsigned nTries, unsigned kBest) :
         inputData(inputData), nTries(nTries), kBest(kBest) {};
 
-    void generate(Types::Choices& output, std::vector<int>& unassigned,
+    void generate(Types::Choices& output, std::shared_ptr<SearchGraphNode>& prevNode,
+                  std::vector<int>& unassigned,
                   std::unique_ptr<Types::CarData> cars);
 
 private:
 
-    void selectFromSearchSpace(Types::Choices& output, Tensor<int>& finishTimes,
+    void selectFromSearchSpace(Types::Choices& output,
+                               std::shared_ptr<SearchGraphNode>& prevNode, Tensor<int>& finishTimes,
                                Tensor<int>& finishPoints, std::vector<int>& unassigned,
                                std::unique_ptr<Types::CarData>& cars);
     void createSearchSpace(Tensor<int>& finishTimes, Tensor<int>& finishPoints,

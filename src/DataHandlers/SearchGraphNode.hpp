@@ -1,5 +1,5 @@
-#ifndef OUTPUTDATA_H
-#define OUTPUTDATA_H
+#ifndef SEARCH_GRAPH_NODE_H
+#define SEARCH_GRAPH_NODE_H
 
 #include <memory>
 #include <string>
@@ -11,7 +11,7 @@
  * Node of the search tree that is created when exploring various car-ride distributions.
  * Each node can traverse its parent tree and create an output file.
  */
-class OutputData {
+class SearchGraphNode {
 public:
 
     /**
@@ -19,7 +19,7 @@ public:
      *
      * \param [in,out] value Tensor value of this node
      */
-    OutputData(std::unique_ptr<Tensor<unsigned>>& value): value(std::move(value)) {};
+    SearchGraphNode(std::unique_ptr<Tensor<unsigned>>& value): value(std::move(value)) {};
 
     /**
      * Creates a new node associated with a parent tree and containing a value.
@@ -27,7 +27,8 @@ public:
      * \param [in,out] parent parent node
      * \param [in,out] value Tensor value of this node
      */
-    OutputData(std::shared_ptr<OutputData>& parent, std::unique_ptr<Tensor<unsigned>>& value)
+    SearchGraphNode(std::shared_ptr<SearchGraphNode>& parent,
+                    std::unique_ptr<Tensor<unsigned>>& value)
         : parent(parent), value(std::move(value)) {};
 
     /**
@@ -42,7 +43,7 @@ public:
 private:
 
     /** Parent node. */
-    std::shared_ptr<OutputData> parent;
+    std::shared_ptr<SearchGraphNode> parent;
 
     /** Value of this node. */
     std::unique_ptr<Tensor<unsigned>> value;
@@ -58,4 +59,4 @@ private:
 
 };
 
-#endif // OUTPUTDATA_H
+#endif // SEARCH_GRAPH_NODE_H

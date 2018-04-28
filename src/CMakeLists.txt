@@ -1,5 +1,5 @@
-add_library(OutputData DataHandlers/OutputData.cpp)
-target_include_directories(OutputData
+add_library(SearchGraphNode DataHandlers/SearchGraphNode.cpp)
+target_include_directories(SearchGraphNode
 	PUBLIC
 		${CMAKE_CURRENT_SOURCE_DIR}/DataHandlers
         ${CMAKE_CURRENT_SOURCE_DIR}/Numeric
@@ -21,6 +21,7 @@ target_include_directories(Generator
 target_link_libraries(Generator 
 	PUBLIC
 		InputData
+		SearchGraphNode
 )
 
 add_library(Aggregator Algorithm/Aggregator.cpp)
@@ -35,4 +36,4 @@ target_link_libraries(Aggregator
 )
 
 add_executable(RideDistributor main.cpp)
-target_link_libraries(RideDistributor PRIVATE OutputData InputData Generator Aggregator)
+target_link_libraries(RideDistributor PRIVATE SearchGraphNode InputData Generator Aggregator)
