@@ -112,8 +112,8 @@ Public Attributes</h2></td></tr>
 <tr class="separator:a76c6f8ac6449cb91dddfbea49b02df43"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3cf1f69908ae7669a356f225b950fc91"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structTypes_1_1Choice.html#a3cf1f69908ae7669a356f225b950fc91">score</a></td></tr>
 <tr class="separator:a3cf1f69908ae7669a356f225b950fc91"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6f1b0e06559e8875a10b773c6fd5f47f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structTypes_1_1Choice.html">Choice</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structTypes_1_1Choice.html#a6f1b0e06559e8875a10b773c6fd5f47f">parent</a></td></tr>
-<tr class="separator:a6f1b0e06559e8875a10b773c6fd5f47f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acaa42e06ffc0e82ffd39a81fafe951c2"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="classSearchGraphNode.html">SearchGraphNode</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structTypes_1_1Choice.html#acaa42e06ffc0e82ffd39a81fafe951c2">searchGraphNode</a></td></tr>
+<tr class="separator:acaa42e06ffc0e82ffd39a81fafe951c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Represenation of one node in the search tree, containing information about each car and not yet assigned rides as well as a score for this choice. </p>
@@ -163,19 +163,6 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a6f1b0e06559e8875a10b773c6fd5f47f"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="structTypes_1_1Choice.html">Choice</a>* Types::Choice::parent</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Parent of this choice. </p>
-
-</div>
-</div>
 <a class="anchor" id="a3cf1f69908ae7669a356f225b950fc91"></a>
 <div class="memitem">
 <div class="memproto">
@@ -186,6 +173,19 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>Score of this choice. </p>
+
+</div>
+</div>
+<a class="anchor" id="acaa42e06ffc0e82ffd39a81fafe951c2"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt;<a class="el" href="classSearchGraphNode.html">SearchGraphNode</a>&gt; Types::Choice::searchGraphNode</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p><a class="el" href="classSearchGraphNode.html">SearchGraphNode</a> that represents this choice. </p>
 
 </div>
 </div>

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['writetofile',['writeToFile',['../classOutputData.html#aa747bb293643e6e81aa4ff723b5e8229',1,'OutputData']]]
+  ['writetofile',['writeToFile',['../classSearchGraphNode.html#acf969f742c4a4265ba6ad2a1d5ade8d2',1,'SearchGraphNode']]]
 ];

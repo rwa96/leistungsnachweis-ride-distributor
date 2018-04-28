@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['outputdata',['OutputData',['../classOutputData.html',1,'']]],
-  ['outputdatatest',['OutputDataTest',['../classOutputDataTest.html',1,'']]]
+  ['searchgraphnode',['SearchGraphNode',['../classSearchGraphNode.html',1,'']]],
+  ['searchgraphnodetest',['SearchGraphNodeTest',['../classSearchGraphNodeTest.html',1,'']]]
 ];

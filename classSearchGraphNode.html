@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>RideDistributor: OutputData Class Reference</title>
+<title>RideDistributor: SearchGraphNode Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -86,27 +86,27 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="classOutputData-members.html">List of all members</a>  </div>
+<a href="classSearchGraphNode-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">OutputData Class Reference</div>  </div>
+<div class="title">SearchGraphNode Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;<a class="el" href="OutputData_8hpp_source.html">OutputData.hpp</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="SearchGraphNode_8hpp_source.html">SearchGraphNode.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a3d95c4111813dbbb72cbc7fa0243e6c9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOutputData.html#a3d95c4111813dbbb72cbc7fa0243e6c9">OutputData</a> (std::unique_ptr&lt; <a class="el" href="classTensor.html">Tensor</a>&lt; unsigned &gt;&gt; &amp;value)</td></tr>
-<tr class="separator:a3d95c4111813dbbb72cbc7fa0243e6c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae159920f2d5c6012a13d69af2c264109"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOutputData.html#ae159920f2d5c6012a13d69af2c264109">OutputData</a> (std::shared_ptr&lt; <a class="el" href="classOutputData.html">OutputData</a> &gt; &amp;parent, std::unique_ptr&lt; <a class="el" href="classTensor.html">Tensor</a>&lt; unsigned &gt;&gt; &amp;value)</td></tr>
-<tr class="separator:ae159920f2d5c6012a13d69af2c264109"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa747bb293643e6e81aa4ff723b5e8229"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOutputData.html#aa747bb293643e6e81aa4ff723b5e8229">writeToFile</a> (const std::string path, const unsigned fleetSize) const </td></tr>
-<tr class="separator:aa747bb293643e6e81aa4ff723b5e8229"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0003a62f4d9c2a177a62e51450ef98b6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSearchGraphNode.html#a0003a62f4d9c2a177a62e51450ef98b6">SearchGraphNode</a> (std::unique_ptr&lt; <a class="el" href="classTensor.html">Tensor</a>&lt; unsigned &gt;&gt; &amp;value)</td></tr>
+<tr class="separator:a0003a62f4d9c2a177a62e51450ef98b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6b98b19c6966a9fc5d92300f136f9d83"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSearchGraphNode.html#a6b98b19c6966a9fc5d92300f136f9d83">SearchGraphNode</a> (std::shared_ptr&lt; <a class="el" href="classSearchGraphNode.html">SearchGraphNode</a> &gt; &amp;parent, std::unique_ptr&lt; <a class="el" href="classTensor.html">Tensor</a>&lt; unsigned &gt;&gt; &amp;value)</td></tr>
+<tr class="separator:a6b98b19c6966a9fc5d92300f136f9d83"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acf969f742c4a4265ba6ad2a1d5ade8d2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSearchGraphNode.html#acf969f742c4a4265ba6ad2a1d5ade8d2">writeToFile</a> (const std::string path, const unsigned fleetSize) const </td></tr>
+<tr class="separator:acf969f742c4a4265ba6ad2a1d5ade8d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Node of the search tree that is created when exploring various car-ride distributions. Each node can traverse its parent tree and create an output file. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a3d95c4111813dbbb72cbc7fa0243e6c9"></a>
+<a class="anchor" id="a0003a62f4d9c2a177a62e51450ef98b6"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -114,7 +114,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">OutputData::OutputData </td>
+          <td class="memname">SearchGraphNode::SearchGraphNode </td>
           <td>(</td>
           <td class="paramtype">std::unique_ptr&lt; <a class="el" href="classTensor.html">Tensor</a>&lt; unsigned &gt;&gt; &amp;&#160;</td>
           <td class="paramname"><em>value</em></td><td>)</td>
@@ -137,7 +137,7 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="ae159920f2d5c6012a13d69af2c264109"></a>
+<a class="anchor" id="a6b98b19c6966a9fc5d92300f136f9d83"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -145,9 +145,9 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">OutputData::OutputData </td>
+          <td class="memname">SearchGraphNode::SearchGraphNode </td>
           <td>(</td>
-          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="classOutputData.html">OutputData</a> &gt; &amp;&#160;</td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="classSearchGraphNode.html">SearchGraphNode</a> &gt; &amp;&#160;</td>
           <td class="paramname"><em>parent</em>, </td>
         </tr>
         <tr>
@@ -180,12 +180,12 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="aa747bb293643e6e81aa4ff723b5e8229"></a>
+<a class="anchor" id="acf969f742c4a4265ba6ad2a1d5ade8d2"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void OutputData::writeToFile </td>
+          <td class="memname">void SearchGraphNode::writeToFile </td>
           <td>(</td>
           <td class="paramtype">const std::string&#160;</td>
           <td class="paramname"><em>path</em>, </td>
@@ -221,8 +221,8 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>src/DataHandlers/<a class="el" href="OutputData_8hpp_source.html">OutputData.hpp</a></li>
-<li>src/DataHandlers/<a class="el" href="OutputData_8cpp.html">OutputData.cpp</a></li>
+<li>src/DataHandlers/<a class="el" href="SearchGraphNode_8hpp_source.html">SearchGraphNode.hpp</a></li>
+<li>src/DataHandlers/<a class="el" href="SearchGraphNode_8cpp.html">SearchGraphNode.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
