@@ -1,6 +1,7 @@
 #ifndef GENERATOR_H
 #define GENERATOR_H
 
+#include <random>
 #include "Types.hpp"
 #include "Tensor.hpp"
 #include "InputData.hpp"
@@ -27,6 +28,7 @@ private:
 
     InputData& inputData;
     unsigned nTries, kBest;
+	std::default_random_engine rng;
 
 };
 

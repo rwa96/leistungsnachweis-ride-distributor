@@ -51,7 +51,6 @@ private:
     /**
      * Creates a 2D vector of values while traversing parent nodes.
      *
-     * \param [in] start first node for traversal
      * \param [in] fleetSize number of vectors in 2D-vector
      * \return std::vector<std::list<int>> each list represents a car and its rides
      */

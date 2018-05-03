@@ -1,7 +1,6 @@
 #include <cmath>
 #include <numeric>
 #include <algorithm>
-#include <random>
 #include <set>
 #include "Generator.hpp"
 
@@ -11,7 +10,6 @@ void Generator::createSearchSpace(Tensor<int>& finishTimes, Tensor<int>& finishP
     auto ride = unassigned.begin();
 
     for(unsigned uIndex = 0; uIndex < unassigned.size(); ++uIndex, ++ride) {
-
         // distance of current ride
         int rideDistance = inputData.distances(*ride);
         // earliest possible start of current ride
@@ -51,9 +49,12 @@ void Generator::selectFromSearchSpace(Types::Choices& output,
                                       std::unique_ptr<Types::CarData>& cars) {
     // set up data structure to permutate though finishTimes and finishTimes
     std::set<int> unassignedIndices(unassigned.begin(), unassigned.end());
-    auto rng = std::default_random_engine();
     unsigned nAssignments = std::min(inputData.fleetSize,
                                      static_cast<unsigned>(unassigned.size()));
+
+	// no possible choices left
+	if (nAssignments == 0) { return; }
+
     std::vector<int> carIndices(inputData.fleetSize);
     std::iota(carIndices.begin(), carIndices.end(), 0);
     std::vector<int> rideIndices(unassigned.size());
