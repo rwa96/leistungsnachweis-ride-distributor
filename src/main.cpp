@@ -64,26 +64,9 @@ int main(int argc, char *argv[])
 		std::shared_ptr<SearchGraphNode> parentNode;
 		generator.generate(choices, parentNode, unassigned, std::move(cars));
 
-		/*std::cout << "--- Generator ---" << std::endl;
-		for (std::unique_ptr<Types::Choice> &choice : choices)
-		{
-			printChoice(choice);
-		}
-		std::cout << '\n'
-				  << std::endl;*/
-
 		// Aggregator + first Aggregator run
 		Aggregator aggregator(*inputData, beamSize);
 		aggregator.aggregate(choices);
-
-		/*std::cout << "--- Aggregator ---" << std::endl;
-		std::cout << "Picked beamsize best choices." << std::endl;
-		for (std::unique_ptr<Types::Choice> &choice : choices)
-		{
-			std::cout << "Score: " << choice->score << std::endl;
-		}
-		std::cout << '\n'
-				  << std::endl;*/
 
 		// Main while loop, which finds best choice.
 		// Runs until there a no more choices with unassigned rides or all choices are over the simulation time.
@@ -102,27 +85,13 @@ int main(int argc, char *argv[])
 				}
 			}
 
-			/*std::cout << "--- Generator ---" << std::endl;
-			for (std::unique_ptr<Types::Choice> &choice : choices)
-			{
-				printChoice(choice);
-			}
-			std::cout << '\n'
-					  << std::endl;*/
-
 			if (newChoices.size() > 0)
 			{
 
 				aggregator.aggregate(newChoices);
 				choices = std::move(newChoices);
 				newChoices.clear();
-				/*std::cout << "--- Aggregator ---" << std::endl;
-				std::cout << "Picked beamsize best choices." << std::endl;
-				for (std::unique_ptr<Types::Choice> &choice : choices)
-				{
-					std::cout << "Score: " << choice->score << std::endl;
-				}*/
-				std::cout << (inputData->nRides - choices.front()->unassigned.size()) * 100.0f / inputData->nRides << std::endl;
+				//std::cout << (inputData->nRides - choices.front()->unassigned.size()) * 100.0f / inputData->nRides << std::endl;
 				//std::cout << '\n' << std::endl;
 
 			}

@@ -47,14 +47,14 @@ void Generator::selectFromSearchSpace(Types::Choices& output,
                                       std::shared_ptr<SearchGraphNode>& prevNode, Tensor<int>& finishTimes,
                                       Tensor<int>& finishPoints, std::vector<int>& unassigned,
                                       std::unique_ptr<Types::CarData>& cars) {
-    // set up data structure to permutate though finishTimes and finishTimes
-    std::set<int> unassignedIndices(unassigned.begin(), unassigned.end());
+    
     unsigned nAssignments = std::min(inputData.fleetSize,
                                      static_cast<unsigned>(unassigned.size()));
-
 	// no possible choices left
 	if (nAssignments == 0) { return; }
 
+	// set up data structure to permutate though finishTimes and finishTimes
+	std::set<int> unassignedIndices(unassigned.begin(), unassigned.end());
     std::vector<int> carIndices(inputData.fleetSize);
     std::iota(carIndices.begin(), carIndices.end(), 0);
     std::vector<int> rideIndices(unassigned.size());

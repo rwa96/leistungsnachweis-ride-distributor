@@ -10,13 +10,23 @@ void SearchGraphNode::writeToFile(const std::string path,
     outFile.open(path, std::fstream::out);
 
     for(auto car : data) {
-        outFile << car.size() << ' ';
+		outFile << car.size();
+		
+		if (car.size() > 0) {
+			outFile << ' ';
+		}
 
+		unsigned rideCount = 0;
         for(auto ride : car) {
-            outFile << ride << ' ';
+			outFile << ride;
+
+			if (rideCount < car.size() - 1) {
+				outFile << ' ';
+			}
+			++rideCount;
         }
 
-        outFile << std::endl;
+		outFile << std::endl;
     }
 }
 

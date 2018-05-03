@@ -26,7 +26,7 @@ TEST_F(SearchGraphNodeTest, NoParent) {
     const SearchGraphNode noParent(singleEntry);
     noParent.writeToFile(outputFile, 1);
 
-    EXPECT_EQ(getOutputFileContent(), "0 \n");
+    EXPECT_EQ(getOutputFileContent(), "0\n");
 }
 
 /**
@@ -41,7 +41,7 @@ TEST_F(SearchGraphNodeTest, Parent) {
 
     sut.writeToFile(outputFile, 2);
 
-    EXPECT_EQ(getOutputFileContent(), "1 0 \n1 1 \n");
+    EXPECT_EQ(getOutputFileContent(), "1 0\n1 1\n");
 }
 
 /** \test More cars than rides ( -> some lines only contain '0' ). */
@@ -51,7 +51,7 @@ TEST_F(SearchGraphNodeTest, MultipleCars) {
     const unsigned fleetSize = 4;
     sut.writeToFile(outputFile, fleetSize);
 
-    EXPECT_EQ(getOutputFileContent(), "1 1 \n0 \n1 0 \n0 \n");
+    EXPECT_EQ(getOutputFileContent(), "1 1\n0\n1 0\n0\n");
 }
 
 /** \test More rides than cars ( -> lines contain multiple entries ). */
@@ -63,7 +63,7 @@ TEST_F(SearchGraphNodeTest, multipleEntries) {
 
     sut.writeToFile(outputFile, 1);
 
-    EXPECT_EQ(getOutputFileContent(), "2 0 1 \n");
+    EXPECT_EQ(getOutputFileContent(), "2 0 1\n");
 }
 
 int main(int argc, char** argv) {
