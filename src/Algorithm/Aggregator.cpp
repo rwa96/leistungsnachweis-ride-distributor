@@ -2,7 +2,6 @@
 #include <algorithm>
 #include "Aggregator.hpp"
 
-/** Sort Choices descending by score function. */
 bool Aggregator::sortByScore(const std::unique_ptr<Types::Choice>& lhs,
                              const std::unique_ptr<Types::Choice>& rhs) { return lhs->score > rhs->score; }
 

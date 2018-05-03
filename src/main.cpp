@@ -14,7 +14,7 @@ void printChoice(std::unique_ptr<Types::Choice> &choice)
 	std::cout << '\t' << "y: " << choice->cars.y.str();
 	std::cout << '\t' << "t: " << choice->cars.t.str();
 	std::cout << '\t' << "p: " << choice->cars.p.str();
-	std::cout << '\t' << "Score: " << choice->score << std::endl;
+	std::cout << '\t' << "Internal score: " << choice->score << std::endl;
 }
 
 bool checkCarTime(Types::CarData carData, unsigned T)
@@ -104,11 +104,11 @@ int main(int argc, char *argv[])
 			std::cout << "Printing best choice:" << std::endl;
 			printChoice(choices.front());
 
-			unsigned score = 0;
+			unsigned googleScore = 0;
 			for (int i = 0; i < inputData->fleetSize; ++i) {
-				score += choices.front()->cars.p(i);
+				googleScore += choices.front()->cars.p(i);
 			}
-			std::cout << "Google score: " << score << std::endl;
+			std::cout << "Google score: " << googleScore << std::endl;
 
 			std::cout << "Writing output file.." << std::endl;
 			choices.front()->searchGraphNode->writeToFile(argv[2], inputData->fleetSize);

@@ -10,7 +10,7 @@
  * Represenation of the input file defined by Google-HashCode's problem statement
  *
  * \attention When parsing a file no format checks are made which could lead to undefined
- * \attenrion behaviour if the file format is invalid.
+ * \attention behaviour if the file format is invalid.
  */
 struct InputData {
 
@@ -19,7 +19,7 @@ struct InputData {
      * \note no format checks on the file are performed.
      *
      * \param [in] path Path to input file
-     * \trhow std::fstream::failure if invalid file/path
+     * \throw std::fstream::failure if invalid file/path
      * \return std::shared_ptr<InputData> generated object
      */
     static std::shared_ptr<InputData> genFromFile(const std::string path);
@@ -35,27 +35,27 @@ struct InputData {
     unsigned rows;
     /** Number of columns of the grid. */
     unsigned cols;
-    /** number of vehicles in the fleet. */
+    /** Number of vehicles in the fleet. */
     unsigned fleetSize;
-    /** number of rides. */
+    /** Number of rides. */
     unsigned nRides;
-    /** per-ride bonus for starting the ride on time. */
+    /** Per-ride bonus for starting the ride on time. */
     unsigned bonus;
-    /** number of steps in the simulation. */
+    /** Number of steps in the simulation. */
     unsigned maxTime;
-    /** row coordinate of all starting intersections. */
+    /** Row coordinate of all starting intersections. */
     Tensor<int> startX;
-    /** column coordinate of all starting intersections. */
+    /** Column coordinate of all starting intersections. */
     Tensor<int> startY;
-    /** row coordinate of all finish intersections. */
+    /** Row coordinate of all finish intersections. */
     Tensor<int> endX;
-    /** column of all finish intersections. */
+    /** Column of all finish intersections. */
     Tensor<int> endY;
-    /** earliest starts. */
+    /** Earliest starts. */
     Tensor<int> startT;
-    /** latest finishes. */
+    /** Latest finishes. */
     Tensor<int> endT;
-    /** distances of each ride. */
+    /** Distances of each ride. */
     Tensor<int> distances;
 
 private:
@@ -64,13 +64,13 @@ private:
      * Used by InputData::genFromFile to create an instance.
      *
      * \param [in] rows Rows of the road network
-     * \param [in] cols Columsn of road network
+     * \param [in] cols Columns of road network
      * \param [in] fleetSize number of cars available
      * \param [in] nRides number of rides to be assigned
      * \param [in] bonus Bonus for in time arivals
      * \param [in] maxTime Steps of the simulation
      * \param [in,out] file input file
-     * \trhow std::fstream::failure if invalid file/path
+     * \throw std::fstream::failure if invalid file/path
      */
     InputData(
         const unsigned rows,
