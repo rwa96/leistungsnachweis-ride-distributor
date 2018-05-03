@@ -91,9 +91,7 @@ int main(int argc, char *argv[])
 				aggregator.aggregate(newChoices);
 				choices = std::move(newChoices);
 				newChoices.clear();
-				//std::cout << (inputData->nRides - choices.front()->unassigned.size()) * 100.0f / inputData->nRides << std::endl;
-				//std::cout << '\n' << std::endl;
-
+				std::cout << (inputData->nRides - choices.front()->unassigned.size()) * 100.0 / inputData->nRides << "%" << std::endl;
 			}
 			else
 			{

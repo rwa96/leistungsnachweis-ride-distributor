@@ -98,7 +98,12 @@ void Generator::selectFromSearchSpace(Types::Choices& output,
         }
 
         // write back results
-        choice->score = inputData.maxTime - timeSum / nAssignments + pointSum / nAssignments;
+		float timeAvg = timeSum / nAssignments;
+		if (timeAvg > inputData.maxTime) {
+			timeAvg = inputData.maxTime;
+		}
+
+        choice->score = inputData.maxTime - timeAvg + pointSum / nAssignments;
         choice->unassigned.insert(choice->unassigned.begin(), newUnassigned.begin(),
                                   newUnassigned.end());
         choice->searchGraphNode = std::shared_ptr<SearchGraphNode>(new SearchGraphNode(prevNode,
