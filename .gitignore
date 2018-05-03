@@ -3,4 +3,4 @@
 .vs/
 CMakeSettings.json
 *.orig
-*.out
+resources/*.out
