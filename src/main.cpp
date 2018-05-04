@@ -14,7 +14,7 @@ void printChoice(std::unique_ptr<Types::Choice> &choice)
 	std::cout << '\t' << "y: " << choice->cars.y.str();
 	std::cout << '\t' << "t: " << choice->cars.t.str();
 	std::cout << '\t' << "p: " << choice->cars.p.str();
-	std::cout << '\t' << "Internal score: " << choice->score << std::endl;
+	std::cout << '\t' << "score: " << choice->score << std::endl;
 }
 
 bool checkCarTime(Types::CarData carData, unsigned T)
@@ -96,7 +96,7 @@ int main(int argc, char *argv[])
 			aggregator.aggregate(newChoices);
 			choices = std::move(newChoices);
 			newChoices.clear();
-			std::cout << (inputData->nRides - choices.front()->unassigned.size()) * 100.0 / inputData->nRides << "%" << std::endl;
+			std::cout << (inputData->nRides - choices.front()->unassigned.size()) * 100.0 / inputData->nRides << '%' << std::endl;
 		}
 		else
 		{
@@ -108,7 +108,7 @@ int main(int argc, char *argv[])
 			for (int i = 0; i < inputData->fleetSize; ++i) {
 				googleScore += choices.front()->cars.p(i);
 			}
-			std::cout << "Google score: " << googleScore << std::endl;
+			std::cout << "Final score: " << googleScore << std::endl;
 
 			std::cout << "Writing output file.." << std::endl;
 			choices.front()->searchGraphNode->writeToFile(argv[2], inputData->fleetSize);

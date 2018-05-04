@@ -47,7 +47,7 @@ void Generator::selectFromSearchSpace(Types::Choices& output,
                                       std::shared_ptr<SearchGraphNode>& prevNode, Tensor<int>& finishTimes,
                                       Tensor<int>& finishPoints, std::vector<int>& unassigned,
                                       std::unique_ptr<Types::CarData>& cars) {
-    
+
     unsigned nAssignments = std::min(inputData.fleetSize,
                                      static_cast<unsigned>(unassigned.size()));
 	// no possible choices left
@@ -87,8 +87,8 @@ void Generator::selectFromSearchSpace(Types::Choices& output,
 
             choice->cars.x(car) = inputData.endX(ride);
             choice->cars.y(car) = inputData.endY(ride);
-            choice->cars.t(car) += finishTimes(car, uIndex);
-            choice->cars.p(car) += finishPoints(car, uIndex);
+            choice->cars.t(car) = finishTimes(car, uIndex);
+            choice->cars.p(car) = finishPoints(car, uIndex);
 
             (*searchNodeValue)(assignIndex, 0) = car;
             (*searchNodeValue)(assignIndex, 1) = ride;
