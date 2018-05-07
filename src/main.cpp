@@ -5,6 +5,10 @@
 #include "InputData.hpp"
 #include "Algorithm.hpp"
 
+/**
+ * Solution to the problem statement of the HashCode online quallification round 2018.
+ * \see https://hashcode.withgoogle.com/2018/tasks/hashcode2018_qualification_task.pdf
+ */
 int main(int argc, char *argv[])
 {
 	if (argc != 6)
@@ -13,7 +17,6 @@ int main(int argc, char *argv[])
 		return 1;
 	}
 
-	// InputData
 	std::shared_ptr<InputData> inputData;
 	try
 	{

@@ -13,15 +13,15 @@ void Algorithm::printChoice(std::unique_ptr<Types::Choice> &choice)
 	std::cout << '\t' << "Score: " << choice->score << std::endl;
 }
 
-bool Algorithm::checkCarTime(Types::CarData carData, unsigned T)
+bool Algorithm::checkCarDataValid(Types::CarData carData, unsigned T)
 {
-	bool result = false;
+	bool result = true;
 
 	for (int i = 0; i < carData.t.getSize(); i++)
 	{
-		if (carData.t(i) < T)
+		if (carData.t(i) > T)
 		{
-			result = true;
+			result = false;
 			break;
 		}
 	}
@@ -29,7 +29,9 @@ bool Algorithm::checkCarTime(Types::CarData carData, unsigned T)
 	return result;
 }
 
-void Algorithm::run() {
+// TODO Improve documentation
+void Algorithm::run() 
+{
 
 	// First Generator run
 	Types::Choices choices;
@@ -54,7 +56,7 @@ void Algorithm::run() {
 		for (std::unique_ptr<Types::Choice> &choice : choices)
 		{
 			// If valid choice exists, generate new choices and save in newChoices
-			if (choice->unassigned.size() > 0 && checkCarTime(choice->cars, inputData.maxTime))
+			if (choice->unassigned.size() > 0 && checkCarDataValid(choice->cars, inputData.maxTime))
 			{
 				std::unique_ptr<Types::CarData> newCars(new Types::CarData(choice->cars));
 				generator.generate(newChoices, choice->searchGraphNode, choice->unassigned, std::move(newCars));

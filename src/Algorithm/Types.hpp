@@ -10,7 +10,7 @@
 namespace Types {
 
 /**
- * Position, point in time and gained points of each car
+ * Position, point in time and gained points of each car.
  */
 struct CarData {
     /**
@@ -69,7 +69,7 @@ struct Choice {
     std::shared_ptr<SearchGraphNode> searchGraphNode;
 };
 
-/** Independed Choices on could take (same level on the search graph). */
+/** Independed choices one could take (same level on the search graph). */
 using Choices = std::vector<std::unique_ptr<Choice>>;
 
 }
