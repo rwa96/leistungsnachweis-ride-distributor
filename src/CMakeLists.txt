@@ -35,5 +35,20 @@ target_link_libraries(Aggregator
 		InputData
 )
 
+
+add_library(Algorithm Algorithm/Algorithm.cpp)
+target_include_directories(Algorithm
+	PUBLIC
+		${CMAKE_CURRENT_SOURCE_DIR}/Algorithm
+		${CMAKE_CURRENT_SOURCE_DIR}/Numeric
+)
+target_link_libraries(Algorithm 
+	PUBLIC
+		SearchGraphNode 
+		InputData 
+		Generator 
+		Aggregator
+)
+
 add_executable(RideDistributor main.cpp)
-target_link_libraries(RideDistributor PRIVATE SearchGraphNode InputData Generator Aggregator)
+target_link_libraries(RideDistributor PRIVATE Algorithm SearchGraphNode InputData Generator Aggregator)
