@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['max_5fshown_5fentries',['MAX_SHOWN_ENTRIES',['../Tensor_8hpp.html#a0448a43ae10f108bdd6ab01e299b4597',1,'Tensor.hpp']]]
+  ['algorhitm_5fh',['ALGORHITM_H',['../Algorithm_8hpp.html#ab960cc1282a57af5b857ac21b032a82e',1,'Algorithm.hpp']]]
 ];
