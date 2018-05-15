@@ -28,7 +28,7 @@ private:
 
     InputData& inputData;
     unsigned nTries, kBest;
-	std::default_random_engine rng;
+    std::default_random_engine rng;
 
 };
 

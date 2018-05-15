@@ -50,11 +50,12 @@ void Generator::selectFromSearchSpace(Types::Choices& output,
 
     unsigned nAssignments = std::min(inputData.fleetSize,
                                      static_cast<unsigned>(unassigned.size()));
-	// no possible choices left
-	if (nAssignments == 0) { return; }
 
-	// set up data structure to permutate though finishTimes and finishTimes
-	std::set<int> unassignedIndices(unassigned.begin(), unassigned.end());
+    // no possible choices left
+    if(nAssignments == 0) { return; }
+
+    // set up data structure to permutate though finishTimes and finishTimes
+    std::set<int> unassignedIndices(unassigned.begin(), unassigned.end());
     std::vector<int> carIndices(inputData.fleetSize);
     std::iota(carIndices.begin(), carIndices.end(), 0);
     std::vector<int> rideIndices(unassigned.size());
@@ -98,10 +99,11 @@ void Generator::selectFromSearchSpace(Types::Choices& output,
         }
 
         // write back results
-		float timeAvg = timeSum / nAssignments;
-		if (timeAvg > inputData.maxTime) {
-			timeAvg = inputData.maxTime;
-		}
+        float timeAvg = timeSum / nAssignments;
+
+        if(timeAvg > inputData.maxTime) {
+            timeAvg = inputData.maxTime;
+        }
 
         choice->score = inputData.maxTime - timeAvg + pointSum / nAssignments;
         choice->unassigned.insert(choice->unassigned.begin(), newUnassigned.begin(),

@@ -16,4 +16,10 @@ add_test(NAME SearchGraphNodeTest COMMAND SearchGraphNodeTest)
 add_executable(GeneratorTest Algorithm/GeneratorTest.cpp)
 target_include_directories(GeneratorTest PRIVATE Algorithm)
 target_link_libraries(GeneratorTest PRIVATE gtest gmock Generator)
+#TODO Test Generator
 #add_test(NAME GeneratorTest COMMAND GeneratorTest)
+
+add_executable(RLAPSolverTest Algorithm/RLAPSolverTest.cpp)
+target_include_directories(RLAPSolverTest PRIVATE Algorithm)
+target_link_libraries(RLAPSolverTest PRIVATE gtest gmock RLAPSolver)
+add_test(NAME RLAPSolverTest COMMAND RLAPSolverTest)

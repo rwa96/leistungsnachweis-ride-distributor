@@ -1,4 +1,5 @@
 #include <vector>
+#include <gtest/gtest.h>
 #include <gmock/gmock.h>
 #include "Tensor.hpp"
 

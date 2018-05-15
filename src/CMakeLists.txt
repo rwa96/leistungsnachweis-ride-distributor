@@ -1,3 +1,6 @@
+##################################################################
+#                        SearchGraphNode                         #
+##################################################################
 add_library(SearchGraphNode DataHandlers/SearchGraphNode.cpp)
 target_include_directories(SearchGraphNode
 	PUBLIC
@@ -5,6 +8,9 @@ target_include_directories(SearchGraphNode
         ${CMAKE_CURRENT_SOURCE_DIR}/Numeric
 )
 
+##################################################################
+#                           InputData                            #
+##################################################################
 add_library(InputData DataHandlers/InputData.cpp)
 target_include_directories(InputData
 	PUBLIC
@@ -12,43 +18,63 @@ target_include_directories(InputData
         ${CMAKE_CURRENT_SOURCE_DIR}/Numeric
 )
 
+##################################################################
+#                           Generator                            #
+##################################################################
 add_library(Generator Algorithm/Generator.cpp)
 target_include_directories(Generator
 	PUBLIC
 		${CMAKE_CURRENT_SOURCE_DIR}/Algorithm
 		${CMAKE_CURRENT_SOURCE_DIR}/Numeric
 )
-target_link_libraries(Generator 
+target_link_libraries(Generator
 	PUBLIC
 		InputData
 		SearchGraphNode
 )
 
+##################################################################
+#                           Aggregator                           #
+##################################################################
 add_library(Aggregator Algorithm/Aggregator.cpp)
 target_include_directories(Aggregator
 	PUBLIC
 		${CMAKE_CURRENT_SOURCE_DIR}/Algorithm
 		${CMAKE_CURRENT_SOURCE_DIR}/Numeric
 )
-target_link_libraries(Aggregator 
+target_link_libraries(Aggregator
 	PUBLIC
 		InputData
 )
 
+##################################################################
+#                           RLAPSolver                           #
+##################################################################
+add_library(RLAPSolver Algorithm/RLAPSolver.cpp)
+target_include_directories(RLAPSolver
+	PUBLIC
+		${CMAKE_CURRENT_SOURCE_DIR}/Algorithm
+)
 
+##################################################################
+#                           Algorithm                            #
+##################################################################
 add_library(Algorithm Algorithm/Algorithm.cpp)
 target_include_directories(Algorithm
 	PUBLIC
 		${CMAKE_CURRENT_SOURCE_DIR}/Algorithm
 		${CMAKE_CURRENT_SOURCE_DIR}/Numeric
 )
-target_link_libraries(Algorithm 
+target_link_libraries(Algorithm
 	PUBLIC
-		SearchGraphNode 
-		InputData 
-		Generator 
+		SearchGraphNode
+		InputData
+		Generator
 		Aggregator
 )
 
+##################################################################
+#                        RideDistributor                         #
+##################################################################
 add_executable(RideDistributor main.cpp)
 target_link_libraries(RideDistributor PRIVATE Algorithm SearchGraphNode InputData Generator Aggregator)
