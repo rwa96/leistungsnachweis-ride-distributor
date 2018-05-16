@@ -54,6 +54,7 @@ add_library(RLAPSolver Algorithm/RLAPSolver.cpp)
 target_include_directories(RLAPSolver
 	PUBLIC
 		${CMAKE_CURRENT_SOURCE_DIR}/Algorithm
+        ${CMAKE_CURRENT_SOURCE_DIR}/Numeric
 )
 
 ##################################################################

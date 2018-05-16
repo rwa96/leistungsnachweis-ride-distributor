@@ -36,6 +36,12 @@ public:
         }
     };
 
+    Tensor(const std::vector<unsigned> dims, const T& defaultValue): Tensor(dims) {
+        for(unsigned i = 0; i < getSize(); ++i) {
+            (*this)(i) = defaultValue;
+        }
+    };
+
     /**
      * Creates a tensor from an existing array.
      *
@@ -53,7 +59,7 @@ public:
      *
      * \param [in] other Tensor to copy
      */
-    Tensor(Tensor<T>& other): Tensor(other.getDims()) {
+    Tensor(const Tensor<T>& other): Tensor(other.getDims()) {
         for(unsigned i = 0; i < size; ++i) {
             (*this)(i) = other(i);
         }
@@ -88,7 +94,7 @@ public:
      * \param [in] i
      * \return T& data at given index
      */
-    inline T& operator()(const int i)
+    inline T& operator()(const int i) const
     {return data[i];};
 
     /**
@@ -98,7 +104,7 @@ public:
      * \param [in] col
      * \return T& data at given position
      */
-    inline T& operator()(const int row, const int col)
+    inline T& operator()(const int row, const int col) const
     {return data[row * dims[1] + col];};
 
     /**
@@ -109,7 +115,7 @@ public:
      * \param [in] offset
      * \return T& data at given position
      */
-    inline T& operator()(const int row, const int col, const int offset)
+    inline T& operator()(const int row, const int col, const int offset) const
     {return data[row * dims[1] * dims[2] + col * dims[2] + offset];};
 
     /**

@@ -55,7 +55,6 @@ void Generator::selectFromSearchSpace(Types::Choices& output,
     if(nAssignments == 0) { return; }
 
     // set up data structure to permutate though finishTimes and finishTimes
-    std::set<int> unassignedIndices(unassigned.begin(), unassigned.end());
     std::vector<int> carIndices(inputData.fleetSize);
     std::iota(carIndices.begin(), carIndices.end(), 0);
     std::vector<int> rideIndices(unassigned.size());
