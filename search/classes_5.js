@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['tensor',['Tensor',['../classTensor.html',1,'']]],
-  ['tensor_3c_20int_20_3e',['Tensor&lt; int &gt;',['../classTensor.html',1,'']]]
+  ['searchgraphnode',['SearchGraphNode',['../classSearchGraphNode.html',1,'']]],
+  ['searchgraphnodetest',['SearchGraphNodeTest',['../classSearchGraphNodeTest.html',1,'']]]
 ];
