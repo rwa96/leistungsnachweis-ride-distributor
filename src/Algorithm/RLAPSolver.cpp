@@ -1,17 +1,13 @@
-#include <stdexcept>
-#include <vector>
-#include <set>
-#include <list>
-#include <map>
 #include <algorithm>
+#include <functional>
 #include "RLAPSolver.hpp"
 
 void RLAPSolver::minimizeRowsAndCols(const Tensor<int>& minRowValues){
     Tensor<int> minColValues(minRowValues.getDims());
-    std::set<unsigned> nonZeroCols();
+    std::unordered_set<unsigned> nonZeroCols;
 
-    for(unsigned row = 0; row < rows; ++row){
-        for(unsigned col = 0; col < cols; ++col){
+    for(unsigned row = 0; row < size; ++row){
+        for(unsigned col = 0; col < size; ++col){
             int& entry = matrix(row, col);
             entry -= minRowValues(row);
             if(entry == 0){
@@ -25,7 +21,7 @@ void RLAPSolver::minimizeRowsAndCols(const Tensor<int>& minRowValues){
     }
 
     for(unsigned col: nonZeroCols){
-        for(unsigned row = 0; row < rows; ++row){
+        for(unsigned row = 0; row < size; ++row){
             int& entry = matrix(row, col);
             entry -= minColValues(col);
             if(entry == 0){
@@ -46,7 +42,7 @@ void RLAPSolver::coverZeros(){
         if(iDeleted){continue;}
 
         bool uniqueRow = true, uniqueCol = true;
-        std::list<std::pair<unsigned, unsigned>> del;
+        std::list<std::reference_wrapper<bool>> del;
 
         auto jCoordItr = zeros.begin();
         auto jDeletedItr = deleted.begin();
@@ -56,17 +52,17 @@ void RLAPSolver::coverZeros(){
 
             if(jDeleted){continue;}
             if(iCoord == jCoord){
-                del.push_back(jCoord);
+                del.push_back(jDeleted);
                 continue;
             }
-            
+
             if(iCoord.first == jCoord.first){
                 uniqueRow = false;
-                del.push_back(jCoord);
+                del.push_back(jDeleted);
             }
             if(iCoord.second == jCoord.second){
                 uniqueCol = false;
-                del.push_back(jCoord);
+                del.push_back(jDeleted);
             }
 
             ++jCoordItr;
@@ -75,8 +71,8 @@ void RLAPSolver::coverZeros(){
         if(uniqueRow || uniqueCol){
             if(uniqueRow){unmarkedCols.erase(iCoord.second);}
             else{unmarkedRows.erase(iCoord.first);}
-            for(std::pair<unsigned, unsigned>& elm: del){
-                iDeleted = true;
+            for(bool& elm: del){
+                elm = true;
             }
         }
 
@@ -87,14 +83,6 @@ void RLAPSolver::coverZeros(){
 }
 
 void RLAPSolver::minimizeRemaining(int& globalMin){
-    for(unsigned row: unmarkedRows){
-        for(unsigned col: unmarkedCols){
-            if(globalMin == 0 || matrix(row, col) < globalMin){
-                globalMin = matrix(row, col);
-            }
-        }
-    }
-
     int newGlobalMin = 0;
     for(unsigned row: unmarkedRows){
         for(unsigned col: unmarkedCols){
@@ -102,6 +90,7 @@ void RLAPSolver::minimizeRemaining(int& globalMin){
             entry -= globalMin;
             if(entry == 0){
                 zeros.push_back({row, col});
+                deleted.push_back(false);
             }else if(newGlobalMin == 0 || entry < newGlobalMin){
                 newGlobalMin = entry;
             }
@@ -111,10 +100,22 @@ void RLAPSolver::minimizeRemaining(int& globalMin){
     globalMin = newGlobalMin;
 }
 
-void RLAPSolver::solve(const Tensor<int>& minRowValues){
+void RLAPSolver::solve(const Tensor<int>& minRowValues, Tensor<int>& assignments){
     minimizeRowsAndCols(minRowValues);
     coverZeros();
-    int globalMin = 0;
-    minimizeRemaining(globalMin);
 
+    int globalMin = 0;
+    for(unsigned row: unmarkedRows){
+        for(unsigned col: unmarkedCols){
+            if(globalMin == 0 || matrix(row, col) < globalMin){
+                globalMin = matrix(row, col);
+            }
+        }
+    }
+    while(unmarkedRows.size() + unmarkedCols.size() > size){
+        minimizeRemaining(globalMin);
+        coverZeros();
+    }
+
+    assignResult(assignments);
 }
