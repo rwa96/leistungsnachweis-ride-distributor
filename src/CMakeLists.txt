@@ -50,7 +50,7 @@ target_link_libraries(Aggregator
 ##################################################################
 #                           RLAPSolver                           #
 ##################################################################
-add_library(RLAPSolver Algorithm/RLAPSolver.cpp)
+add_library(RLAPSolver Algorithm/RLAPSolverHungarian.cpp)
 target_include_directories(RLAPSolver
 	PUBLIC
 		${CMAKE_CURRENT_SOURCE_DIR}/Algorithm
