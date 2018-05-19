@@ -1,13 +1,13 @@
-#include <algorithm>
 #include <functional>
+#include <algorithm>
 #include "RLAPSolver.hpp"
 
 void RLAPSolver::minimizeRowsAndCols(const Tensor<int>& minRowValues){
     Tensor<int> minColValues(minRowValues.getDims());
-    std::unordered_set<unsigned> nonZeroCols;
+    std::unordered_set<unsigned> nonZeroCols(indexElements.begin(), indexElements.end());
 
-    for(unsigned row = 0; row < size; ++row){
-        for(unsigned col = 0; col < size; ++col){
+    for(unsigned row = 0; row < rows; ++row){
+        for(unsigned col = 0; col < cols; ++col){
             int& entry = matrix(row, col);
             entry -= minRowValues(row);
             if(entry == 0){
@@ -18,6 +18,9 @@ void RLAPSolver::minimizeRowsAndCols(const Tensor<int>& minRowValues){
                 minColValues(col) = entry;
             }
         }
+		if (rectangular && moreRows) {
+			fillMatrix(row) -= minRowValues(row);
+		}
     }
 
     for(unsigned col: nonZeroCols){
@@ -98,6 +101,25 @@ void RLAPSolver::minimizeRemaining(int& globalMin){
     }
 
     globalMin = newGlobalMin;
+}
+
+void RLAPSolver::assignResult(Tensor<int>& assignments) {
+	std::unordered_set<unsigned> selectedRows;
+	unsigned nAssignments = std::min(rows, cols);
+	unsigned outIndex = 0;
+	while (selectedRows.size() < nAssignments) {
+		for (std::pair<unsigned, unsigned> zero : zeros) {
+			if (zero.first < rows && 
+				zero.second < cols &&
+				selectedRows.find(zero.first) == selectedRows.end()) 
+			{
+				assignments(outIndex, 0) = zero.first;
+				assignments(outIndex, 1) = zero.second;
+				selectedRows.insert(zero.first);
+				++outIndex;
+			}
+		}
+	}
 }
 
 void RLAPSolver::solve(const Tensor<int>& minRowValues, Tensor<int>& assignments){

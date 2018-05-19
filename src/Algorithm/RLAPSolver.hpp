@@ -3,17 +3,31 @@
 
 #include <list>
 #include <unordered_set>
+#include <numeric>
 #include "Tensor.hpp"
 
 class RLAPSolver {
 public:
-    RLAPSolver(Tensor<int>& matrix, const int maxEntry):
-        size(std::max(matrix.getDims()[0], matrix.getDims()[1])),
-        matrix(matrix){};
+	RLAPSolver(Tensor<int>& matrix, const int maxEntry) :
+		rows(matrix.getDims()[0]),
+		cols(matrix.getDims()[1]),
+		size(std::max(rows, cols)),
+		rectangular(rows != cols),
+		moreRows(rows < cols),
+		indexElements(size),
+        matrix(matrix),
+		fillMatrix({rectangular ? (moreRows ? rows : cols) : 0}, maxEntry)
+	{
+		std::iota(indexElements.begin(), indexElements.end(), 0);
+		unmarkedRows.insert(indexElements.begin(), indexElements.end());
+		unmarkedCols.insert(indexElements.begin(), indexElements.end());
+	};
     void solve(const Tensor<int>& minRowValues, Tensor<int>& assignments);
 private:
-    const unsigned size;
-    const Tensor<int> matrix;
+	const bool rectangular, moreRows;
+    const unsigned size, rows, cols;
+    const Tensor<int> matrix, fillMatrix;
+	std::vector<unsigned> indexElements;
     std::list<std::pair<unsigned, unsigned>> zeros;
     std::list<bool> deleted;
     std::unordered_set<unsigned> unmarkedRows, unmarkedCols;
