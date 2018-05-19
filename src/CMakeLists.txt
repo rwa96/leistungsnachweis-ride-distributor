@@ -48,12 +48,22 @@ target_link_libraries(Aggregator
 )
 
 ##################################################################
-#                           RLAPSolver                           #
+#                      RLAPSolverHungarian                       #
 ##################################################################
-add_library(RLAPSolver Algorithm/RLAPSolver.cpp)
-target_include_directories(RLAPSolver
+add_library(RLAPSolverHungarian Algorithm/RLAP/RLAPSolverHungarian.cpp)
+target_include_directories(RLAPSolverHungarian
 	PUBLIC
-		${CMAKE_CURRENT_SOURCE_DIR}/Algorithm
+		${CMAKE_CURRENT_SOURCE_DIR}/Algorithm/RLAP
+        ${CMAKE_CURRENT_SOURCE_DIR}/Numeric
+)
+
+##################################################################
+#                          RLAPSolverJV                          #
+##################################################################
+add_library(RLAPSolverJV Algorithm/RLAP/RLAPSolverJV.cpp)
+target_include_directories(RLAPSolverJV
+	PUBLIC
+		${CMAKE_CURRENT_SOURCE_DIR}/Algorithm/RLAP
         ${CMAKE_CURRENT_SOURCE_DIR}/Numeric
 )
 

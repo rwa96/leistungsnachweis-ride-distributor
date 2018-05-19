@@ -1,15 +1,15 @@
 #include <functional>
 #include <algorithm>
-#include "RLAPSolver.hpp"
+#include "RLAPSolverHungarian.hpp"
 
-void RLAPSolverHungarian::minimizeRowsAndCols(const Tensor<int>& minRowValues){
-    Tensor<int> minColValues(minRowValues.getDims());
+void RLAPSolverHungarian::minimizeRowsAndCols(){
+    Tensor<int> minColValues(minRowValues->getDims());
     std::unordered_set<unsigned> nonZeroCols(indexElements.begin(), indexElements.end());
 
     for(unsigned row = 0; row < rows; ++row){
         for(unsigned col = 0; col < cols; ++col){
             int& entry = matrix(row, col);
-            entry -= minRowValues(row);
+            entry -= (*minRowValues)(row);
             if(entry == 0){
                 zeros.push_back({row, col});
                 deleted.push_back(false);
@@ -19,7 +19,7 @@ void RLAPSolverHungarian::minimizeRowsAndCols(const Tensor<int>& minRowValues){
             }
         }
 		if (rectangular && moreRows) {
-			fillMatrix(row) -= minRowValues(row);
+			fillMatrix(row) -= (*minRowValues)(row);
 		}
     }
 
@@ -122,8 +122,8 @@ void RLAPSolverHungarian::assignResult(Tensor<int>& assignments) {
 	}
 }
 
-void RLAPSolverHungarian::solve(const Tensor<int>& minRowValues, Tensor<int>& assignments){
-    minimizeRowsAndCols(minRowValues);
+void RLAPSolverHungarian::solve(Tensor<int>& assignments){
+    minimizeRowsAndCols();
     coverZeros();
 
     int globalMin = 0;
