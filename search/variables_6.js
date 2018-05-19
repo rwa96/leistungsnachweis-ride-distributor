@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['matrix',['matrix',['../classRLAPSolver.html#a3165c752a6dfb2480cecbdcb99397c72',1,'RLAPSolver']]],
+  ['maxentry',['maxEntry',['../classRLAPSolverHungarian.html#aa20239a8023a9c0e647450bc45215f23',1,'RLAPSolverHungarian']]],
   ['maxtime',['maxTime',['../structInputData.html#a926c9deab25dac35e8ece4feebe48e47',1,'InputData']]]
 ];
