@@ -1,14 +1,14 @@
-#ifndef RLAP_SOLVER_H
-#define RLAP_SOLVER_H
+#ifndef RLAP_SOLVER_HUNGARIAN_H
+#define RLAP_SOLVER_HUNGARIAN_H
 
 #include <list>
 #include <unordered_set>
 #include <numeric>
 #include "Tensor.hpp"
 
-class RLAPSolver {
+class RLAPSolverHungarian {
 public:
-	RLAPSolver(Tensor<int>& matrix, const int maxEntry) :
+	RLAPSolverHungarian(Tensor<int>& matrix, const int maxEntry) :
 		rows(matrix.getDims()[0]),
 		cols(matrix.getDims()[1]),
 		size(std::max(rows, cols)),
@@ -38,4 +38,4 @@ private:
     void assignResult(Tensor<int>& assignments);
 };
 
-#endif // RLAP_SOLVER_H
+#endif // RLAP_SOLVER_HUNGARIAN_H

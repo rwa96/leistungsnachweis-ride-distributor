@@ -2,7 +2,7 @@
 #include <algorithm>
 #include "RLAPSolver.hpp"
 
-void RLAPSolver::minimizeRowsAndCols(const Tensor<int>& minRowValues){
+void RLAPSolverHungarian::minimizeRowsAndCols(const Tensor<int>& minRowValues){
     Tensor<int> minColValues(minRowValues.getDims());
     std::unordered_set<unsigned> nonZeroCols(indexElements.begin(), indexElements.end());
 
@@ -35,7 +35,7 @@ void RLAPSolver::minimizeRowsAndCols(const Tensor<int>& minRowValues){
     }
 }
 
-void RLAPSolver::coverZeros(){
+void RLAPSolverHungarian::coverZeros(){
     auto iCoordItr = zeros.begin();
     auto iDeletedItr = deleted.begin();
     while(iCoordItr != zeros.end()){
@@ -85,7 +85,7 @@ void RLAPSolver::coverZeros(){
 
 }
 
-void RLAPSolver::minimizeRemaining(int& globalMin){
+void RLAPSolverHungarian::minimizeRemaining(int& globalMin){
     int newGlobalMin = 0;
     for(unsigned row: unmarkedRows){
         for(unsigned col: unmarkedCols){
@@ -103,7 +103,7 @@ void RLAPSolver::minimizeRemaining(int& globalMin){
     globalMin = newGlobalMin;
 }
 
-void RLAPSolver::assignResult(Tensor<int>& assignments) {
+void RLAPSolverHungarian::assignResult(Tensor<int>& assignments) {
 	std::unordered_set<unsigned> selectedRows;
 	unsigned nAssignments = std::min(rows, cols);
 	unsigned outIndex = 0;
@@ -122,7 +122,7 @@ void RLAPSolver::assignResult(Tensor<int>& assignments) {
 	}
 }
 
-void RLAPSolver::solve(const Tensor<int>& minRowValues, Tensor<int>& assignments){
+void RLAPSolverHungarian::solve(const Tensor<int>& minRowValues, Tensor<int>& assignments){
     minimizeRowsAndCols(minRowValues);
     coverZeros();
 
