@@ -2,25 +2,58 @@
 #include <algorithm>
 #include "RLAPSolverHungarian.hpp"
 
-void RLAPSolverHungarian::minimizeRowsAndCols(){
-    Tensor<int> minColValues(minRowValues->getDims());
-    std::unordered_set<unsigned> nonZeroCols(indexElements.begin(), indexElements.end());
+void RLAPSolverHungarian::fillMatrix(){
+    unsigned row, col;
+    if(rows < cols){
+        row = 0; col = cols;
+    }else{
+        row = rows; col = 0;
+    }
 
+    for(; row < size; ++row){
+        for(; col < size; ++col){
+            matrix(row, col) = 0;
+        }
+    }
+}
+
+RLAPSolverHungarian::RLAPSolverHungarian(Tensor<int>& matrix, Tensor<int>& minRowValues, const int maxEntry):
+    rows(matrix.getDims()[0]),
+    cols(matrix.getDims()[1]),
+    size(std::max(rows, cols)),
+    indexElements(size),
+    matrix({size, size})
+{
+    this->minRowValues = minRowValues;
+    std::iota(indexElements.begin(), indexElements.end(), 0);
+    unmarkedCols.insert(indexElements.begin(), indexElements.end());
+    unmarkedRows.insert(indexElements.begin(), indexElements.end());
     for(unsigned row = 0; row < rows; ++row){
         for(unsigned col = 0; col < cols; ++col){
+            this->matrix(row, col) = maxEntry - matrix(row, col);
+        }
+    }
+    if(rows != cols){
+        fillMatrix();
+    }
+}
+
+void RLAPSolverHungarian::minimizeRowsAndCols(){
+    Tensor<int> minColValues({cols}, 0);
+    std::unordered_set<unsigned> nonZeroCols(indexElements.begin(), indexElements.end());
+
+    for(unsigned row = 0; row < size; ++row){
+        for(unsigned col = 0; col < size; ++col){
             int& entry = matrix(row, col);
-            entry -= (*minRowValues)(row);
+            entry -= minRowValues(row);
             if(entry == 0){
                 zeros.push_back({row, col});
                 deleted.push_back(false);
                 nonZeroCols.erase(col);
-            }else if(entry < minColValues(col)){
+            }else if(minColValues(col) == 0 || entry < minColValues(col)){
                 minColValues(col) = entry;
             }
         }
-		if (rectangular && moreRows) {
-			fillMatrix(row) -= (*minRowValues)(row);
-		}
     }
 
     for(unsigned col: nonZeroCols){
@@ -53,7 +86,9 @@ void RLAPSolverHungarian::coverZeros(){
             const std::pair<unsigned, unsigned>& jCoord = *jCoordItr;
             bool& jDeleted = *jDeletedItr;
 
+            if(!uniqueRow && !uniqueCol){break;}
             if(jDeleted){continue;}
+
             if(iCoord == jCoord){
                 del.push_back(jDeleted);
                 continue;
@@ -109,9 +144,9 @@ void RLAPSolverHungarian::assignResult(Tensor<int>& assignments) {
 	unsigned outIndex = 0;
 	while (selectedRows.size() < nAssignments) {
 		for (std::pair<unsigned, unsigned> zero : zeros) {
-			if (zero.first < rows && 
+			if (zero.first < rows &&
 				zero.second < cols &&
-				selectedRows.find(zero.first) == selectedRows.end()) 
+				selectedRows.find(zero.first) == selectedRows.end())
 			{
 				assignments(outIndex, 0) = zero.first;
 				assignments(outIndex, 1) = zero.second;

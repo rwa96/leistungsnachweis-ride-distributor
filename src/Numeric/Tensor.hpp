@@ -32,10 +32,16 @@ public:
         if(size == 0) {
             this->dims.clear();
         } else {
-            data = std::make_unique<T[]>(size);
+            data = std::shared_ptr<T[]>(new T[size]);
         }
     };
 
+    /**
+     * Creates a n-dimensional Tensor and sets entries to a default Value.
+     *
+     * \param [in] dims list that defines the dimensions of this Tensor
+     * \param [in] defaultValue default value for all entries
+     */
     Tensor(const std::vector<unsigned> dims, const T& defaultValue): Tensor(dims) {
         for(unsigned i = 0; i < getSize(); ++i) {
             (*this)(i) = defaultValue;
@@ -94,7 +100,7 @@ public:
      * \param [in] i
      * \return T& data at given index
      */
-    inline T& operator()(const int i) const
+    T& operator()(const int i) const
     {return data[i];};
 
     /**
@@ -104,7 +110,7 @@ public:
      * \param [in] col
      * \return T& data at given position
      */
-    inline T& operator()(const int row, const int col) const
+    T& operator()(const int row, const int col) const
     {return data[row * dims[1] + col];};
 
     /**
@@ -115,15 +121,31 @@ public:
      * \param [in] offset
      * \return T& data at given position
      */
-    inline T& operator()(const int row, const int col, const int offset) const
+    T& operator()(const int row, const int col, const int offset) const
     {return data[row * dims[1] * dims[2] + col * dims[2] + offset];};
+
+    /**
+     * This operator does NOT copy data but points to the assigned object's data.
+     *
+     * \note Tensor does not check integrity of internal data which could lead logic
+     *       errors when multiple instances point to the same data
+     *
+     * \param rhs object used to assign to this instance
+     * \return Tensor<T>& this instance
+     */
+    Tensor<T>& operator=(Tensor<T>& rhs){
+        size = rhs.size;
+        dims = rhs.dims;
+        data = rhs.data;
+        return *this;
+    };
 
     /**
      * Total number of elements that can be stored in this tensor.
      *
      * \return unsigned size of the internal data structure.
      */
-    inline const unsigned getSize() const
+    const unsigned getSize() const
     {return size;};
 
     /**
@@ -143,7 +165,7 @@ private:
     std::vector<unsigned> dims;
 
     /** Internal data structure. */
-    std::unique_ptr<T[]> data;
+    std::shared_ptr<T[]> data;
 
 };
 

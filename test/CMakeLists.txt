@@ -19,7 +19,7 @@ target_link_libraries(GeneratorTest PRIVATE gtest gmock Generator)
 #TODO Test Generator
 #add_test(NAME GeneratorTest COMMAND GeneratorTest)
 
-add_executable(RLAPSolverHungarianTest Algorithm/RLAP/RLAPSolverHungarianTest.cpp)
-target_include_directories(RLAPSolverHungarianTest PRIVATE Algorithm)
-target_link_libraries(RLAPSolverHungarianTest PRIVATE gtest gmock RLAPSolverHungarian)
-add_test(NAME RLAPSolverHungarianTest COMMAND RLAPSolverHungarianTest)
+add_executable(RLAPSolverTest Algorithm/RLAP/RLAPSolverTest.cpp)
+target_include_directories(RLAPSolverTest PRIVATE Algorithm/RLAP ${PROJECT_SOURCE_DIR}/src/Algorithm/RLAP)
+target_link_libraries(RLAPSolverTest PRIVATE gtest gmock RLAPSolverHungarian)
+add_test(NAME RLAPSolverTest COMMAND RLAPSolverTest)
