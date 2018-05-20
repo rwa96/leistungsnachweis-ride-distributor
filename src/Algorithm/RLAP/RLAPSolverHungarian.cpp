@@ -2,6 +2,8 @@
 #include <algorithm>
 #include "RLAPSolverHungarian.hpp"
 
+#define MAX_SIZE(m) std::max(m.getDims()[0], m.getDims()[1])
+
 void RLAPSolverHungarian::fillMatrix(){
     unsigned row, col;
     if(rows < cols){
@@ -17,12 +19,12 @@ void RLAPSolverHungarian::fillMatrix(){
     }
 }
 
-RLAPSolverHungarian::RLAPSolverHungarian(Tensor<int>& matrix, Tensor<int>& minRowValues, const int maxEntry):
+RLAPSolverHungarian::RLAPSolverHungarian(const Tensor<int>& matrix, const Tensor<int>& minRowValues, const int maxEntry):
     rows(matrix.getDims()[0]),
     cols(matrix.getDims()[1]),
-    size(std::max(rows, cols)),
-    indexElements(size),
-    matrix({size, size})
+    size(MAX_SIZE(matrix)),
+    indexElements({MAX_SIZE(matrix)}),
+    matrix({MAX_SIZE(matrix), MAX_SIZE(matrix)})
 {
     this->minRowValues = minRowValues;
     std::iota(indexElements.begin(), indexElements.end(), 0);
@@ -71,7 +73,7 @@ void RLAPSolverHungarian::minimizeRowsAndCols(){
 void RLAPSolverHungarian::coverZeros(){
     auto iCoordItr = zeros.begin();
     auto iDeletedItr = deleted.begin();
-    while(iCoordItr != zeros.end()){
+    for(; iCoordItr != zeros.end(); ++iCoordItr, ++iDeletedItr){
         const std::pair<unsigned, unsigned>& iCoord = *iCoordItr;
         bool& iDeleted = *iDeletedItr;
 
@@ -82,7 +84,7 @@ void RLAPSolverHungarian::coverZeros(){
 
         auto jCoordItr = zeros.begin();
         auto jDeletedItr = deleted.begin();
-        while(jCoordItr != zeros.end()){
+        for(; jCoordItr != zeros.end(); ++jCoordItr, ++jDeletedItr){
             const std::pair<unsigned, unsigned>& jCoord = *jCoordItr;
             bool& jDeleted = *jDeletedItr;
 
@@ -102,9 +104,6 @@ void RLAPSolverHungarian::coverZeros(){
                 uniqueCol = false;
                 del.push_back(jDeleted);
             }
-
-            ++jCoordItr;
-            ++jDeletedItr;
         }
         if(uniqueRow || uniqueCol){
             if(uniqueRow){unmarkedCols.erase(iCoord.second);}
@@ -113,9 +112,6 @@ void RLAPSolverHungarian::coverZeros(){
                 elm = true;
             }
         }
-
-        ++iCoordItr;
-        ++iDeletedItr;
     }
 
 }

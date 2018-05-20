@@ -3,14 +3,24 @@
 
 #include <list>
 #include <functional>
-#include <gtest/gtest.h>
 #include <memory>
+#include <gtest/gtest.h>
 #include "RLAPSolver.hpp"
 
-class RLAPSolverTest: public ::testing::Test {
+struct RLAP {
+    Tensor<int> inputMatrix;
+    int expectedSum;
+};
+
+
+class RLAPSolverTest: public ::testing::TestWithParam<RLAP> {
 protected:
-    using SolverCreator = std::function<std::unique_ptr<RLAPSolver>(Tensor<int>&)>;
+    using SolverCreator = std::function<RLAPSolver*(const Tensor<int>&)>;
+
+    int assignmentSum(const Tensor<int>& assignments, const Tensor<int>& inputMatrix);
+    void uniqueEntries(const Tensor<int>& assignments, unsigned& uniqueRows, unsigned& uniqueCols);
     RLAPSolverTest();
+
     std::list<SolverCreator> solvers;
 };
 

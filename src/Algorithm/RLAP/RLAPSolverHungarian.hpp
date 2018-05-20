@@ -10,7 +10,7 @@
 
 class RLAPSolverHungarian : public RLAPSolver {
 public:
-    RLAPSolverHungarian(Tensor<int>& matrix, Tensor<int>& minRowValues, const int maxEntry);
+    RLAPSolverHungarian(const Tensor<int>& matrix, const Tensor<int>& minRowValues, const int maxEntry);
 	void solve(Tensor<int>& assignments) override;
 
 private:

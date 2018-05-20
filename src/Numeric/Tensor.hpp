@@ -37,18 +37,6 @@ public:
     };
 
     /**
-     * Creates a n-dimensional Tensor and sets entries to a default Value.
-     *
-     * \param [in] dims list that defines the dimensions of this Tensor
-     * \param [in] defaultValue default value for all entries
-     */
-    Tensor(const std::vector<unsigned> dims, const T& defaultValue): Tensor(dims) {
-        for(unsigned i = 0; i < getSize(); ++i) {
-            (*this)(i) = defaultValue;
-        }
-    };
-
-    /**
      * Creates a tensor from an existing array.
      *
      * \param [in] dims list that defines the dimensions of this Tensor
@@ -57,6 +45,18 @@ public:
     Tensor(const std::vector<unsigned> dims, const std::vector<T> data): Tensor(dims) {
         for(unsigned i = 0; i < getSize(); ++i) {
             (*this)(i) = data[i];
+        }
+    };
+
+    /**
+    * Creates a n-dimensional Tensor and sets entries to a default Value.
+    *
+    * \param [in] dims list that defines the dimensions of this Tensor
+    * \param [in] defaultValue default value for all entries
+    */
+    Tensor(const std::vector<unsigned> dims, const T& defaultValue): Tensor(dims) {
+        for(unsigned i = 0; i < getSize(); ++i) {
+            (*this)(i) = defaultValue;
         }
     };
 
@@ -133,7 +133,7 @@ public:
      * \param rhs object used to assign to this instance
      * \return Tensor<T>& this instance
      */
-    Tensor<T>& operator=(Tensor<T>& rhs){
+    Tensor<T>& operator=(const Tensor<T>& rhs){
         size = rhs.size;
         dims = rhs.dims;
         data = rhs.data;
