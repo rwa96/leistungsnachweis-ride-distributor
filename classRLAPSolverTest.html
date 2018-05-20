@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>RideDistributor: src/Algorithm/RLAP/RLAPSolverHungarian.cpp File Reference</title>
+<title>RideDistributor: RLAPSolverTest Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -40,8 +40,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
-      <li><a href="annotated.html"><span>Classes</span></a></li>
-      <li class="current"><a href="files.html"><span>Files</span></a></li>
+      <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
+      <li><a href="files.html"><span>Files</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -62,8 +62,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   </div>
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
-      <li><a href="files.html"><span>File&#160;List</span></a></li>
-      <li><a href="globals.html"><span>File&#160;Members</span></a></li>
+      <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
+      <li><a href="classes.html"><span>Class&#160;Index</span></a></li>
+      <li><a href="hierarchy.html"><span>Class&#160;Hierarchy</span></a></li>
+      <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
 <!-- window showing the filter options -->
@@ -80,89 +82,113 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_d537ec303f13b8e88e2bd2506dfe6a9e.html">Algorithm</a></li><li class="navelem"><a class="el" href="dir_341bf944b90c42b6a36a57fe82fa8b7f.html">RLAP</a></li>  </ul>
-</div>
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#func-members">Functions</a>  </div>
+<a href="#pro-types">Protected Types</a> &#124;
+<a href="#pro-methods">Protected Member Functions</a> &#124;
+<a href="#pro-attribs">Protected Attributes</a> &#124;
+<a href="classRLAPSolverTest-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">RLAPSolverHungarian.cpp File Reference</div>  </div>
+<div class="title">RLAPSolverTest Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;functional&gt;</code><br/>
-<code>#include &lt;algorithm&gt;</code><br/>
-<code>#include &quot;<a class="el" href="RLAPSolverHungarian_8hpp_source.html">RLAPSolverHungarian.hpp</a>&quot;</code><br/>
-</div><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
-Functions</h2></td></tr>
-<tr class="memitem:a5a553988467f886e637e902720d507ba"><td class="memItemLeft" align="right" valign="top">unmarkedCols&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="RLAPSolverHungarian_8cpp.html#a5a553988467f886e637e902720d507ba">insert</a> (indexElements.begin(), indexElements.end())</td></tr>
-<tr class="separator:a5a553988467f886e637e902720d507ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac2875a31f4afde1a8e7cddbbb5343d87"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="RLAPSolverHungarian_8cpp.html#ac2875a31f4afde1a8e7cddbbb5343d87">for</a> (unsigned row=0;row&lt; rows;++row)</td></tr>
-<tr class="separator:ac2875a31f4afde1a8e7cddbbb5343d87"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aad7b940f4f42124eb0389f1a77693994"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="RLAPSolverHungarian_8cpp.html#aad7b940f4f42124eb0389f1a77693994">if</a> (rows!=cols)</td></tr>
-<tr class="separator:aad7b940f4f42124eb0389f1a77693994"><td class="memSeparator" colspan="2">&#160;</td></tr>
+
+<p><code>#include &lt;<a class="el" href="RLAPSolverTest_8hpp_source.html">RLAPSolverTest.hpp</a>&gt;</code></p>
+<div class="dynheader">
+Inheritance diagram for RLAPSolverTest:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="classRLAPSolverTest.png" usemap="#RLAPSolverTest_map" alt=""/>
+  <map id="RLAPSolverTest_map" name="RLAPSolverTest_map">
+</map>
+ </div></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-types"></a>
+Protected Types</h2></td></tr>
+<tr class="memitem:a909c11da097a0a6e98b1528b953df000"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRLAPSolverTest.html#a909c11da097a0a6e98b1528b953df000">SolverCreator</a> = std::function&lt; std::unique_ptr&lt; <a class="el" href="classRLAPSolver.html">RLAPSolver</a> &gt;(<a class="el" href="classTensor.html">Tensor</a>&lt; int &gt; &amp;)&gt;</td></tr>
+<tr class="separator:a909c11da097a0a6e98b1528b953df000"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
+Protected Member Functions</h2></td></tr>
+<tr class="memitem:a828e108adacee429b9a86380f5cafb73"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRLAPSolverTest.html#a828e108adacee429b9a86380f5cafb73">RLAPSolverTest</a> ()</td></tr>
+<tr class="separator:a828e108adacee429b9a86380f5cafb73"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
+Protected Attributes</h2></td></tr>
+<tr class="memitem:a0a34cde614187bf374078ea3e9e2aa19"><td class="memItemLeft" align="right" valign="top">std::list&lt; <a class="el" href="classRLAPSolverTest.html#a909c11da097a0a6e98b1528b953df000">SolverCreator</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRLAPSolverTest.html#a0a34cde614187bf374078ea3e9e2aa19">solvers</a></td></tr>
+<tr class="separator:a0a34cde614187bf374078ea3e9e2aa19"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Function Documentation</h2>
-<a class="anchor" id="ac2875a31f4afde1a8e7cddbbb5343d87"></a>
+<h2 class="groupheader">Member Typedef Documentation</h2>
+<a class="anchor" id="a909c11da097a0a6e98b1528b953df000"></a>
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">for </td>
+          <td class="memname">using <a class="el" href="classRLAPSolverTest.html#a909c11da097a0a6e98b1528b953df000">RLAPSolverTest::SolverCreator</a> =  std::function&lt;std::unique_ptr&lt;<a class="el" href="classRLAPSolver.html">RLAPSolver</a>&gt;(<a class="el" href="classTensor.html">Tensor</a>&lt;int&gt;&amp;)&gt;</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a828e108adacee429b9a86380f5cafb73"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">RLAPSolverTest::RLAPSolverTest </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a class="anchor" id="aad7b940f4f42124eb0389f1a77693994"></a>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a class="anchor" id="a0a34cde614187bf374078ea3e9e2aa19"></a>
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">if </td>
-          <td>(</td>
-          <td class="paramtype">rows!&#160;</td>
-          <td class="paramname"> = <code>cols</code></td><td>)</td>
-          <td></td>
+          <td class="memname">std::list&lt;<a class="el" href="classRLAPSolverTest.html#a909c11da097a0a6e98b1528b953df000">SolverCreator</a>&gt; RLAPSolverTest::solvers</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a class="anchor" id="a5a553988467f886e637e902720d507ba"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">unmarkedRows insert </td>
-          <td>(</td>
-          <td class="paramtype">indexElements.&#160;</td>
-          <td class="paramname"><em>begin</em>(), </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">indexElements.&#160;</td>
-          <td class="paramname"><em>end</em>()&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
+<li>test/Algorithm/RLAP/<a class="el" href="RLAPSolverTest_8hpp_source.html">RLAPSolverTest.hpp</a></li>
+<li>test/Algorithm/RLAP/<a class="el" href="RLAPSolverTest_8cpp.html">RLAPSolverTest.cpp</a></li>
+</ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

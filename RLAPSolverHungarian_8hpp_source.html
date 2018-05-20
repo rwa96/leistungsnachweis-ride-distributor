@@ -93,57 +93,40 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a href="RLAPSolverHungarian_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef RLAP_SOLVER_HUNGARIAN_H</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define RLAP_SOLVER_HUNGARIAN_H</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;memory&gt;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;numeric&gt;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;list&gt;</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;unordered_set&gt;</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="RLAPSolver_8hpp.html">RLAPSolver.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;numeric&gt;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;list&gt;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;unordered_set&gt;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="RLAPSolver_8hpp.html">RLAPSolver.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div>
-<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="classRLAPSolverHungarian.html">   12</a></span>&#160;<span class="keyword">class </span><a class="code" href="classRLAPSolverHungarian.html">RLAPSolverHungarian</a> : <span class="keyword">public</span> <a class="code" href="classRLAPSolver.html">RLAPSolver</a> {</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="classRLAPSolverHungarian.html#a3693d6f747c9a242a42d465c58778530">   14</a></span>&#160;    <a class="code" href="classRLAPSolverHungarian.html#a3693d6f747c9a242a42d465c58778530">RLAPSolverHungarian</a>(<a class="code" href="classTensor.html">Tensor&lt;int&gt;</a>&amp; matrix, std::unique_ptr&lt;<a class="code" href="classTensor.html">Tensor&lt;int&gt;</a>&gt; minRowValues, <span class="keyword">const</span> <span class="keywordtype">int</span> <a class="code" href="classRLAPSolverHungarian.html#aa20239a8023a9c0e647450bc45215f23">maxEntry</a>) :</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        rows(matrix.getDims()[0]),</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        cols(matrix.getDims()[1]),</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        size(std::max(rows, cols)),</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        rectangular(rows != cols),</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        moreRows(rows &lt; cols),</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        indexElements(size),</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        minRowValues(std::move(minRowValues)),</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        matrix(matrix),</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        fillMatrix({rectangular ? (moreRows ? rows : cols) : 0}, maxEntry)</div>
-<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="classRLAPSolverHungarian.html#aa20239a8023a9c0e647450bc45215f23">   24</a></span>&#160;    {</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        std::iota(indexElements.begin(), indexElements.end(), 0);</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        unmarkedCols.insert(indexElements.begin(), indexElements.end());</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        unmarkedRows.insert(indexElements.begin(), indexElements.end());</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    }</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classRLAPSolverHungarian.html#a82c1cc32a72ec437810f93da0bdd17a8">solve</a>(<a class="code" href="classTensor.html">Tensor&lt;int&gt;</a>&amp; assignments) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="classRLAPSolverHungarian.html">   11</a></span>&#160;<span class="keyword">class </span><a class="code" href="classRLAPSolverHungarian.html">RLAPSolverHungarian</a> : <span class="keyword">public</span> <a class="code" href="classRLAPSolver.html">RLAPSolver</a> {</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <a class="code" href="classRLAPSolverHungarian.html#a185054fe4607af8fde0ae7b87a160124">RLAPSolverHungarian</a>(<a class="code" href="classTensor.html">Tensor&lt;int&gt;</a>&amp; matrix, <a class="code" href="classTensor.html">Tensor&lt;int&gt;</a>&amp; minRowValues, <span class="keyword">const</span> <span class="keywordtype">int</span> maxEntry);</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classRLAPSolverHungarian.html#a82c1cc32a72ec437810f93da0bdd17a8">solve</a>(<a class="code" href="classTensor.html">Tensor&lt;int&gt;</a>&amp; assignments) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">unsigned</span> size, rows, cols;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keyword">const</span> <a class="code" href="classTensor.html">Tensor&lt;int&gt;</a> matrix;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    std::vector&lt;unsigned&gt; indexElements;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    std::list&lt;std::pair&lt;unsigned, unsigned&gt;&gt; zeros;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    std::list&lt;bool&gt; deleted;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    std::unordered_set&lt;unsigned&gt; unmarkedCols, unmarkedRows;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <a class="code" href="classTensor.html">Tensor&lt;int&gt;</a> minRowValues;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keywordtype">void</span> fillMatrix();</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keywordtype">void</span> minimizeRowsAndCols();</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keywordtype">void</span> coverZeros();</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keywordtype">void</span> minimizeRemaining(<span class="keywordtype">int</span>&amp; globalMin);</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keywordtype">void</span> assignResult(<a class="code" href="classTensor.html">Tensor&lt;int&gt;</a>&amp; assignments);</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;};</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">bool</span> rectangular, moreRows;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">unsigned</span> size, rows, cols;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keyword">const</span> <a class="code" href="classTensor.html">Tensor&lt;int&gt;</a> matrix, fillMatrix;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    std::vector&lt;unsigned&gt; indexElements;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    std::list&lt;std::pair&lt;unsigned, unsigned&gt;&gt; zeros;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    std::list&lt;bool&gt; deleted;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    std::unordered_set&lt;unsigned&gt; unmarkedCols, unmarkedRows;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    std::unique_ptr&lt;Tensor&lt;int&gt;&gt; minRowValues;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keywordtype">void</span> minimizeRowsAndCols();</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordtype">void</span> coverZeros();</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordtype">void</span> minimizeRemaining(<span class="keywordtype">int</span>&amp; globalMin);</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordtype">void</span> assignResult(<a class="code" href="classTensor.html">Tensor&lt;int&gt;</a>&amp; assignments);</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;};</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="preprocessor">#endif // RLAP_SOLVER_HUNGARIAN_H</span></div>
-<div class="ttc" id="classRLAPSolver_html"><div class="ttname"><a href="classRLAPSolver.html">RLAPSolver</a></div><div class="ttdef"><b>Definition:</b> RLAPSolver.hpp:6</div></div>
-<div class="ttc" id="classRLAPSolverHungarian_html_a3693d6f747c9a242a42d465c58778530"><div class="ttname"><a href="classRLAPSolverHungarian.html#a3693d6f747c9a242a42d465c58778530">RLAPSolverHungarian::RLAPSolverHungarian</a></div><div class="ttdeci">RLAPSolverHungarian(Tensor&lt; int &gt; &amp;matrix, std::unique_ptr&lt; Tensor&lt; int &gt;&gt; minRowValues, const int maxEntry)</div><div class="ttdef"><b>Definition:</b> RLAPSolverHungarian.hpp:14</div></div>
-<div class="ttc" id="classRLAPSolverHungarian_html_a82c1cc32a72ec437810f93da0bdd17a8"><div class="ttname"><a href="classRLAPSolverHungarian.html#a82c1cc32a72ec437810f93da0bdd17a8">RLAPSolverHungarian::solve</a></div><div class="ttdeci">void solve(Tensor&lt; int &gt; &amp;assignments) override</div><div class="ttdef"><b>Definition:</b> RLAPSolverHungarian.cpp:125</div></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#endif // RLAP_SOLVER_HUNGARIAN_H</span></div>
+<div class="ttc" id="classRLAPSolver_html"><div class="ttname"><a href="classRLAPSolver.html">RLAPSolver</a></div><div class="ttdef"><b>Definition:</b> RLAPSolver.hpp:11</div></div>
+<div class="ttc" id="classRLAPSolverHungarian_html_a82c1cc32a72ec437810f93da0bdd17a8"><div class="ttname"><a href="classRLAPSolverHungarian.html#a82c1cc32a72ec437810f93da0bdd17a8">RLAPSolverHungarian::solve</a></div><div class="ttdeci">void solve(Tensor&lt; int &gt; &amp;assignments) override</div><div class="ttdef"><b>Definition:</b> RLAPSolverHungarian.cpp:160</div></div>
 <div class="ttc" id="classTensor_html"><div class="ttname"><a href="classTensor.html">Tensor&lt; int &gt;</a></div></div>
-<div class="ttc" id="classRLAPSolverHungarian_html_aa20239a8023a9c0e647450bc45215f23"><div class="ttname"><a href="classRLAPSolverHungarian.html#aa20239a8023a9c0e647450bc45215f23">RLAPSolverHungarian::maxEntry</a></div><div class="ttdeci">maxEntry</div><div class="ttdef"><b>Definition:</b> RLAPSolverHungarian.hpp:24</div></div>
-<div class="ttc" id="classRLAPSolverHungarian_html"><div class="ttname"><a href="classRLAPSolverHungarian.html">RLAPSolverHungarian</a></div><div class="ttdef"><b>Definition:</b> RLAPSolverHungarian.hpp:12</div></div>
+<div class="ttc" id="classRLAPSolverHungarian_html_a185054fe4607af8fde0ae7b87a160124"><div class="ttname"><a href="classRLAPSolverHungarian.html#a185054fe4607af8fde0ae7b87a160124">RLAPSolverHungarian::RLAPSolverHungarian</a></div><div class="ttdeci">RLAPSolverHungarian(Tensor&lt; int &gt; &amp;matrix, Tensor&lt; int &gt; &amp;minRowValues, const int maxEntry)</div><div class="ttdef"><b>Definition:</b> RLAPSolverHungarian.cpp:20</div></div>
+<div class="ttc" id="classRLAPSolverHungarian_html"><div class="ttname"><a href="classRLAPSolverHungarian.html">RLAPSolverHungarian</a></div><div class="ttdef"><b>Definition:</b> RLAPSolverHungarian.hpp:11</div></div>
 <div class="ttc" id="RLAPSolver_8hpp_html"><div class="ttname"><a href="RLAPSolver_8hpp.html">RLAPSolver.hpp</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->

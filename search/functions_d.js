@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['y',['y',['../structTypes_1_1CarData.html#a8230a9aadd07f5d30b24ab1229ba925c',1,'Types::CarData']]]
+  ['writetofile',['writeToFile',['../classSearchGraphNode.html#acf969f742c4a4265ba6ad2a1d5ade8d2',1,'SearchGraphNode']]]
 ];

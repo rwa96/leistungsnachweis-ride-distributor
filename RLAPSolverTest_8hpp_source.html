@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>RideDistributor: test/Algorithm/GeneratorTest.hpp Source File</title>
+<title>RideDistributor: test/Algorithm/RLAP/RLAPSolverTest.hpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -82,22 +82,37 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_13e138d54eb8818da29c3992edef070a.html">test</a></li><li class="navelem"><a class="el" href="dir_4565b062176c882f3ed09ffe87b78659.html">Algorithm</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_13e138d54eb8818da29c3992edef070a.html">test</a></li><li class="navelem"><a class="el" href="dir_4565b062176c882f3ed09ffe87b78659.html">Algorithm</a></li><li class="navelem"><a class="el" href="dir_bad651a2896d857295f5bc879a9a7631.html">RLAP</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="headertitle">
-<div class="title">GeneratorTest.hpp</div>  </div>
+<div class="title">RLAPSolverTest.hpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="GeneratorTest_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef GENERATOR_TEST_H</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define GENERATOR_TEST_H</span></div>
+<a href="RLAPSolverTest_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef RLAP_SOLVER_TEST_H</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define RLAP_SOLVER_TEST_H</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;gtest/gtest.h&gt;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#endif // GENERATOR_TEST_H</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;list&gt;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;functional&gt;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;gtest/gtest.h&gt;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;memory&gt;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="RLAPSolver_8hpp.html">RLAPSolver.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div>
+<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="classRLAPSolverTest.html">   10</a></span>&#160;<span class="keyword">class </span><a class="code" href="classRLAPSolverTest.html">RLAPSolverTest</a>: <span class="keyword">public</span> ::testing::Test {</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="classRLAPSolverTest.html#a909c11da097a0a6e98b1528b953df000">   12</a></span>&#160;    <span class="keyword">using</span> <a class="code" href="classRLAPSolverTest.html#a909c11da097a0a6e98b1528b953df000">SolverCreator</a> = std::function&lt;std::unique_ptr&lt;RLAPSolver&gt;(<a class="code" href="classTensor.html">Tensor&lt;int&gt;</a>&amp;)&gt;;</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <a class="code" href="classRLAPSolverTest.html#a828e108adacee429b9a86380f5cafb73">RLAPSolverTest</a>();</div>
+<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="classRLAPSolverTest.html#a0a34cde614187bf374078ea3e9e2aa19">   14</a></span>&#160;    std::list&lt;SolverCreator&gt; <a class="code" href="classRLAPSolverTest.html#a0a34cde614187bf374078ea3e9e2aa19">solvers</a>;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;};</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#endif // RLAP_SOLVER_TEST_H</span></div>
+<div class="ttc" id="classRLAPSolverTest_html_a828e108adacee429b9a86380f5cafb73"><div class="ttname"><a href="classRLAPSolverTest.html#a828e108adacee429b9a86380f5cafb73">RLAPSolverTest::RLAPSolverTest</a></div><div class="ttdeci">RLAPSolverTest()</div><div class="ttdef"><b>Definition:</b> RLAPSolverTest.cpp:4</div></div>
+<div class="ttc" id="classRLAPSolverTest_html"><div class="ttname"><a href="classRLAPSolverTest.html">RLAPSolverTest</a></div><div class="ttdef"><b>Definition:</b> RLAPSolverTest.hpp:10</div></div>
+<div class="ttc" id="classRLAPSolverTest_html_a0a34cde614187bf374078ea3e9e2aa19"><div class="ttname"><a href="classRLAPSolverTest.html#a0a34cde614187bf374078ea3e9e2aa19">RLAPSolverTest::solvers</a></div><div class="ttdeci">std::list&lt; SolverCreator &gt; solvers</div><div class="ttdef"><b>Definition:</b> RLAPSolverTest.hpp:14</div></div>
+<div class="ttc" id="classTensor_html"><div class="ttname"><a href="classTensor.html">Tensor&lt; int &gt;</a></div></div>
+<div class="ttc" id="RLAPSolver_8hpp_html"><div class="ttname"><a href="RLAPSolver_8hpp.html">RLAPSolver.hpp</a></div></div>
+<div class="ttc" id="classRLAPSolverTest_html_a909c11da097a0a6e98b1528b953df000"><div class="ttname"><a href="classRLAPSolverTest.html#a909c11da097a0a6e98b1528b953df000">RLAPSolverTest::SolverCreator</a></div><div class="ttdeci">std::function&lt; std::unique_ptr&lt; RLAPSolver &gt;(Tensor&lt; int &gt; &amp;)&gt; SolverCreator</div><div class="ttdef"><b>Definition:</b> RLAPSolverTest.hpp:12</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
