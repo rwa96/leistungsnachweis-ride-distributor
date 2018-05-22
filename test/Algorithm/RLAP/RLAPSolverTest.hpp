@@ -18,7 +18,8 @@ protected:
     using SolverCreator = std::function<RLAPSolver*(const Tensor<int>&)>;
 
     int assignmentSum(const Tensor<int>& assignments, const Tensor<int>& inputMatrix);
-    void uniqueEntries(const Tensor<int>& assignments, unsigned& uniqueRows, unsigned& uniqueCols);
+    void uniqueEntries(const Tensor<int>& assignments, unsigned& uniqueRows,
+                       unsigned& uniqueCols);
     RLAPSolverTest();
 
     std::list<SolverCreator> solvers;

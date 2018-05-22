@@ -25,7 +25,7 @@ add_library(Generator Algorithm/Generator.cpp)
 target_include_directories(Generator
 	PUBLIC
 		${CMAKE_CURRENT_SOURCE_DIR}/Algorithm
-		${CMAKE_CURRENT_SOURCE_DIR}/Numeric
+        ${CMAKE_CURRENT_SOURCE_DIR}/Numeric
 )
 target_link_libraries(Generator
 	PUBLIC
@@ -40,7 +40,7 @@ add_library(Aggregator Algorithm/Aggregator.cpp)
 target_include_directories(Aggregator
 	PUBLIC
 		${CMAKE_CURRENT_SOURCE_DIR}/Algorithm
-		${CMAKE_CURRENT_SOURCE_DIR}/Numeric
+        ${CMAKE_CURRENT_SOURCE_DIR}/Numeric
 )
 target_link_libraries(Aggregator
 	PUBLIC
@@ -74,7 +74,7 @@ add_library(Algorithm Algorithm/Algorithm.cpp)
 target_include_directories(Algorithm
 	PUBLIC
 		${CMAKE_CURRENT_SOURCE_DIR}/Algorithm
-		${CMAKE_CURRENT_SOURCE_DIR}/Numeric
+        ${CMAKE_CURRENT_SOURCE_DIR}/Numeric
 )
 target_link_libraries(Algorithm
 	PUBLIC

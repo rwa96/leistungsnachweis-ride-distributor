@@ -1,32 +1,23 @@
 #ifndef RLAP_SOLVER_HUNGARIAN_H
 #define RLAP_SOLVER_HUNGARIAN_H
 
-#include <numeric>
-#include <list>
-#include <vector>
-#include <unordered_set>
+#include "Tensor.hpp"
 #include "RLAPSolver.hpp"
 
+typedef enum {
+    HUNGARIAN_NOT_ASSIGNED,
+    HUNGARIAN_ASSIGNED,
+} ASSIGN;
 
 class RLAPSolverHungarian : public RLAPSolver {
 public:
-    RLAPSolverHungarian(const Tensor<int>& matrix, const Tensor<int>& minRowValues, const int maxEntry);
-	void solve(Tensor<int>& assignments) override;
-
+    RLAPSolverHungarian(const Tensor<int>& mat, const unsigned rows, const unsigned cols,
+                        const int maxCost);
+    void solve(Tensor<int>& assignments) override;
 private:
-    const unsigned size, rows, cols;
-    const Tensor<int> matrix;
-    std::vector<unsigned> indexElements;
-    std::vector<std::pair<unsigned, unsigned>> zeros;
-    std::vector<bool> deleted;
-    std::unordered_set<unsigned> unmarkedCols, unmarkedRows;
-    Tensor<int> minRowValues;
+    unsigned cost, rows, cols, size;
+    Tensor<int> costMat, assignMat;
 
-    void fillMatrix();
-    void minimizeRowsAndCols();
-    void coverZeros();
-    void minimizeRemaining(int& globalMin);
-    void assignResult(Tensor<int>& assignments);
 };
 
 #endif // RLAP_SOLVER_HUNGARIAN_H
