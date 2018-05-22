@@ -17,8 +17,8 @@ private:
     const unsigned size, rows, cols;
     const Tensor<int> matrix;
     std::vector<unsigned> indexElements;
-    std::list<std::pair<unsigned, unsigned>> zeros;
-    std::list<bool> deleted;
+    std::vector<std::pair<unsigned, unsigned>> zeros;
+    std::vector<bool> deleted;
     std::unordered_set<unsigned> unmarkedCols, unmarkedRows;
     Tensor<int> minRowValues;
 

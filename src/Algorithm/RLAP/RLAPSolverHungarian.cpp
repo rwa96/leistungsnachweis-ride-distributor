@@ -1,5 +1,6 @@
 #include <functional>
 #include <algorithm>
+#include <iostream>
 #include "RLAPSolverHungarian.hpp"
 
 #define MAX_SIZE(m) std::max(m.getDims()[0], m.getDims()[1])
@@ -34,6 +35,7 @@ RLAPSolverHungarian::RLAPSolverHungarian(const Tensor<int>& matrix, const Tensor
         for(unsigned col = 0; col < cols; ++col){
             this->matrix(row, col) = maxEntry - matrix(row, col);
         }
+        minRowValues(row) = maxEntry - minRowValues(row);
     }
     if(rows != cols){
         fillMatrix();
@@ -71,45 +73,35 @@ void RLAPSolverHungarian::minimizeRowsAndCols(){
 }
 
 void RLAPSolverHungarian::coverZeros(){
-    auto iCoordItr = zeros.begin();
-    auto iDeletedItr = deleted.begin();
-    for(; iCoordItr != zeros.end(); ++iCoordItr, ++iDeletedItr){
-        const std::pair<unsigned, unsigned>& iCoord = *iCoordItr;
-        bool& iDeleted = *iDeletedItr;
-
-        if(iDeleted){continue;}
+    for(unsigned i = 0; i < zeros.size(); ++i){
+        if(deleted[i]){continue;}
 
         bool uniqueRow = true, uniqueCol = true;
-        std::list<std::reference_wrapper<bool>> del;
+        std::list<unsigned> deletedIndex;
 
-        auto jCoordItr = zeros.begin();
-        auto jDeletedItr = deleted.begin();
-        for(; jCoordItr != zeros.end(); ++jCoordItr, ++jDeletedItr){
-            const std::pair<unsigned, unsigned>& jCoord = *jCoordItr;
-            bool& jDeleted = *jDeletedItr;
-
+        for(unsigned j = 0; j < zeros.size(); ++j){
             if(!uniqueRow && !uniqueCol){break;}
-            if(jDeleted){continue;}
-
-            if(iCoord == jCoord){
-                del.push_back(jDeleted);
+            if(deleted[j]){continue;}
+            if(zeros[i] == zeros[j]){
+                deletedIndex.push_back(j);
                 continue;
             }
 
-            if(iCoord.first == jCoord.first){
+            if(zeros[i].first == zeros[j].first){
                 uniqueRow = false;
-                del.push_back(jDeleted);
+                deletedIndex.push_back(j);
             }
-            if(iCoord.second == jCoord.second){
+            if(zeros[i].second == zeros[j].second){
                 uniqueCol = false;
-                del.push_back(jDeleted);
+                deletedIndex.push_back(j);
             }
         }
+
         if(uniqueRow || uniqueCol){
-            if(uniqueRow){unmarkedCols.erase(iCoord.second);}
-            else{unmarkedRows.erase(iCoord.first);}
-            for(bool& elm: del){
-                elm = true;
+            if(uniqueRow){unmarkedCols.erase(zeros[i].second);}
+            else{unmarkedRows.erase(zeros[i].first);}
+            for(unsigned index: deletedIndex){
+                deleted[index] = true;
             }
         }
     }

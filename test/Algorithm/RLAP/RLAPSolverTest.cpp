@@ -1,7 +1,6 @@
 #include <unordered_set>
 #include "RLAPSolverTest.hpp"
 #include "RLAPSolverHungarian.hpp"
-#include <iostream>
 
 RLAPSolverTest::RLAPSolverTest(){
     solvers.push_back([](const Tensor<int>& m) -> RLAPSolver* {
