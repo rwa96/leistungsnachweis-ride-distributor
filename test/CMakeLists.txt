@@ -20,6 +20,10 @@ target_link_libraries(GeneratorTest PRIVATE gtest gmock Generator)
 #add_test(NAME GeneratorTest COMMAND GeneratorTest)
 
 add_executable(RLAPSolverTest Algorithm/RLAP/RLAPSolverTest.cpp)
-target_include_directories(RLAPSolverTest PRIVATE Algorithm/RLAP ${PROJECT_SOURCE_DIR}/src/Algorithm/RLAP)
+target_include_directories(RLAPSolverTest
+    PRIVATE
+        Algorithm/RLAP ${PROJECT_SOURCE_DIR}/src/Algorithm/RLAP
+        ${PROJECT_SOURCE_DIR}/src/Numeric
+)
 target_link_libraries(RLAPSolverTest PRIVATE gtest gmock RLAPSolverHungarian)
 add_test(NAME RLAPSolverTest COMMAND RLAPSolverTest)

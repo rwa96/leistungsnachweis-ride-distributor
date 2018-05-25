@@ -106,7 +106,7 @@ void RLAPSolverHungarian::reduceRowsAndCols(Tensor<unsigned>& zeroCountRows, Ten
 unsigned RLAPSolverHungarian::coverZeros(Tensor<unsigned>& zeroCountRows, Tensor<unsigned>& zeroCountCols, Tensor<bool>& rowLines, Tensor<bool>& colLines){
     Tensor<bool> zeroCountRowsFlag({size}), zeroCountColsFlag({size});
     bool changedMarker = true;
-    bool changed = !changedMarker;
+    bool changed;
     unsigned lineCount = 0;
 
     for(unsigned i = 0; i < size; ++i){
@@ -117,6 +117,7 @@ unsigned RLAPSolverHungarian::coverZeros(Tensor<unsigned>& zeroCountRows, Tensor
     }
 
     do{
+        changed = false;
         for(unsigned i = 0; i < zeros.size(); ++i){
             if(zeros[i].deleted){continue;}
             unsigned currentRow = zeros[i].row;
@@ -220,19 +221,20 @@ int RLAPSolverHungarian::recalculateCosts(const int minVal, Tensor<unsigned>& ze
     return newMinVal;
 }
 
-void RLAPSolverHungarian::assignMatching(Tensor<int>& assignments){
-    Tensor<bool> assignedRows({rows}, false), assignedCols({cols}, false);
+void RLAPSolverHungarian::assignMatching(Tensor<int>& assignments, Tensor<bool>& rowLines, Tensor<bool>& colLines){
+    Tensor<bool> assignedRows({size}, false), assignedCols({size}, false);
     const unsigned maxAssignments = std::min(rows, cols);
     unsigned assignmentsInd = 0;
-    for(Zero elm: zeros){
-        if(elm.row < rows && elm.col < cols
-            && !assignedRows(elm.row) && !assignedCols(elm.col))
-        {
-            assignments(assignmentsInd, 0) = elm.row;
-            assignments(assignmentsInd, 1) = elm.col;
+    for(auto itr = zeros.rbegin(); itr != zeros.rend(); ++itr){
+        const Zero& elm = *itr;
+        if(rowLines(elm.row) != colLines(elm.col) && !assignedRows(elm.row) && !assignedCols(elm.col)){
             assignedRows(elm.row) = true;
             assignedCols(elm.col) = true;
-            if(++assignmentsInd >= maxAssignments){break;}
+            if(elm.row < rows && elm.col < cols){
+                assignments(assignmentsInd, 0) = elm.row;
+                assignments(assignmentsInd, 1) = elm.col;
+                ++assignmentsInd;
+            }
         }
     }
 }
@@ -253,6 +255,6 @@ void RLAPSolverHungarian::solve(Tensor<int>& assignments){
         lineCount = coverZeros(zeroCountRows, zeroCountCols, rowLines, colLines);
     }
 
-    assignMatching(assignments);
+    assignMatching(assignments, rowLines, colLines);
     solved = true;
 }
