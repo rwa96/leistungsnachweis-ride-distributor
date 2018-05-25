@@ -36,13 +36,6 @@ public:
 private:
 
     /**
-     * Print a choice.
-     *
-     * \param [in]	choice	Choice to print.
-     */
-    void printChoice(std::unique_ptr<Types::Choice>& choice);
-
-    /**
      * Check if carData is still within a given simulation time.
      *
      * \param [in]	carData	CarData to check.

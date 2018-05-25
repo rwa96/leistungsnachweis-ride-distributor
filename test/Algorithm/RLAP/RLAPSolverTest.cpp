@@ -3,9 +3,17 @@
 #include "RLAPSolverHungarian.hpp"
 
 RLAPSolverTest::RLAPSolverTest() {
-    /*solvers.push_back([](const Tensor<int>& m) -> RLAPSolver* {
-        return new RLAPSolverHungarian(m, minRowValues, maxEntry);
-    });*/
+    solvers.push_back([](const Tensor<int>& m) -> RLAPSolver* {
+        int maxEntry = 0;
+        for(unsigned row = 0; row < m.getDims()[0]; ++row){
+            for(unsigned col = 0; col < m.getDims()[1]; ++col){
+                if(maxEntry < m(row, col)){
+                    maxEntry = m(row, col);
+                }
+            }
+        }
+        return new RLAPSolverHungarian(m, maxEntry);
+    });
 }
 
 void RLAPSolverTest::uniqueEntries(const Tensor<int>& assignments, unsigned& uniqueRows,

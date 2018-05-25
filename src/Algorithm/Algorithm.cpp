@@ -1,16 +1,18 @@
-#include <iostream>
 #include <numeric>
 #include <cmath>
 #include "Algorithm.hpp"
 
-void Algorithm::printChoice(std::unique_ptr<Types::Choice>& choice) {
-    std::cout << "Choice:" << std::endl;
-    std::cout << '\t' << "x: " << choice->cars.x.str();
-    std::cout << '\t' << "y: " << choice->cars.y.str();
-    std::cout << '\t' << "t: " << choice->cars.t.str();
-    std::cout << '\t' << "p: " << choice->cars.p.str();
-    std::cout << '\t' << "Score: " << choice->score << std::endl;
-}
+#ifndef NDEBUG
+    #include <iostream>
+    #define DBG_PRINT_CHOICE(choice) std::cout << "Choice:" << std::endl; \
+        DBG_PRINT_1D_TENSOR("x", choice->cars.x); \
+        DBG_PRINT_1D_TENSOR("y", choice->cars.y); \
+        DBG_PRINT_1D_TENSOR("t", choice->cars.t); \
+        DBG_PRINT_1D_TENSOR("p", choice->cars.p); \
+        std::cout << "Score: " << choice->score << std::endl
+#else
+    #define DBG_PRINT_CHOICE(_)
+#endif
 
 bool Algorithm::checkCarDataValid(Types::CarData carData, unsigned T) {
     bool result = true;
@@ -68,7 +70,7 @@ void Algorithm::run() {
         } else {
             std::cout << "No more choices to aggregate." << std::endl;
             std::cout << "Printing best choice:" << std::endl;
-            printChoice(choices.front());
+            DBG_PRINT_CHOICE(choices.front());
 
             unsigned googleScore = 0;
 

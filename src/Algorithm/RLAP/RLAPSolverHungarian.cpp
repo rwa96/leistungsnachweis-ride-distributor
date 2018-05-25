@@ -1,329 +1,258 @@
-#include <algorithm>
-#include <limits>
+#include <unordered_set>
+#include <numeric>
+#include <stdexcept>
 #include "RLAPSolverHungarian.hpp"
+
+#ifndef NDEBUG
+    #include <iostream>
+
+    #define DBG_PRINT_ZEROS(v) std::cout << "zeros" << std::endl; \
+    for(auto elm: v) \
+        std::cout << '[' << elm.row \
+        << ", " << elm.col << \
+        ", " << elm.deleted << ']' << std::endl
+#else
+    #define DBG_PRINT_ZEROS(_)
+#endif
 
 #define MAX_DIM(m) std::max(m.getDims()[0], m.getDims()[1])
 
-RLAPSolverHungarian::RLAPSolverHungarian(const Tensor<int>& mat, const unsigned rows,
-        const unsigned cols, const int maxCost):
-    rows(rows),
-    cols(cols),
+RLAPSolverHungarian::RLAPSolverHungarian(const Tensor<int>& mat, const int maxCost):
+    rows(mat.getDims()[0]),
+    cols(mat.getDims()[1]),
     size(MAX_DIM(mat)),
-    costMat({MAX_DIM(mat), MAX_DIM(mat)}, 0),
-assignMat({MAX_DIM(mat), MAX_DIM(mat)}, 0) {
-    for(unsigned row = 0; row < rows; ++row) {
+    costMat({MAX_DIM(mat), MAX_DIM(mat)}),
+    rowMin({MAX_DIM(mat)}, maxCost),
+    colMin({MAX_DIM(mat)}, maxCost),
+    solved(false)
+{
+    int newMaxCost = 0;
+    for(unsigned row = 0; row < rows; ++row){
         for(unsigned col = 0; col < cols; ++col) {
-            costMat(row, col) = maxCost - mat(row, col);
+            int& entry = costMat(row, col);
+            entry = maxCost - mat(row, col);
+
+            if(rowMin(row) > entry){
+                rowMin(row) = entry;
+            }
+            if(colMin(col) > entry){
+                colMin(col) = entry;
+            }
+            if(newMaxCost < entry){
+                newMaxCost = entry;
+            }
         }
     }
 
     if(rows != cols) {
-        unsigned row, col;
+        unsigned rowStart, colStart;
 
-        if(rows > cols)
-        {row = 0; col = cols;}
-        else
-        {row = rows; col = 0;}
+        if(rows > cols){
+            rowStart = 0;
+            colStart = cols;
+            for(unsigned col = colStart; col < size; ++col){colMin(col) = newMaxCost;}
+        }else{
+            rowStart = rows;
+            colStart = 0;
+            for(unsigned row = rowStart; row < size; ++row){rowMin(row) = newMaxCost;}
+        }
 
-        for(; row < size; ++row) {
-            for(; col < size; ++col) {
-                costMat(row, col) = maxCost;
+        for(unsigned row = rowStart; row < size; ++row) {
+            for(unsigned col = colStart; col < size; ++col) {
+                costMat(row, col) = newMaxCost;
             }
         }
     }
 }
 
-void RLAPSolverHungarian::solve(Tensor<int>& assignments) {
-    Tensor<int> colVert({size}), rowVert({size}), unchosenRow({size}), parentRow({size}),
-           rowDec({size}), colInc({size}), slackRow({size}), slack({size});
 
-    for(unsigned i = 0; i < size; ++i) {
-        colVert(i) = 0;
-        rowVert(i) = 0;
-        unchosenRow(i) = 0;
-        parentRow(i) = 0;
-        rowDec(i) = 0;
-        colInc(i) = 0;
-        slackRow(i) = 0;
-        slack(i) = 0;
+void RLAPSolverHungarian::reduceRowsAndCols(Tensor<unsigned>& zeroCountRows, Tensor<unsigned>& zeroCountCols){
+    std::unordered_set<unsigned> nonZeroCols;
+    for(unsigned i = 0; i < size; ++i){
+        zeroCountCols(i) = 0;
+        zeroCountRows(i) = 0;
+        nonZeroCols.insert(i);
     }
 
-    for(unsigned col = 0; col < size; ++col) {
-
+    // Reduce rows
+    for(unsigned row = 0; row < size; ++row){
+        for(unsigned col = 0; col < size; ++col){
+            int& entry = costMat(row, col);
+            entry -= rowMin(row);
+            if(entry == 0){
+                nonZeroCols.erase(col);
+                ++zeroCountCols(col);
+                ++zeroCountRows(row);
+                zeros.push_back({row, col, false});
+            }else if(colMin(col) > entry){
+                colMin(col) = entry;
+            }
+        }
     }
-}/*
-  // Begin subtract column minima in order to start with lots of zeroes 12
-	for (l=0;l<n;l++)
-	{
-		s = m_costmatrix[0][l];
 
-		for (k=1;k<m;k++)
-		{
-			if (m_costmatrix[k][l] < s)
-			{
-				s=m_costmatrix[k][l];
-			}
-			cost += s;
-		}
+    // Reduce non zero columns
+    for(unsigned col: nonZeroCols){
+        for(unsigned row = 0; row < size; ++row){
+            costMat(row, col) -= colMin(col);
+            if(costMat(row, col) == 0){
+                ++zeroCountCols(col);
+                ++zeroCountRows(row);
+                zeros.push_back({row, col, false});
+            }
+        }
+    }
+}
 
-		if (s!=0)
-		{
-			for (k=0;k<m;k++)
-			{
-				m_costmatrix[k][l]-=s;
-			}
-		}
+unsigned RLAPSolverHungarian::coverZeros(Tensor<unsigned>& zeroCountRows, Tensor<unsigned>& zeroCountCols, Tensor<bool>& rowLines, Tensor<bool>& colLines){
+    Tensor<bool> zeroCountRowsFlag({size}), zeroCountColsFlag({size});
+    bool changedMarker = true;
+    bool changed = !changedMarker;
+    unsigned lineCount = 0;
 
-		//pre-initialize state 16
-		row_vertex[l]= -1;
-		parent_row[l]= -1;
-		col_inc[l]=0;
-		slack[l]=INF;
-	}
-  // End subtract column minima in order to start with lots of zeroes 12
+    for(unsigned i = 0; i < size; ++i){
+        rowLines(i) = false;
+        colLines(i) = false;
+        zeroCountRowsFlag(i) = false;
+        zeroCountColsFlag(i) = false;
+    }
 
-  // Begin initial state 16
-	t=0;
+    do{
+        for(unsigned i = 0; i < zeros.size(); ++i){
+            if(zeros[i].deleted){continue;}
+            unsigned currentRow = zeros[i].row;
+            unsigned currentCol = zeros[i].col;
 
-	for (k=0;k<m;k++)
-	{
-		bool row_done = false;
-		s=m_costmatrix[k][0];
+            if(zeroCountRows(currentRow) > zeroCountCols(currentCol)){
+                for(unsigned j = 0; j < zeros.size(); ++j){
+                    if(zeros[j].deleted){continue;}
+                    else if(zeros[j].row == currentRow){
+                        --zeroCountCols(zeros[j].col);
+                        zeros[j].deleted = true;
+                        if(zeroCountColsFlag(zeros[j].col) == changedMarker){
+                            changed = true;
+                        }
+                    }
+                }
 
-		for (l=0;l<n;l++)
-		{
+                ++lineCount;
+                rowLines(currentRow) = true;
 
-			if(l > 0)
-			{
-				if (m_costmatrix[k][l] < s)
-				{
-					s = m_costmatrix[k][l];
-				}
-				row_dec[k]=s;
-			}
+                zeroCountRows(currentRow) = 0;
+                if(zeroCountRowsFlag(currentRow) == changedMarker){
+                    changed = true;
+                }
+            }else if (zeroCountRows(currentRow) < zeroCountCols(currentCol)){
+                for(unsigned j = 0; j < zeros.size(); ++j){
+                    if(zeros[j].deleted){continue;}
+                    else if(zeros[j].col == currentCol){
+                        --zeroCountRows(zeros[j].row);
+                        zeros[j].deleted = true;
+                        if(zeroCountRowsFlag(zeros[j].row) == changedMarker){
+                            changed = true;
+                        }
+                    }
+                }
 
-			if (s == m_costmatrix[k][l] && row_vertex[l]<0)
-				{
-					col_vertex[k]=l;
-					row_vertex[l]=k;
+                ++lineCount;
+                colLines(currentCol) = true;
 
-					if (verbose)
-					{
-						fprintf(stderr, "matching col %d==row %d\n",l,k);
-					}
-					row_done = true;
-					break;
-				}
-		}
+                zeroCountCols(currentCol) = 0;
+                if(zeroCountColsFlag(currentCol) == changedMarker){
+                    changed = true;
+                }
+            }else{
+                zeroCountRowsFlag(currentRow) = changedMarker;
+                zeroCountColsFlag(currentCol) = changedMarker;
+            }
+        }
 
-		if(!row_done)
-		{
-			col_vertex[k]= -1;
+        changedMarker = !changedMarker;
+    }while(changed);
 
-			if (verbose)
-			{
-				fprintf(stderr, "node %d: unmatched row %d\n",t,k);
-			}
+    for(unsigned i = 0; i < zeros.size(); ++i){
+        if(!zeros[i].deleted){
+            if(!rowLines(zeros[i].row)){
+                ++lineCount;
+                rowLines(zeros[i].row) = true;
+            }
+        }
+    }
 
-			unchosen_row[t++]=k;
-		}
+    return lineCount;
+}
 
-	}
-  // End initial state 16
+int RLAPSolverHungarian::recalculateCosts(const int minVal, Tensor<unsigned>& zeroCountRows, Tensor<unsigned>& zeroCountCols, Tensor<bool>& rowLines, Tensor<bool>& colLines){
+    int newMinVal = minVal;
 
-	bool checked = false;
+    if(newMinVal == 0){
+        for(unsigned row = 0; row < size; ++row){
+            zeroCountRows(row) = 0;
+            for(unsigned col = 0; col < size; ++col){
+                zeroCountCols(col) = 0;
+                if(colLines(col)){continue;}
+                else if(newMinVal == 0 || newMinVal > costMat(row, col)){
+                    newMinVal = costMat(row, col);
+                }
+            }
+        }
+    }
 
-  // Begin Hungarian algorithm 18
+    for(unsigned row = 0; row < size; ++row){
+        for(unsigned col = 0; col < size; ++col){
+            int& entry = costMat(row, col);
 
-	//is matching already complete?
-	if (t == 0)
-	{
-		checked = check_solution(row_dec, col_inc, col_vertex);
-		if (checked)
-		{
-			//finish assignment, wrap up and done.
-			bool assign = assign_solution(row_dec, col_inc, col_vertex);
-			return true;
-		}
-		else
-		{
-			if(verbose)
-			{
-				fprintf(stderr, "Could not solve. Error.\n");
-			}
-			return false;
-		}
-	}
+            if(rowLines(row) && colLines(col)){
+                entry += minVal;
+            }else if(!rowLines(row) && !colLines(col)){
+                entry -= minVal;
+            }
 
-	unmatched=t;
+            if(entry == 0){
+                ++zeroCountRows(row);
+                ++zeroCountCols(col);
+                zeros.push_back({row, col, false});
+            }else if(newMinVal > entry){
+                newMinVal = entry;
+            }
+        }
+    }
 
+    return newMinVal;
+}
 
-	while (1)
-	{
-		if (verbose)
-		{
-			fprintf(stderr, "Matched %d rows.\n",m-t);
-		}
-		q=0;
-		bool try_matching;
-		while (1)
-		{
-			while (q<t)
-			{
-			// Begin explore node q of the forest 19
+void RLAPSolverHungarian::assignMatching(Tensor<int>& assignments){
+    Tensor<bool> assignedRows({rows}, false), assignedCols({cols}, false);
+    const unsigned maxAssignments = std::min(rows, cols);
+    unsigned assignmentsInd = 0;
+    for(Zero elm: zeros){
+        if(elm.row < rows && elm.col < cols
+            && !assignedRows(elm.row) && !assignedCols(elm.col))
+        {
+            assignments(assignmentsInd, 0) = elm.row;
+            assignments(assignmentsInd, 1) = elm.col;
+            assignedRows(elm.row) = true;
+            assignedCols(elm.col) = true;
+            if(++assignmentsInd >= maxAssignments){break;}
+        }
+    }
+}
 
-				k=unchosen_row[q];
-				s=row_dec[k];
-				for (l=0;l<n;l++)
-				{
-					if (slack[l])
-					{
-						int del;
-						del=m_costmatrix[k][l]-s+col_inc[l];
-						if (del<slack[l])
-						{
-							if (del==0)
-							{
-								if (row_vertex[l]<0)
-								{
-									goto breakthru;
-								}
-								slack[l]=0;
-								parent_row[l]=k;
-								if (verbose)
-									fprintf(stderr, "node %d: row %d==col %d--row %d\n",
-									t,row_vertex[l],l,k);
-									unchosen_row[t++]=row_vertex[l];
-							}
-							else
-							{
-								slack[l]=del;
-								slack_row[l]=k;
-							}
-						}
-					}
-				}
-			// End explore node q of the forest 19
-				q++;
-			}
+void RLAPSolverHungarian::solve(Tensor<int>& assignments){
+    if(solved){throw std::runtime_error("RLAP solved already");}
 
-	  // Begin introduce a new zero into the matrix 21
-		s=INF;
-		for (l=0;l<n;l++)
-		{
-			if (slack[l] && slack[l]<s)
-			{
-				s=slack[l];
-			}
-		}
-		for (q=0;q<t;q++)
-		{
-			row_dec[unchosen_row[q]]+=s;
-		}
-		for (l=0;l<n;l++)
-		{
-			//check slack
-			if (slack[l])
-			{
-				slack[l]-=s;
-				if (slack[l]==0)
-				{
-					// Begin look at a new zero 22
-					k=slack_row[l];
-					if (verbose)
-					{
-						fprintf(stderr,
-						"Decreasing uncovered elements by %d produces zero at [%d,%d]\n",
-						s,k,l);
-					}
-					if (row_vertex[l]<0)
-					{
-						for (j=l+1;j<n;j++)
-							if (slack[j]==0)
-							{
-								col_inc[j]+=s;
-							}
+    Tensor<unsigned> zeroCountRows({size}), zeroCountCols({size});
+    Tensor<bool> rowLines({size}), colLines({size});
 
-						goto breakthru;
-					}
-					else
-					{
-						parent_row[l]=k;
-						if (verbose)
-						{
-							fprintf(stderr, "node %d: row %d==col %d--row %d\n",t,row_vertex[l],l,k);
-							unchosen_row[t++]=row_vertex[l];
-						}
-					}
-		// End look at a new zero 22
-				}
-			}
-			else
-			{
-				col_inc[l]+=s;
-			}
-		}
-	// End introduce a new zero into the matrix 21
-	}
+    reduceRowsAndCols(zeroCountRows, zeroCountCols);
+    unsigned lineCount = coverZeros(zeroCountRows, zeroCountCols, rowLines, colLines);
 
-    breakthru:
-      // Begin update the matching 20
-		if (verbose)
-		{
-			fprintf(stderr, "Breakthrough at node %d of %d!\n",q,t);
-		}
-		while (1)
-		{
-			j=col_vertex[k];
-			col_vertex[k]=l;
-			row_vertex[l]=k;
-			if (verbose)
-			{
-				fprintf(stderr, "rematching col %d==row %d\n",l,k);
-			}
-			if (j<0)
-			{
-				break;
-			}
-			k=parent_row[j];
-			l=j;
-		}
-		// End update the matching 20
-		if (--unmatched == 0)
-		{
-			checked = check_solution(row_dec, col_inc, col_vertex);
-			if (checked)
-			{
-				//finish assignment, wrap up and done.
-				bool assign = assign_solution(row_dec, col_inc, col_vertex);
-				return true;
-			}
-			else
-			{
-				if(verbose)
-				{
-					fprintf(stderr, "Could not solve. Error.\n");
-				}
-				return false;
-			}
-		}
+    int minVal = 0;
+    while(lineCount < size){
+        zeros.clear();
+        minVal = recalculateCosts(minVal, zeroCountRows, zeroCountCols, rowLines, colLines);
+        lineCount = coverZeros(zeroCountRows, zeroCountCols, rowLines, colLines);
+    }
 
-		// Begin get ready for another stage 17
-			t=0;
-			for (l=0;l<n;l++)
-			{
-				parent_row[l]= -1;
-				slack[l]=INF;
-			}
-			for (k=0;k<m;k++)
-			{
-				if (col_vertex[k]<0)
-				{
-					if (verbose)
-						fprintf(stderr, "node %d: unmatched row %d\n",t,k);
-					unchosen_row[t++]=k;
-				}
-			}
-		// End get ready for another stage 17
-	}// back to while loop
-}*/
+    assignMatching(assignments);
+    solved = true;
+}

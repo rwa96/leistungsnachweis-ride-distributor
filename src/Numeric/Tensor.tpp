@@ -39,24 +39,6 @@ Tensor<T>::Tensor(const Tensor<T>& other): Tensor(other.getDims()) {
 }
 
 template<typename T>
-std::string Tensor<T>::str() const {
-    std::ostringstream result;
-
-    result << '[';
-
-    for(unsigned i = 0; i < std::min(size, MAX_SHOWN_ENTRIES); ++i) {
-        result << data[i];
-
-        if(i < size - 1) {result << ", ";}
-        else if(size > MAX_SHOWN_ENTRIES) {result << "...";}
-    }
-
-    result << ']' << std::endl;
-
-    return result.str();
-}
-
-template<typename T>
 T& Tensor<T>::operator()(const int i) const
 {return data[i];}
 

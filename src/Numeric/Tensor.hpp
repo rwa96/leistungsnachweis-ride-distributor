@@ -7,6 +7,29 @@
 #include <sstream>
 #include <algorithm>
 
+#ifndef NDEBUG
+    #include <iostream>
+
+    #define DBG_PRINT_2D_TENSOR(s, m) std::cout << s << std::endl; \
+    for(unsigned r = 0; r < m.getDims()[0]; ++r){ \
+        for(unsigned c = 0; c < m.getDims()[1]; ++c){ \
+            std::cout << m(r, c); \
+            if(c < m.getDims()[1] - 1) std::cout << ", "; \
+        } \
+        std::cout << std::endl; \
+    }
+
+    #define DBG_PRINT_1D_TENSOR(s, v) std::cout << s << std::endl; \
+    for(unsigned i = 0; i < v.getDims()[0]; ++i){ \
+        std::cout << v(i); \
+        if(i < v.getDims()[0] - 1) std::cout << ", "; \
+    } \
+    std::cout << std::endl
+#else
+    #define DBG_PRINT_2D_TENSOR(_, _)
+    #define DBG_PRINT_1D_TENSOR(_, _)
+#endif
+
 #define MAX_SHOWN_ENTRIES (unsigned)20
 
 
@@ -46,14 +69,6 @@ public:
      * \param [in] other Tensor to copy
      */
     Tensor(const Tensor<T>& other);
-
-    /**
-     * Returns a string representation of the stored data.
-     * \note this should only be used for debug purposes
-     *
-     * \return std::string String represenation of internal data
-     */
-    std::string str() const;
 
     /**
      * One dimensional array access (list index)

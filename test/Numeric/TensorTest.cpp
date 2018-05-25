@@ -107,17 +107,6 @@ TEST(TensorTest, 3DIndexAccess) {
     }
 }
 
-/** \test Checks if Tensor#str works correctly. */
-TEST(TensorTest, StringRepresenation) {
-    Tensor<int> sample({4});
-
-    for(unsigned listIndex = 0; listIndex < sample.getSize(); ++listIndex) {
-        sample(listIndex) = listIndex;
-    }
-
-    EXPECT_EQ(sample.str(), "[0, 1, 2, 3]\n");
-}
-
 int main(int argc, char** argv) {
     ::testing::InitGoogleTest(&argc, argv);
     int ret = RUN_ALL_TESTS();
