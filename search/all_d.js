@@ -8,11 +8,12 @@ var searchData=
   ['searchgraphnodetest_2ecpp',['SearchGraphNodeTest.cpp',['../SearchGraphNodeTest_8cpp.html',1,'']]],
   ['searchgraphnodetest_2ehpp',['SearchGraphNodeTest.hpp',['../SearchGraphNodeTest_8hpp.html',1,'']]],
   ['setup',['SetUp',['../classInputDataTest.html#a763193299b079f253db9be1d1de295cb',1,'InputDataTest']]],
-  ['solve',['solve',['../classRLAPSolver.html#a3a4ef5ab28b8d1ee314a5a7a8c12904a',1,'RLAPSolver::solve()'],['../classRLAPSolverHungarian.html#a82c1cc32a72ec437810f93da0bdd17a8',1,'RLAPSolverHungarian::solve()']]],
-  ['solvercreator',['SolverCreator',['../classRLAPSolverTest.html#a909c11da097a0a6e98b1528b953df000',1,'RLAPSolverTest']]],
+  ['solve',['solve',['../classRLAPSolver.html#ae88bf6b67bca5297b2d45e65b32fc9a3',1,'RLAPSolver::solve()'],['../classRLAPSolverHungarian.html#af81bb70f75e249bdc57b2bf72225e39a',1,'RLAPSolverHungarian::solve()']]],
+  ['solved',['solved',['../RLAPSolverHungarian_8cpp.html#a5363bb340cfac59d77c17498645df238',1,'RLAPSolverHungarian.cpp']]],
+  ['solvercreator',['SolverCreator',['../classRLAPSolverTest.html#ac329bc13a8e443fb6eda5e22664deda6',1,'RLAPSolverTest']]],
   ['solvers',['solvers',['../classRLAPSolverTest.html#a0a34cde614187bf374078ea3e9e2aa19',1,'RLAPSolverTest']]],
   ['startt',['startT',['../structInputData.html#acf79c6eda63e4947a64cd4802d75af37',1,'InputData::startT()'],['../InputData_8cpp.html#a7c48418e85a7ec18c9fc0a994f328289',1,'startT():&#160;InputData.cpp']]],
   ['startx',['startX',['../structInputData.html#a5f5f27b0082dcef4cccc2eeaab2eebde',1,'InputData']]],
   ['starty',['startY',['../structInputData.html#a9de480ed0fd131fb7ebd86e796faace5',1,'InputData::startY()'],['../InputData_8cpp.html#a446052c03205696002f02794ecedb759',1,'startY():&#160;InputData.cpp']]],
-  ['str',['str',['../structInputData.html#a70b0cf52456a7a070f22d451c66991d0',1,'InputData::str()'],['../classTensor.html#aa95a8da663a246348cc52c2e459c4b9f',1,'Tensor::str()']]]
+  ['str',['str',['../structInputData.html#a70b0cf52456a7a070f22d451c66991d0',1,'InputData']]]
 ];

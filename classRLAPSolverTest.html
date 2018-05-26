@@ -106,21 +106,25 @@ Inheritance diagram for RLAPSolverTest:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-types"></a>
 Protected Types</h2></td></tr>
-<tr class="memitem:a909c11da097a0a6e98b1528b953df000"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRLAPSolverTest.html#a909c11da097a0a6e98b1528b953df000">SolverCreator</a> = std::function&lt; std::unique_ptr&lt; <a class="el" href="classRLAPSolver.html">RLAPSolver</a> &gt;(<a class="el" href="classTensor.html">Tensor</a>&lt; int &gt; &amp;)&gt;</td></tr>
-<tr class="separator:a909c11da097a0a6e98b1528b953df000"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac329bc13a8e443fb6eda5e22664deda6"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRLAPSolverTest.html#ac329bc13a8e443fb6eda5e22664deda6">SolverCreator</a> = std::function&lt; <a class="el" href="classRLAPSolver.html">RLAPSolver</a> *(const <a class="el" href="classTensor.html">Tensor</a>&lt; int &gt; &amp;)&gt;</td></tr>
+<tr class="separator:ac329bc13a8e443fb6eda5e22664deda6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
+<tr class="memitem:a296915901412aa8b2c27eacae5810223"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRLAPSolverTest.html#a296915901412aa8b2c27eacae5810223">assignmentSum</a> (const <a class="el" href="classTensor.html">Tensor</a>&lt; unsigned &gt; &amp;assignments, const <a class="el" href="classTensor.html">Tensor</a>&lt; int &gt; &amp;inputMatrix)</td></tr>
+<tr class="separator:a296915901412aa8b2c27eacae5810223"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abd3ed7633796c3aa4455fe0c997a4947"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRLAPSolverTest.html#abd3ed7633796c3aa4455fe0c997a4947">uniqueEntries</a> (const <a class="el" href="classTensor.html">Tensor</a>&lt; unsigned &gt; &amp;assignments, unsigned &amp;uniqueRows, unsigned &amp;uniqueCols)</td></tr>
+<tr class="separator:abd3ed7633796c3aa4455fe0c997a4947"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a828e108adacee429b9a86380f5cafb73"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRLAPSolverTest.html#a828e108adacee429b9a86380f5cafb73">RLAPSolverTest</a> ()</td></tr>
 <tr class="separator:a828e108adacee429b9a86380f5cafb73"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
-<tr class="memitem:a0a34cde614187bf374078ea3e9e2aa19"><td class="memItemLeft" align="right" valign="top">std::list&lt; <a class="el" href="classRLAPSolverTest.html#a909c11da097a0a6e98b1528b953df000">SolverCreator</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRLAPSolverTest.html#a0a34cde614187bf374078ea3e9e2aa19">solvers</a></td></tr>
+<tr class="memitem:a0a34cde614187bf374078ea3e9e2aa19"><td class="memItemLeft" align="right" valign="top">std::list&lt; <a class="el" href="classRLAPSolverTest.html#ac329bc13a8e443fb6eda5e22664deda6">SolverCreator</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRLAPSolverTest.html#a0a34cde614187bf374078ea3e9e2aa19">solvers</a></td></tr>
 <tr class="separator:a0a34cde614187bf374078ea3e9e2aa19"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Typedef Documentation</h2>
-<a class="anchor" id="a909c11da097a0a6e98b1528b953df000"></a>
+<a class="anchor" id="ac329bc13a8e443fb6eda5e22664deda6"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -128,7 +132,7 @@ Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="classRLAPSolverTest.html#a909c11da097a0a6e98b1528b953df000">RLAPSolverTest::SolverCreator</a> =  std::function&lt;std::unique_ptr&lt;<a class="el" href="classRLAPSolver.html">RLAPSolver</a>&gt;(<a class="el" href="classTensor.html">Tensor</a>&lt;int&gt;&amp;)&gt;</td>
+          <td class="memname">using <a class="el" href="classRLAPSolverTest.html#ac329bc13a8e443fb6eda5e22664deda6">RLAPSolverTest::SolverCreator</a> =  std::function&lt;<a class="el" href="classRLAPSolver.html">RLAPSolver</a>*(const <a class="el" href="classTensor.html">Tensor</a>&lt;int&gt;&amp;)&gt;</td>
         </tr>
       </table>
   </td>
@@ -164,6 +168,81 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a296915901412aa8b2c27eacae5810223"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int RLAPSolverTest::assignmentSum </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classTensor.html">Tensor</a>&lt; unsigned &gt; &amp;&#160;</td>
+          <td class="paramname"><em>assignments</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classTensor.html">Tensor</a>&lt; int &gt; &amp;&#160;</td>
+          <td class="paramname"><em>inputMatrix</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="abd3ed7633796c3aa4455fe0c997a4947"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void RLAPSolverTest::uniqueEntries </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classTensor.html">Tensor</a>&lt; unsigned &gt; &amp;&#160;</td>
+          <td class="paramname"><em>assignments</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned &amp;&#160;</td>
+          <td class="paramname"><em>uniqueRows</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned &amp;&#160;</td>
+          <td class="paramname"><em>uniqueCols</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <h2 class="groupheader">Member Data Documentation</h2>
 <a class="anchor" id="a0a34cde614187bf374078ea3e9e2aa19"></a>
 <div class="memitem">
@@ -173,7 +252,7 @@ Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::list&lt;<a class="el" href="classRLAPSolverTest.html#a909c11da097a0a6e98b1528b953df000">SolverCreator</a>&gt; RLAPSolverTest::solvers</td>
+          <td class="memname">std::list&lt;<a class="el" href="classRLAPSolverTest.html#ac329bc13a8e443fb6eda5e22664deda6">SolverCreator</a>&gt; RLAPSolverTest::solvers</td>
         </tr>
       </table>
   </td>

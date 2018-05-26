@@ -87,76 +87,137 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#define-members">Macros</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">RLAPSolverHungarian.cpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;functional&gt;</code><br/>
-<code>#include &lt;algorithm&gt;</code><br/>
+<div class="textblock"><code>#include &lt;unordered_set&gt;</code><br/>
+<code>#include &lt;numeric&gt;</code><br/>
+<code>#include &lt;stdexcept&gt;</code><br/>
 <code>#include &quot;<a class="el" href="RLAPSolverHungarian_8hpp_source.html">RLAPSolverHungarian.hpp</a>&quot;</code><br/>
+<code>#include &lt;iostream&gt;</code><br/>
 </div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:aed02384de9b37759252a45d57863fd8d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="RLAPSolverHungarian_8cpp.html#aed02384de9b37759252a45d57863fd8d">DBG_PRINT_ZEROS</a>(v)</td></tr>
+<tr class="separator:aed02384de9b37759252a45d57863fd8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a485654e5d6383fa3073237650e748c3d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="RLAPSolverHungarian_8cpp.html#a485654e5d6383fa3073237650e748c3d">MAX_DIM</a>(m)&#160;&#160;&#160;std::max(m.getDims()[0], m.getDims()[1])</td></tr>
+<tr class="separator:a485654e5d6383fa3073237650e748c3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a5a553988467f886e637e902720d507ba"><td class="memItemLeft" align="right" valign="top">unmarkedCols&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="RLAPSolverHungarian_8cpp.html#a5a553988467f886e637e902720d507ba">insert</a> (indexElements.begin(), indexElements.end())</td></tr>
-<tr class="separator:a5a553988467f886e637e902720d507ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac2875a31f4afde1a8e7cddbbb5343d87"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="RLAPSolverHungarian_8cpp.html#ac2875a31f4afde1a8e7cddbbb5343d87">for</a> (unsigned row=0;row&lt; rows;++row)</td></tr>
-<tr class="separator:ac2875a31f4afde1a8e7cddbbb5343d87"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aad7b940f4f42124eb0389f1a77693994"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="RLAPSolverHungarian_8cpp.html#aad7b940f4f42124eb0389f1a77693994">if</a> (rows!=cols)</td></tr>
-<tr class="separator:aad7b940f4f42124eb0389f1a77693994"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a35345d11ae14d086c73d6191ca104184"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="RLAPSolverHungarian_8cpp.html#a35345d11ae14d086c73d6191ca104184">rowMin</a> ({<a class="el" href="RLAPSolverHungarian_8cpp.html#a485654e5d6383fa3073237650e748c3d">MAX_DIM</a>(mat)}, maxCost)</td></tr>
+<tr class="separator:a35345d11ae14d086c73d6191ca104184"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a26d79b8a88ebdc971ac47b4aa06bab06"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="RLAPSolverHungarian_8cpp.html#a26d79b8a88ebdc971ac47b4aa06bab06">colMin</a> ({<a class="el" href="RLAPSolverHungarian_8cpp.html#a485654e5d6383fa3073237650e748c3d">MAX_DIM</a>(mat)}, maxCost)</td></tr>
+<tr class="separator:a26d79b8a88ebdc971ac47b4aa06bab06"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5363bb340cfac59d77c17498645df238"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="RLAPSolverHungarian_8cpp.html#a5363bb340cfac59d77c17498645df238">solved</a> (false)</td></tr>
+<tr class="separator:a5363bb340cfac59d77c17498645df238"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Macro Definition Documentation</h2>
+<a class="anchor" id="aed02384de9b37759252a45d57863fd8d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DBG_PRINT_ZEROS</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">v</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">std::cout &lt;&lt; <span class="stringliteral">&quot;zeros&quot;</span> &lt;&lt; std::endl; \</div>
+<div class="line">    for(<span class="keyword">auto</span> elm: v) \</div>
+<div class="line">        std::cout &lt;&lt; <span class="charliteral">&#39;[&#39;</span> &lt;&lt; elm.row \</div>
+<div class="line">        &lt;&lt; <span class="stringliteral">&quot;, &quot;</span> &lt;&lt; elm.col &lt;&lt; \</div>
+<div class="line">        <span class="stringliteral">&quot;, &quot;</span> &lt;&lt; elm.deleted &lt;&lt; <span class="charliteral">&#39;]&#39;</span> &lt;&lt; std::endl</div>
+</div><!-- fragment --><p>Prints contents of a container of RLAPSolverHungarian::Zero human readable </p>
+
+</div>
+</div>
+<a class="anchor" id="a485654e5d6383fa3073237650e748c3d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MAX_DIM</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">m</td><td>)</td>
+          <td>&#160;&#160;&#160;std::max(m.getDims()[0], m.getDims()[1])</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Used to determine the solver size needed internally </p>
+
+</div>
+</div>
 <h2 class="groupheader">Function Documentation</h2>
-<a class="anchor" id="ac2875a31f4afde1a8e7cddbbb5343d87"></a>
+<a class="anchor" id="a26d79b8a88ebdc971ac47b4aa06bab06"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">for </td>
+          <td class="memname">colMin </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="aad7b940f4f42124eb0389f1a77693994"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">if </td>
-          <td>(</td>
-          <td class="paramtype">rows!&#160;</td>
-          <td class="paramname"> = <code>cols</code></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a5a553988467f886e637e902720d507ba"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">unmarkedRows insert </td>
-          <td>(</td>
-          <td class="paramtype">indexElements.&#160;</td>
-          <td class="paramname"><em>begin</em>(), </td>
+          <td class="paramtype">{<a class="el" href="RLAPSolverHungarian_8cpp.html#a485654e5d6383fa3073237650e748c3d">MAX_DIM</a>(mat)}&#160;</td>
+          <td class="paramname">, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">indexElements.&#160;</td>
-          <td class="paramname"><em>end</em>()&#160;</td>
+          <td class="paramtype">maxCost&#160;</td>
+          <td class="paramname">&#160;</td>
         </tr>
         <tr>
           <td></td>
           <td>)</td>
           <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a35345d11ae14d086c73d6191ca104184"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">rowMin </td>
+          <td>(</td>
+          <td class="paramtype">{<a class="el" href="RLAPSolverHungarian_8cpp.html#a485654e5d6383fa3073237650e748c3d">MAX_DIM</a>(mat)}&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">maxCost&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a5363bb340cfac59d77c17498645df238"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">solved </td>
+          <td>(</td>
+          <td class="paramtype">false&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
         </tr>
       </table>
 </div><div class="memdoc">

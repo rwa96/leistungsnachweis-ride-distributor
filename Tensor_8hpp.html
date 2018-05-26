@@ -98,6 +98,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <code>#include &lt;vector&gt;</code><br/>
 <code>#include &lt;sstream&gt;</code><br/>
 <code>#include &lt;algorithm&gt;</code><br/>
+<code>#include &lt;iostream&gt;</code><br/>
+<code>#include &quot;<a class="el" href="Tensor_8tpp.html">Tensor.tpp</a>&quot;</code><br/>
 </div>
 <p><a href="Tensor_8hpp_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -108,10 +110,80 @@ Classes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
+<tr class="memitem:a79a5345abb5b8e698633c09df613b177"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Tensor_8hpp.html#a79a5345abb5b8e698633c09df613b177">DBG_PRINT_2D_TENSOR</a>(s, m)</td></tr>
+<tr class="separator:a79a5345abb5b8e698633c09df613b177"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a06a8b7c04744f5abadc2e9f9cc24f6e3"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Tensor_8hpp.html#a06a8b7c04744f5abadc2e9f9cc24f6e3">DBG_PRINT_1D_TENSOR</a>(s, v)</td></tr>
+<tr class="separator:a06a8b7c04744f5abadc2e9f9cc24f6e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0448a43ae10f108bdd6ab01e299b4597"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Tensor_8hpp.html#a0448a43ae10f108bdd6ab01e299b4597">MAX_SHOWN_ENTRIES</a>&#160;&#160;&#160;(unsigned)20</td></tr>
 <tr class="separator:a0448a43ae10f108bdd6ab01e299b4597"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Macro Definition Documentation</h2>
+<a class="anchor" id="a06a8b7c04744f5abadc2e9f9cc24f6e3"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DBG_PRINT_1D_TENSOR</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">s, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">v&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">std::cout &lt;&lt; s &lt;&lt; std::endl; \</div>
+<div class="line">    for(<span class="keywordtype">unsigned</span> i = 0; i &lt; v.getDims()[0]; ++i){ \</div>
+<div class="line">        std::cout &lt;&lt; v(i); \</div>
+<div class="line">        if(i &lt; v.getDims()[0] - 1) std::cout &lt;&lt; <span class="stringliteral">&quot;, &quot;</span>; \</div>
+<div class="line">    } \</div>
+<div class="line">    std::cout &lt;&lt; std::endl</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a79a5345abb5b8e698633c09df613b177"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DBG_PRINT_2D_TENSOR</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">s, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">m&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">std::cout &lt;&lt; s &lt;&lt; std::endl; \</div>
+<div class="line">    for(<span class="keywordtype">unsigned</span> r = 0; r &lt; m.getDims()[0]; ++r){ \</div>
+<div class="line">        for(<span class="keywordtype">unsigned</span> c = 0; c &lt; m.getDims()[1]; ++c){ \</div>
+<div class="line">            std::cout &lt;&lt; m(r, c); \</div>
+<div class="line">            if(c &lt; m.getDims()[1] - 1) std::cout &lt;&lt; <span class="stringliteral">&quot;, &quot;</span>; \</div>
+<div class="line">        } \</div>
+<div class="line">        std::cout &lt;&lt; std::endl; \</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
+</div>
+</div>
 <a class="anchor" id="a0448a43ae10f108bdd6ab01e299b4597"></a>
 <div class="memitem">
 <div class="memproto">

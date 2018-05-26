@@ -85,6 +85,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="classRLAPSolverHungarian-members.html">List of all members</a>  </div>
   <div class="headertitle">
@@ -105,33 +106,29 @@ Inheritance diagram for RLAPSolverHungarian:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a185054fe4607af8fde0ae7b87a160124"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRLAPSolverHungarian.html#a185054fe4607af8fde0ae7b87a160124">RLAPSolverHungarian</a> (<a class="el" href="classTensor.html">Tensor</a>&lt; int &gt; &amp;matrix, <a class="el" href="classTensor.html">Tensor</a>&lt; int &gt; &amp;minRowValues, const int maxEntry)</td></tr>
-<tr class="separator:a185054fe4607af8fde0ae7b87a160124"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a82c1cc32a72ec437810f93da0bdd17a8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRLAPSolverHungarian.html#a82c1cc32a72ec437810f93da0bdd17a8">solve</a> (<a class="el" href="classTensor.html">Tensor</a>&lt; int &gt; &amp;assignments) override</td></tr>
-<tr class="separator:a82c1cc32a72ec437810f93da0bdd17a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad1487e850f826a147523138ad32e948f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRLAPSolverHungarian.html#ad1487e850f826a147523138ad32e948f">RLAPSolverHungarian</a> (const <a class="el" href="classTensor.html">Tensor</a>&lt; int &gt; &amp;mat, const int maxCost)</td></tr>
+<tr class="separator:ad1487e850f826a147523138ad32e948f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af81bb70f75e249bdc57b2bf72225e39a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRLAPSolverHungarian.html#af81bb70f75e249bdc57b2bf72225e39a">solve</a> (<a class="el" href="classTensor.html">Tensor</a>&lt; unsigned &gt; &amp;assignments) override</td></tr>
+<tr class="separator:af81bb70f75e249bdc57b2bf72225e39a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a185054fe4607af8fde0ae7b87a160124"></a>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Implementation for soling rectangular linea assignment problems (<a href="http://www.optimization-online.org/DB_FILE/2008/10/2115.pdf">more info here</a>). The solver variant used here is called <a href="https://www.wikihow.com/Use-the-Hungarian-Algorithm">Hungarian Algorithm</a>. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="ad1487e850f826a147523138ad32e948f"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">RLAPSolverHungarian::RLAPSolverHungarian </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classTensor.html">Tensor</a>&lt; int &gt; &amp;&#160;</td>
-          <td class="paramname"><em>matrix</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="classTensor.html">Tensor</a>&lt; int &gt; &amp;&#160;</td>
-          <td class="paramname"><em>minRowValues</em>, </td>
+          <td class="paramtype">const <a class="el" href="classTensor.html">Tensor</a>&lt; int &gt; &amp;&#160;</td>
+          <td class="paramname"><em>mat</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const int&#160;</td>
-          <td class="paramname"><em>maxEntry</em>&#160;</td>
+          <td class="paramname"><em>maxCost</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -144,7 +141,7 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a82c1cc32a72ec437810f93da0bdd17a8"></a>
+<a class="anchor" id="af81bb70f75e249bdc57b2bf72225e39a"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -154,7 +151,7 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">void RLAPSolverHungarian::solve </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classTensor.html">Tensor</a>&lt; int &gt; &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="classTensor.html">Tensor</a>&lt; unsigned &gt; &amp;&#160;</td>
           <td class="paramname"><em>assignments</em></td><td>)</td>
           <td></td>
         </tr>
@@ -166,15 +163,15 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <p>Writes the solution of a given linear assignment problem to a given <a class="el" href="classTensor.html">Tensor</a> (2 columns, n rows)</p>
-<dl class="section note"><dt>Note</dt><dd>Since the required inputs for RLAP solvers differ, they are not specified here</dd></dl>
+<dl class="section note"><dt>Note</dt><dd>Since the required inputs for <a class="el" href="structRLAP.html">RLAP</a> solvers differ, they are not specified here</dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">assignments</td><td><a class="el" href="classTensor.html">Tensor</a> for the RLAP solution (must have the correct size) </td></tr>
+    <tr><td class="paramname">assignments</td><td><a class="el" href="classTensor.html">Tensor</a> for the <a class="el" href="structRLAP.html">RLAP</a> solution (must have the correct size) </td></tr>
   </table>
   </dd>
 </dl>
 
-<p>Implements <a class="el" href="classRLAPSolver.html#a3a4ef5ab28b8d1ee314a5a7a8c12904a">RLAPSolver</a>.</p>
+<p>Implements <a class="el" href="classRLAPSolver.html#ae88bf6b67bca5297b2d45e65b32fc9a3">RLAPSolver</a>.</p>
 
 </div>
 </div>
