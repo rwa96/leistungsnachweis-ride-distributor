@@ -22,8 +22,8 @@ private:
     void selectFromSearchSpace(Types::Choices& output,
                                std::shared_ptr<SearchGraphNode>& prevNode, Tensor<int>& finishTimes,
                                Tensor<int>& finishPoints, std::vector<int>& unassigned,
-                               std::unique_ptr<Types::CarData>& cars);
-    void createSearchSpace(Tensor<int>& finishTimes, Tensor<int>& finishPoints,
+                               int maxValue, std::unique_ptr<Types::CarData>& cars);
+    int createSearchSpace(Tensor<int>& finishTimes, Tensor<int>& finishPoints,
                            std::vector<int>& unassigned, std::unique_ptr<Types::CarData>& cars);
 
     InputData& inputData;

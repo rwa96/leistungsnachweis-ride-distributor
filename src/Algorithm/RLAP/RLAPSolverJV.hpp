@@ -5,7 +5,7 @@
 
 class RLAPSolverJV : public RLAPSolver {
 
-    void solve(Tensor<int>& assignments) override;
+    void solve(Tensor<unsigned>& assignments) override;
 
 };
 

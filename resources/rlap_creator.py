@@ -9,7 +9,8 @@ def main(nRows, nCols, maxEntry=20):
     profitMat = maxVal - mat
 
     rows, cols = linear_sum_assignment(profitMat)
-    elmSum = np.sum(mat[rows, cols])
+    filter = (rows < nRows) | (cols < nCols);
+    elmSum = np.sum(mat[rows[filter], cols[filter]])
     matStr = "{" + ", ".join([str(elm) for elm in np.concatenate(mat)]) + "}"
 
     print(f"{{Tensor<int>({{{nRows}, {nCols}}}, {matStr}), {elmSum}}}")

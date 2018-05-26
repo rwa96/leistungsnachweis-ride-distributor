@@ -3,15 +3,15 @@
 #include "Algorithm.hpp"
 
 #ifndef NDEBUG
-    #include <iostream>
-    #define DBG_PRINT_CHOICE(choice) std::cout << "Choice:" << std::endl; \
+#include <iostream>
+#define DBG_PRINT_CHOICE(choice) std::cout << "Choice:" << std::endl; \
         DBG_PRINT_1D_TENSOR("x", choice->cars.x); \
         DBG_PRINT_1D_TENSOR("y", choice->cars.y); \
         DBG_PRINT_1D_TENSOR("t", choice->cars.t); \
         DBG_PRINT_1D_TENSOR("p", choice->cars.p); \
         std::cout << "Score: " << choice->score << std::endl
 #else
-    #define DBG_PRINT_CHOICE(_)
+#define DBG_PRINT_CHOICE(_)
 #endif
 
 bool Algorithm::checkCarDataValid(Types::CarData carData, unsigned T) {

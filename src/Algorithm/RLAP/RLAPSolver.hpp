@@ -17,7 +17,7 @@ public:
      *
      * \param assignments Tensor for the RLAP solution (must have the correct size)
      */
-    virtual void solve(Tensor<int>& assignments) = 0;
+    virtual void solve(Tensor<unsigned>& assignments) = 0;
 };
 
 #endif // RLAP_SOLVER_H

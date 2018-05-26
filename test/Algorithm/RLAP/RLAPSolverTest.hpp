@@ -17,8 +17,8 @@ class RLAPSolverTest: public ::testing::TestWithParam<RLAP> {
 protected:
     using SolverCreator = std::function<RLAPSolver*(const Tensor<int>&)>;
 
-    int assignmentSum(const Tensor<int>& assignments, const Tensor<int>& inputMatrix);
-    void uniqueEntries(const Tensor<int>& assignments, unsigned& uniqueRows,
+    int assignmentSum(const Tensor<unsigned>& assignments, const Tensor<int>& inputMatrix);
+    void uniqueEntries(const Tensor<unsigned>& assignments, unsigned& uniqueRows,
                        unsigned& uniqueCols);
     RLAPSolverTest();
 

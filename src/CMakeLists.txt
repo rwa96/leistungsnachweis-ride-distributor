@@ -31,6 +31,8 @@ target_link_libraries(Generator
 	PUBLIC
 		InputData
 		SearchGraphNode
+    PRIVATE
+        RLAPSolverHungarian
 )
 
 ##################################################################
