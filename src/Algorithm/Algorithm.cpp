@@ -27,7 +27,6 @@ bool Algorithm::checkCarDataValid(Types::CarData carData, unsigned T) {
     return result;
 }
 
-// TODO Improve documentation
 void Algorithm::run() {
 
     // First Generator run

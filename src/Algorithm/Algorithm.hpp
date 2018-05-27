@@ -17,14 +17,11 @@ public:
      *
      * \param [in]	inputData	InputData representing the simulation enviroment.
      * \param [out]	outputPath	Path of output file containing the calculated solution.
-     * \param [in]	nTries		Amount of choice groups generator randomly creates.
-     * \param [in]	kBest		Amount of best choices generator picks from the generated choices groups.
      * \param [in]	beamSize	Amount of best choices aggregator keeps.
      */
-    Algorithm(InputData& inputData, std::string outputPath, unsigned nTries, unsigned kBest,
-              unsigned beamSize) :
-        inputData(inputData), outputPath(outputPath), nTries(nTries), kBest(kBest),
-        beamSize(beamSize), generator(inputData, nTries, kBest),
+    Algorithm(InputData& inputData, std::string outputPath, unsigned beamSize) :
+        inputData(inputData), outputPath(outputPath),
+        beamSize(beamSize), generator(inputData),
         aggregator(inputData, beamSize) {};
 
     /**
@@ -48,10 +45,6 @@ private:
     InputData& inputData;
     /** Path of output file. */
     std::string outputPath;
-    /** Amount of choice groups generator randomly creates. */
-    unsigned nTries;
-    /** Amount of best choices generator picks from the generated choices groups. */
-    unsigned kBest;
     /** Amount of best choices aggregator keeps. */
     unsigned beamSize;
     /** Generator trying to find the best choices. */
