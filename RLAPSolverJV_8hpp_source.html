@@ -93,18 +93,41 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a href="RLAPSolverJV_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef RLAP_SOLVER_JV_H</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define RLAP_SOLVER_JV_H</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="RLAPSolver_8hpp.html">RLAPSolver.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div>
-<div class="line"><a name="l00006"></a><span class="lineno"><a class="line" href="classRLAPSolverJV.html">    6</a></span>&#160;<span class="keyword">class </span><a class="code" href="classRLAPSolverJV.html">RLAPSolverJV</a> : <span class="keyword">public</span> <a class="code" href="classRLAPSolver.html">RLAPSolver</a> {</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    <span class="keywordtype">void</span> solve(<a class="code" href="classTensor.html">Tensor&lt;unsigned&gt;</a>&amp; assignments) <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;};</div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;list&gt;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;unordered_set&gt;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;algorithm&gt;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Tensor_8hpp.html">Tensor.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="RLAPSolver_8hpp.html">RLAPSolver.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#endif // RLAP_SOLVER_JV_H</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment">/*************** CONSTANTS  *******************/</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="RLAPSolverJV_8hpp.html#a38eb76aa0a9a1bb1dac30c75be4a05b6">   13</a></span>&#160;<span class="preprocessor">#define BIG 100000</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="classRLAPSolverJV.html">   16</a></span>&#160;<span class="keyword">class </span><a class="code" href="classRLAPSolverJV.html">RLAPSolverJV</a> : <span class="keyword">public</span> <a class="code" href="classRLAPSolver.html">RLAPSolver</a> {</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <a class="code" href="classRLAPSolverJV.html#ad96c027895f608e9827888f63c322bbc">RLAPSolverJV</a>(<span class="keyword">const</span> <a class="code" href="classTensor.html">Tensor&lt;int&gt;</a>&amp; mat);</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classRLAPSolverJV.html#ab6b95af407e85524c2d37e2fdb96b760">solve</a>(<a class="code" href="classTensor.html">Tensor&lt;unsigned&gt;</a>&amp; assignments) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">unsigned</span> rows, cols, size;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    std::vector&lt;std::vector&lt;double&gt;&gt; costMat;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keywordtype">double</span> lap(<span class="keywordtype">int</span> dim,</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        <span class="keyword">const</span> std::vector&lt;std::vector&lt;double&gt;&gt;&amp;assigncost,</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        std::vector&lt;int&gt;&amp;rowsol,</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        std::vector&lt;int&gt;&amp;colsol,</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        std::vector&lt;double&gt;&amp;u,</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        std::vector&lt;double&gt;&amp;v);</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;};</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#endif // RLAP_SOLVER_JV_H</span></div>
+<div class="ttc" id="classRLAPSolverJV_html_ab6b95af407e85524c2d37e2fdb96b760"><div class="ttname"><a href="classRLAPSolverJV.html#ab6b95af407e85524c2d37e2fdb96b760">RLAPSolverJV::solve</a></div><div class="ttdeci">void solve(Tensor&lt; unsigned &gt; &amp;assignments) override</div><div class="ttdef"><b>Definition:</b> RLAPSolverJV.cpp:23</div></div>
 <div class="ttc" id="classRLAPSolver_html"><div class="ttname"><a href="classRLAPSolver.html">RLAPSolver</a></div><div class="ttdef"><b>Definition:</b> RLAPSolver.hpp:11</div></div>
-<div class="ttc" id="classRLAPSolverJV_html"><div class="ttname"><a href="classRLAPSolverJV.html">RLAPSolverJV</a></div><div class="ttdef"><b>Definition:</b> RLAPSolverJV.hpp:6</div></div>
-<div class="ttc" id="classTensor_html"><div class="ttname"><a href="classTensor.html">Tensor</a></div><div class="ttdef"><b>Definition:</b> Tensor.hpp:37</div></div>
+<div class="ttc" id="classRLAPSolverJV_html_ad96c027895f608e9827888f63c322bbc"><div class="ttname"><a href="classRLAPSolverJV.html#ad96c027895f608e9827888f63c322bbc">RLAPSolverJV::RLAPSolverJV</a></div><div class="ttdeci">RLAPSolverJV(const Tensor&lt; int &gt; &amp;mat)</div><div class="ttdef"><b>Definition:</b> RLAPSolverJV.cpp:9</div></div>
+<div class="ttc" id="classRLAPSolverJV_html"><div class="ttname"><a href="classRLAPSolverJV.html">RLAPSolverJV</a></div><div class="ttdef"><b>Definition:</b> RLAPSolverJV.hpp:16</div></div>
+<div class="ttc" id="Tensor_8hpp_html"><div class="ttname"><a href="Tensor_8hpp.html">Tensor.hpp</a></div></div>
+<div class="ttc" id="classTensor_html"><div class="ttname"><a href="classTensor.html">Tensor&lt; int &gt;</a></div></div>
 <div class="ttc" id="RLAPSolver_8hpp_html"><div class="ttname"><a href="RLAPSolver_8hpp.html">RLAPSolver.hpp</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->

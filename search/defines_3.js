@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['tensor_5ft',['TENSOR_T',['../Tensor_8tpp.html#a4db5f081aabf6c97d6622d558fb0c663',1,'Tensor.tpp']]]
+  ['max_5fdim',['MAX_DIM',['../RLAPSolverHungarian_8cpp.html#a485654e5d6383fa3073237650e748c3d',1,'MAX_DIM():&#160;RLAPSolverHungarian.cpp'],['../RLAPSolverJV_8cpp.html#a485654e5d6383fa3073237650e748c3d',1,'MAX_DIM():&#160;RLAPSolverJV.cpp']]],
+  ['max_5fshown_5fentries',['MAX_SHOWN_ENTRIES',['../Tensor_8hpp.html#a0448a43ae10f108bdd6ab01e299b4597',1,'Tensor.hpp']]]
 ];

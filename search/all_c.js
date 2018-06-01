@@ -7,7 +7,7 @@ var searchData=
   ['rlapsolverhungarian',['RLAPSolverHungarian',['../classRLAPSolverHungarian.html',1,'RLAPSolverHungarian'],['../classRLAPSolverHungarian.html#ad1487e850f826a147523138ad32e948f',1,'RLAPSolverHungarian::RLAPSolverHungarian()']]],
   ['rlapsolverhungarian_2ecpp',['RLAPSolverHungarian.cpp',['../RLAPSolverHungarian_8cpp.html',1,'']]],
   ['rlapsolverhungarian_2ehpp',['RLAPSolverHungarian.hpp',['../RLAPSolverHungarian_8hpp.html',1,'']]],
-  ['rlapsolverjv',['RLAPSolverJV',['../classRLAPSolverJV.html',1,'']]],
+  ['rlapsolverjv',['RLAPSolverJV',['../classRLAPSolverJV.html',1,'RLAPSolverJV'],['../classRLAPSolverJV.html#ad96c027895f608e9827888f63c322bbc',1,'RLAPSolverJV::RLAPSolverJV()']]],
   ['rlapsolverjv_2ecpp',['RLAPSolverJV.cpp',['../RLAPSolverJV_8cpp.html',1,'']]],
   ['rlapsolverjv_2ehpp',['RLAPSolverJV.hpp',['../RLAPSolverJV_8hpp.html',1,'']]],
   ['rlapsolvertest',['RLAPSolverTest',['../classRLAPSolverTest.html',1,'RLAPSolverTest'],['../classRLAPSolverTest.html#a828e108adacee429b9a86380f5cafb73',1,'RLAPSolverTest::RLAPSolverTest()']]],
