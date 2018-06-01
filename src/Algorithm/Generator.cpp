@@ -4,6 +4,7 @@
 #include <set>
 #include "Generator.hpp"
 #include "RLAPSolverHungarian.hpp"
+#include "RLAPSolverJV.hpp"
 
 int Generator::createSearchSpace(Tensor<int>& finishTimes, Tensor<int>& finishPoints,
                                   std::vector<int>& unassigned, std::unique_ptr<Types::CarData>& cars)
@@ -63,6 +64,7 @@ void Generator::selectFromSearchSpace(Types::Choices& output,
 
     // solve RLAP to maximize gained points
     RLAPSolverHungarian solver(finishPoints, maxValue);
+	//RLAPSolverJV solver(finishPoints);
     std::unique_ptr<Tensor<unsigned>> searchNodeValue(new Tensor<unsigned>({ nAssignments, 2 }));
     solver.solve(*searchNodeValue);
 

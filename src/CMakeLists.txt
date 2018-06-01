@@ -33,6 +33,7 @@ target_link_libraries(Generator
 		SearchGraphNode
     PRIVATE
         RLAPSolverHungarian
+        RLAPSolverJV
 )
 
 ##################################################################
