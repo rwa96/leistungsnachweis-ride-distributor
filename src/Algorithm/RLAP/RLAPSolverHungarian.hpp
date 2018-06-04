@@ -6,7 +6,7 @@
 #include "RLAPSolver.hpp"
 
 /**
- * Implementation for soling rectangular linea assignment problems
+ * Implementation for solving the rectangular linear assignment problem
  * ([more info here](http://www.optimization-online.org/DB_FILE/2008/10/2115.pdf)).
  * The solver variant used here is called [Hungarian Algorithm](https://www.wikihow.com/Use-the-Hungarian-Algorithm).
  */

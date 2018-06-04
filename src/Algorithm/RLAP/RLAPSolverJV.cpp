@@ -1,18 +1,42 @@
 #include <algorithm>
 #include <functional>
-#include "RLAPSolver.hpp"
 #include "RLAPSolverJV.hpp"
+
+#ifndef NDEBUG
+#include <iostream>
+
+/** Prints contents of a row- or colsol of RLAPSolverJV */
+#define DBG_PRINT_JV_SOL(type, sol) std::cout << type << std::endl; \
+	for (const auto& i : sol) \
+		std::cout << i << ' '; \
+	std::cout << std::endl
+
+/** Prints contents of a costmat of RLAPSolverJV */
+#define DBG_PRINT_JV_COSTMAT(v) std::cout << "Costmat" << std::endl; \
+	for (unsigned i = 0; i < costMat.size(); i++) { \
+		for (unsigned j = 0; j < costMat[i].size(); j++) { \
+			std::cout << costMat[i][j] << '\t'; \
+		} \
+		std::cout << std::endl; \
+	} \
+	std::cout << std::endl
+#else
+#define DBG_PRINT_JV_SOL(_, _)
+#define DBG_PRINT_JV_COSTMAT(_)
+#endif
 
 /** Used to determine the solver size needed internally */
 #define MAX_DIM(m) std::max(m.getDims()[0], m.getDims()[1])
 
-RLAPSolverJV::RLAPSolverJV(const Tensor<int>& mat) :
+RLAPSolverJV::RLAPSolverJV(const Tensor<int>& mat):
 	rows(mat.getDims()[0]),
 	cols(mat.getDims()[1]),
 	size(MAX_DIM(mat)),
-	costMat(MAX_DIM(mat), std::vector<double>(MAX_DIM(mat), 0))
+	costMat(MAX_DIM(mat), std::vector<double>(MAX_DIM(mat), 0)),
+	rowsol(std::vector<int>(size)),
+	colsol(std::vector<int>(size))
 {
-	// turn cost matrix into profit matrix to find maxima
+	// Fill costMat with inverted mat, since the maximum instead of the minimum value is needed.
 	for (unsigned row = 0; row < rows; ++row) {
 		for (unsigned col = 0; col < cols; ++col) {
 			costMat[row][col] = -mat(row, col);
@@ -21,46 +45,30 @@ RLAPSolverJV::RLAPSolverJV(const Tensor<int>& mat) :
 }
 
 void RLAPSolverJV::solve(Tensor<unsigned>& assignments) {
-	// TODO change to unique or shared pointer
-	std::vector<int> rowsol(size);
-	std::vector<int> colsol(size);
-	std::vector<double> u(size);
-	std::vector<double> v(size);
+	std::shared_ptr<std::vector<double>> u(new std::vector<double>(size));
+	std::shared_ptr<std::vector<double>> v(new std::vector<double>(size));
 
-
-	std::cout << "Print costmat:" << std::endl;
-	for (unsigned i = 0; i < costMat.size(); i++) {
-		for (unsigned j = 0; j < costMat[i].size(); j++) {
-			std::cout << costMat[i][j] << '\t';
-		}
-		std::cout << std::endl;
-	}
-	std::cout << std::endl;
-
-	lap(size, costMat, rowsol, colsol, u, v);
-
-	std::cout << "Rowsol (column assigned to row in solution): ";
-	for (const auto& i : rowsol)
-		std::cout << i << ' ';
-	std::cout << std::endl;
-
-	std::cout << "Colsol (row assigned to column in solution): ";
-	for (const auto& i : colsol)
-		std::cout << i << ' ';
-	std::cout << std::endl;
+	jvlap(size, costMat, rowsol, colsol, (*u), (*v));
+	assignMatching(assignments);
 }
 
-// input:
-// dim        - problem size
-// assigncost - cost matrix
+void RLAPSolverJV::assignMatching(Tensor<unsigned>& assignments)
+{
+	if (rows > cols) {
+		for (unsigned i = 0; i < assignments.getDims()[0]; ++i) {
+			assignments(i, 0) = colsol.at(i);
+			assignments(i, 1) = i;
+		}
+	}
+	else {
+		for (unsigned i = 0; i < assignments.getDims()[0]; ++i) {
+			assignments(i, 0) = i;
+			assignments(i, 1) = rowsol.at(i);
+		}
+	}
+}
 
-// output:
-// rowsol     - column assigned to row in solution
-// colsol     - row assigned to column in solution
-// u          - dual variables, row reduction numbers
-// v          - dual variables, column reduction numbers
-/*This function is the jv shortest augmenting path algorithm to solve the assignment problem*/
-double RLAPSolverJV::lap(int dim,
+void RLAPSolverJV::jvlap(int dim,
 	const std::vector<std::vector<double>>&assigncost,
 	std::vector<int>&rowsol,
 	std::vector<int>&colsol,
@@ -302,21 +310,12 @@ double RLAPSolverJV::lap(int dim,
 		} while (i != freerow);
 	}
 
-	// calculate optimal cost.
-	double lapcost = 0;
-	//  for (i = 0; i < dim; i++)
-	for (i = dim; i--;)
-	{
-		j = rowsol[i];
-		u[i] = assigncost[i][j] - v[j];
-		lapcost = lapcost + assigncost[i][j];
-	}
-
 	// free reserved memory.
 	delete[] pred;
 	delete[] free_;
 	delete[] collist;
 	delete[] matches;
 	delete[] d;
-	return lapcost;
+	return;
 }
+

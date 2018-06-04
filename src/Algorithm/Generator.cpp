@@ -63,8 +63,8 @@ void Generator::selectFromSearchSpace(Types::Choices& output,
     if(nAssignments == 0) { return; }
 
     // solve RLAP to maximize gained points
-    RLAPSolverHungarian solver(finishPoints, maxValue);
-	//RLAPSolverJV solver(finishPoints);
+    //RLAPSolverHungarian solver(finishPoints, maxValue);
+	RLAPSolverJV solver(finishPoints);
     std::unique_ptr<Tensor<unsigned>> searchNodeValue(new Tensor<unsigned>({ nAssignments, 2 }));
     solver.solve(*searchNodeValue);
 

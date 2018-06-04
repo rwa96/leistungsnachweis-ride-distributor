@@ -11,8 +11,7 @@ class Aggregator {
 public:
 
     /**
-     * Generate a new Aggregator.
-     *
+     * Constructor for Aggregator.
      * \param [in] inputData InputData representing the simulation enviroment
      * \param [in] beamSize Amount of choices to keep
      */
@@ -27,6 +26,12 @@ public:
 
 private:
 
+	/** InputData representing the simulation enviroment. */
+	InputData & inputData;
+
+	/** Amount of choices to keep. */
+	unsigned beamSize;
+
     /**
      * Compare two choices descending by score.
      * \param [in] lhs First choice used for comparison
@@ -35,12 +40,6 @@ private:
      */
     static bool sortByScore(const std::unique_ptr<Types::Choice>& lhs,
                             const std::unique_ptr<Types::Choice>& rhs);
-
-    /** InputData representing the simulation enviroment. */
-    InputData& inputData;
-
-    /** Amount of choices to keep. */
-    unsigned beamSize;
 
 };
 

@@ -4,14 +4,14 @@
 #include "Tensor.hpp"
 
 /**
- * This is an abstract Representation of a rectangular linear assignment solver.
+ * This is an abstract representation of a rectangular linear assignment problem solver.
  *
- * \note Aditional input needed by specific implementations should be in the constructor.
+ * \note Additional input needed by specific implementations should be in the constructor.
  */
 class RLAPSolver {
 public:
     /**
-     * Writes the solution of a given linear assignment problem to a given Tensor (2 columns, n rows)
+     * Writes the solution of a given linear assignment problem to a given Tensor (n rows, 2 columns)
      *
      * \note Since the required inputs for RLAP solvers differ, they are not specified here
      *

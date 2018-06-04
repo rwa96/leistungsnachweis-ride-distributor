@@ -76,7 +76,6 @@ RLAPSolverHungarian::RLAPSolverHungarian(const Tensor<int>& mat, const int maxCo
     }
 }
 
-
 void RLAPSolverHungarian::reduceRowsAndCols(Tensor<unsigned>& zeroCountRows,
     Tensor<unsigned>& zeroCountCols)
 {
