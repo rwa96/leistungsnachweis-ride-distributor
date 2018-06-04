@@ -99,27 +99,27 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="classAggregator.html">   10</a></span>&#160;<span class="keyword">class </span><a class="code" href="classAggregator.html">Aggregator</a> {</div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">public</span>:</div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div>
-<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="classAggregator.html#a51000b807b5735e7b07b33dbbe4993f4">   19</a></span>&#160;    <a class="code" href="classAggregator.html#a51000b807b5735e7b07b33dbbe4993f4">Aggregator</a>(<a class="code" href="structInputData.html">InputData</a>&amp; inputData, <span class="keywordtype">unsigned</span> beamSize) :</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        inputData(inputData), beamSize(beamSize) {};</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classAggregator.html#afe983e848a9d70d9149dac34dcb3190f">aggregate</a>(<a class="code" href="namespaceTypes.html#a387f895428bdde44da5cc4240c890df4">Types::Choices</a>&amp; choices);</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> sortByScore(<span class="keyword">const</span> std::unique_ptr&lt;Types::Choice&gt;&amp; lhs,</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;                            <span class="keyword">const</span> std::unique_ptr&lt;Types::Choice&gt;&amp; rhs);</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <a class="code" href="structInputData.html">InputData</a>&amp; inputData;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordtype">unsigned</span> beamSize;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;};</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="preprocessor">#endif // AGGREGATOR_H</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="classAggregator.html#a51000b807b5735e7b07b33dbbe4993f4">   18</a></span>&#160;    <a class="code" href="classAggregator.html#a51000b807b5735e7b07b33dbbe4993f4">Aggregator</a>(<a class="code" href="structInputData.html">InputData</a>&amp; inputData, <span class="keywordtype">unsigned</span> beamSize) :</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        inputData(inputData), beamSize(beamSize) {};</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classAggregator.html#afe983e848a9d70d9149dac34dcb3190f">aggregate</a>(<a class="code" href="namespaceTypes.html#a387f895428bdde44da5cc4240c890df4">Types::Choices</a>&amp; choices);</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <a class="code" href="structInputData.html">InputData</a> &amp; inputData;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keywordtype">unsigned</span> beamSize;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> sortByScore(<span class="keyword">const</span> std::unique_ptr&lt;Types::Choice&gt;&amp; lhs,</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;                            <span class="keyword">const</span> std::unique_ptr&lt;Types::Choice&gt;&amp; rhs);</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;};</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="preprocessor">#endif // AGGREGATOR_H</span></div>
 <div class="ttc" id="structInputData_html"><div class="ttname"><a href="structInputData.html">InputData</a></div><div class="ttdef"><b>Definition:</b> InputData.hpp:15</div></div>
 <div class="ttc" id="classAggregator_html"><div class="ttname"><a href="classAggregator.html">Aggregator</a></div><div class="ttdef"><b>Definition:</b> Aggregator.hpp:10</div></div>
 <div class="ttc" id="namespaceTypes_html_a387f895428bdde44da5cc4240c890df4"><div class="ttname"><a href="namespaceTypes.html#a387f895428bdde44da5cc4240c890df4">Types::Choices</a></div><div class="ttdeci">std::vector&lt; std::unique_ptr&lt; Choice &gt;&gt; Choices</div><div class="ttdef"><b>Definition:</b> Types.hpp:73</div></div>
-<div class="ttc" id="classAggregator_html_a51000b807b5735e7b07b33dbbe4993f4"><div class="ttname"><a href="classAggregator.html#a51000b807b5735e7b07b33dbbe4993f4">Aggregator::Aggregator</a></div><div class="ttdeci">Aggregator(InputData &amp;inputData, unsigned beamSize)</div><div class="ttdef"><b>Definition:</b> Aggregator.hpp:19</div></div>
+<div class="ttc" id="classAggregator_html_a51000b807b5735e7b07b33dbbe4993f4"><div class="ttname"><a href="classAggregator.html#a51000b807b5735e7b07b33dbbe4993f4">Aggregator::Aggregator</a></div><div class="ttdeci">Aggregator(InputData &amp;inputData, unsigned beamSize)</div><div class="ttdef"><b>Definition:</b> Aggregator.hpp:18</div></div>
 <div class="ttc" id="InputData_8hpp_html"><div class="ttname"><a href="InputData_8hpp.html">InputData.hpp</a></div></div>
 <div class="ttc" id="Types_8hpp_html"><div class="ttname"><a href="Types_8hpp.html">Types.hpp</a></div></div>
 <div class="ttc" id="classAggregator_html_afe983e848a9d70d9149dac34dcb3190f"><div class="ttname"><a href="classAggregator.html#afe983e848a9d70d9149dac34dcb3190f">Aggregator::aggregate</a></div><div class="ttdeci">void aggregate(Types::Choices &amp;choices)</div><div class="ttdef"><b>Definition:</b> Aggregator.cpp:8</div></div>

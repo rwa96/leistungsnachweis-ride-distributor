@@ -94,15 +94,75 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="contents">
 <div class="textblock"><code>#include &lt;algorithm&gt;</code><br/>
 <code>#include &lt;functional&gt;</code><br/>
-<code>#include &quot;<a class="el" href="RLAPSolver_8hpp_source.html">RLAPSolver.hpp</a>&quot;</code><br/>
 <code>#include &quot;<a class="el" href="RLAPSolverJV_8hpp_source.html">RLAPSolverJV.hpp</a>&quot;</code><br/>
+<code>#include &lt;iostream&gt;</code><br/>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
+<tr class="memitem:a9b6dbf7efe527d8d2ebd209b0cfcc013"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="RLAPSolverJV_8cpp.html#a9b6dbf7efe527d8d2ebd209b0cfcc013">DBG_PRINT_JV_SOL</a>(type, sol)</td></tr>
+<tr class="separator:a9b6dbf7efe527d8d2ebd209b0cfcc013"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a46028c7f413a7c61fb9d4ea5b36ca99c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="RLAPSolverJV_8cpp.html#a46028c7f413a7c61fb9d4ea5b36ca99c">DBG_PRINT_JV_COSTMAT</a>(v)</td></tr>
+<tr class="separator:a46028c7f413a7c61fb9d4ea5b36ca99c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a485654e5d6383fa3073237650e748c3d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="RLAPSolverJV_8cpp.html#a485654e5d6383fa3073237650e748c3d">MAX_DIM</a>(m)&#160;&#160;&#160;std::max(m.getDims()[0], m.getDims()[1])</td></tr>
 <tr class="separator:a485654e5d6383fa3073237650e748c3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Macro Definition Documentation</h2>
+<a class="anchor" id="a46028c7f413a7c61fb9d4ea5b36ca99c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DBG_PRINT_JV_COSTMAT</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">v</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">std::cout &lt;&lt; <span class="stringliteral">&quot;Costmat&quot;</span> &lt;&lt; std::endl; \</div>
+<div class="line">    for (<span class="keywordtype">unsigned</span> i = 0; i &lt; costMat.size(); i++) { \</div>
+<div class="line">        for (<span class="keywordtype">unsigned</span> j = 0; j &lt; costMat[i].size(); j++) { \</div>
+<div class="line">            std::cout &lt;&lt; costMat[i][j] &lt;&lt; <span class="charliteral">&#39;\t&#39;</span>; \</div>
+<div class="line">        } \</div>
+<div class="line">        std::cout &lt;&lt; std::endl; \</div>
+<div class="line">    } \</div>
+<div class="line">    std::cout &lt;&lt; std::endl</div>
+</div><!-- fragment --><p>Prints contents of a costmat of <a class="el" href="classRLAPSolverJV.html">RLAPSolverJV</a> </p>
+
+</div>
+</div>
+<a class="anchor" id="a9b6dbf7efe527d8d2ebd209b0cfcc013"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DBG_PRINT_JV_SOL</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">type, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">sol&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">std::cout &lt;&lt; type &lt;&lt; std::endl; \</div>
+<div class="line">    for (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; i : sol) \</div>
+<div class="line">        std::cout &lt;&lt; i &lt;&lt; <span class="charliteral">&#39; &#39;</span>; \</div>
+<div class="line">    std::cout &lt;&lt; std::endl</div>
+</div><!-- fragment --><p>Prints contents of a row- or colsol of <a class="el" href="classRLAPSolverJV.html">RLAPSolverJV</a> </p>
+
+</div>
+</div>
 <a class="anchor" id="a485654e5d6383fa3073237650e748c3d"></a>
 <div class="memitem">
 <div class="memproto">

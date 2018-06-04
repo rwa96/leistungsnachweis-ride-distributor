@@ -110,7 +110,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ab6b95af407e85524c2d37e2fdb96b760"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRLAPSolverJV.html#ab6b95af407e85524c2d37e2fdb96b760">solve</a> (<a class="el" href="classTensor.html">Tensor</a>&lt; unsigned &gt; &amp;assignments) override</td></tr>
 <tr class="separator:ab6b95af407e85524c2d37e2fdb96b760"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Implementation for solving the rectangular linear assignment problem (<a href="http://www.optimization-online.org/DB_FILE/2008/10/2115.pdf">more info here</a>). The solver variant used here is called <a href="https://blog.sourced.tech/post/lapjv/#jonker-volgenant-algorithm">Jonker-Volgenant Algorithm</a>.</p>
+<p>This implementation is based on <a href="https://github.com/hrldcpr/pyLAPJV">hrldcpr/pyLAPJV</a>, which itself is based on a <a href="https://web.archive.org/web/20051030203159/http://www.magiclogic.com/assignment/lap_cpp.zip">C implementation by Roy Jonker</a>. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="ad96c027895f608e9827888f63c322bbc"></a>
 <div class="memitem">
 <div class="memproto">
@@ -124,6 +127,13 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Constructor for <a class="el" href="classRLAPSolverJV.html">RLAPSolverJV</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">mat</td><td>2D-Matrix of cars and rides with earned points </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -149,7 +159,7 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Writes the solution of a given linear assignment problem to a given <a class="el" href="classTensor.html">Tensor</a> (2 columns, n rows)</p>
+<p>Writes the solution of a given linear assignment problem to a given <a class="el" href="classTensor.html">Tensor</a> (n rows, 2 columns)</p>
 <dl class="section note"><dt>Note</dt><dd>Since the required inputs for <a class="el" href="structRLAP.html">RLAP</a> solvers differ, they are not specified here</dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
