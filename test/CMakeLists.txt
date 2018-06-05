@@ -25,5 +25,5 @@ target_include_directories(RLAPSolverTest
         Algorithm/RLAP ${PROJECT_SOURCE_DIR}/src/Algorithm/RLAP
         ${PROJECT_SOURCE_DIR}/src/Numeric
 )
-target_link_libraries(RLAPSolverTest PRIVATE gtest gmock RLAPSolverHungarian)
+target_link_libraries(RLAPSolverTest PRIVATE gtest gmock RLAPSolverHungarian RLAPSolverJV)
 add_test(NAME RLAPSolverTest COMMAND RLAPSolverTest)

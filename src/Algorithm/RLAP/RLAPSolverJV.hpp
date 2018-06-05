@@ -13,8 +13,8 @@
 /**
  * Implementation for solving the rectangular linear assignment problem
  * ([more info here](http://www.optimization-online.org/DB_FILE/2008/10/2115.pdf)).
- * The solver variant used here is called [Jonker-Volgenant Algorithm](https://blog.sourced.tech/post/lapjv/#jonker-volgenant-algorithm).
- * 
+ * The solver variant used here is called [Jonker-Volgenant algorithm](https://link.springer.com/article/10.1007/BF02278710).
+ *
  * This implementation is based on [hrldcpr/pyLAPJV](https://github.com/hrldcpr/pyLAPJV),
  * which itself is based on a [C implementation by Roy Jonker](https://web.archive.org/web/20051030203159/http://www.magiclogic.com/assignment/lap_cpp.zip).
  */
@@ -27,7 +27,7 @@ public:
 	*/
 	RLAPSolverJV(const Tensor<int>& mat);
 
-    void solve(Tensor<unsigned>& assignments) override;
+	void solve(Tensor<unsigned>& assignments) override;
 
 private:
 
@@ -58,7 +58,7 @@ private:
 	 * \param [in] u			dual variables, row reduction numbers
 	 * \param [in] v			dual variables, column reduction numbers
 	 */
-	void jvlap(int dim, const std::vector<std::vector<double>>&assigncost, std::vector<int>&rowsol, 
+	void jvlap(int dim, const std::vector<std::vector<double>>&assigncost, std::vector<int>&rowsol,
 		std::vector<int>&colsol, std::vector<double>&u, std::vector<double>&v);
 
 	/**

@@ -2,6 +2,7 @@
 #include "Tensor.hpp"
 #include "RLAPSolverTest.hpp"
 #include "RLAPSolverHungarian.hpp"
+#include "RLAPSolverJV.hpp"
 
 RLAPSolverTest::RLAPSolverTest() {
     solvers.push_back([](const Tensor<int>& m) -> RLAPSolver* {
@@ -15,6 +16,7 @@ RLAPSolverTest::RLAPSolverTest() {
             }
         }
         return new RLAPSolverHungarian(m, maxEntry);
+		//return new RLAPSolverJV(m);
     });
 }
 
