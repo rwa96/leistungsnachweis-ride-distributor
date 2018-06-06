@@ -69,9 +69,6 @@ struct Choice {
     std::shared_ptr<SearchGraphNode> searchGraphNode;
 };
 
-/** Independed choices one could take (same level on the search graph). */
-using Choices = std::vector<std::unique_ptr<Choice>>;
-
 }
 
 #endif // TYPES_H

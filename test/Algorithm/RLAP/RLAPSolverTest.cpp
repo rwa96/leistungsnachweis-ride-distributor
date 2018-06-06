@@ -16,8 +16,8 @@ RLAPSolverTest::RLAPSolverTest() {
             }
         }
         return new RLAPSolverHungarian(m, maxEntry);
-		//return new RLAPSolverJV(m);
     });
+	solvers.push_back([](const Tensor<int>& m) -> RLAPSolver* {return new RLAPSolverJV(m);})
 }
 
 void RLAPSolverTest::uniqueEntries(const Tensor<unsigned>& assignments, unsigned& uniqueRows,

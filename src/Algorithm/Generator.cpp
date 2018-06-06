@@ -53,14 +53,13 @@ int Generator::createSearchSpace(Tensor<int>& finishTimes, Tensor<int>& finishPo
     return maxValue;
 }
 
-void Generator::selectFromSearchSpace(Types::Choices& output,
-                                      std::shared_ptr<SearchGraphNode>& prevNode, Tensor<int>& finishTimes,
+std::unique_ptr<Types::Choice> Generator::selectFromSearchSpace(std::shared_ptr<SearchGraphNode>& prevNode, Tensor<int>& finishTimes,
                                       Tensor<int>& finishPoints, std::vector<int>& unassigned,
                                       int maxValue, std::unique_ptr<Types::CarData>& cars)
 {
     // no possible choices left
     const unsigned nAssignments = std::min(inputData.fleetSize, static_cast<unsigned>(unassigned.size()));
-    if(nAssignments == 0) { return; }
+	if (nAssignments == 0) { return {}; }
 
     // solve RLAP to maximize gained points
     //RLAPSolverHungarian solver(finishPoints, maxValue);
@@ -103,18 +102,17 @@ void Generator::selectFromSearchSpace(Types::Choices& output,
                               newUnassigned.end());
     choice->searchGraphNode = std::shared_ptr<SearchGraphNode>(new SearchGraphNode(prevNode,
                               searchNodeValue));
-    output.push_back(std::move(choice));
+	return choice;
 }
 
-void Generator::generate(Types::Choices& output,
-                         std::shared_ptr<SearchGraphNode>& prevNode, std::vector<int>& unassigned,
-                         std::unique_ptr<Types::CarData> cars) {
+std::unique_ptr<Types::Choice> Generator::generate(std::shared_ptr<SearchGraphNode>& prevNode, 
+											std::vector<int>& unassigned,
+											std::unique_ptr<Types::CarData> cars) {
 
     // Time after each car was assigned to each unassigned ride (2D matrix)
     Tensor<int> finishTimes({ inputData.fleetSize, static_cast<unsigned>(unassigned.size()) });
     // Points after each car was assigned to each unassigned ride (2D matrix)
     Tensor<int> finishPoints({ inputData.fleetSize, static_cast<unsigned>(unassigned.size()) });
     int maxValue = createSearchSpace(finishTimes, finishPoints, unassigned, cars);
-    selectFromSearchSpace(output, prevNode, finishTimes, finishPoints, unassigned, maxValue, cars);
-
+    return selectFromSearchSpace(prevNode, finishTimes, finishPoints, unassigned, maxValue, cars);
 };
