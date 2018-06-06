@@ -4,7 +4,7 @@
 #include <numeric>
 #include "InputData.hpp"
 #include "Algorithm.hpp"
-
+ 
 /**
  * Solution to the problem statement of the HashCode online quallification round 2018.
  * \see https://hashcode.withgoogle.com/2018/tasks/hashcode2018_qualification_task.pdf
