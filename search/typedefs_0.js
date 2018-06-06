@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['choices',['Choices',['../namespaceTypes.html#a387f895428bdde44da5cc4240c890df4',1,'Types']]]
+  ['solvercreator',['SolverCreator',['../classRLAPSolverTest.html#ac329bc13a8e443fb6eda5e22664deda6',1,'RLAPSolverTest']]]
 ];
