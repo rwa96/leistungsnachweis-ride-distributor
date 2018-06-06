@@ -68,7 +68,6 @@ struct Choice {
     /** SearchGraphNode that represents this choice. */
     std::shared_ptr<SearchGraphNode> searchGraphNode;
 };
-
 }
 
 #endif // TYPES_H

@@ -10,8 +10,8 @@
  * \see https://hashcode.withgoogle.com/2018/tasks/hashcode2018_qualification_task.pdf
  */
 int main(int argc, char *argv[]) {
-    if(argc != 4) {
-        std::cerr << "No input path, output path and beamSize argument set." <<
+    if(argc != 3) {
+        std::cerr << "No input path and output path set." <<
                   std::endl;
         return 1;
     }
@@ -26,9 +26,8 @@ int main(int argc, char *argv[]) {
     }
 
     std::string outputPath = argv[2];
-    unsigned beamSize = atoi(argv[3]);
 
-    Algorithm algorithm(*inputData, outputPath, beamSize);
+    Algorithm algorithm(*inputData, outputPath);
     algorithm.run();
     return 0;
 }

@@ -37,20 +37,6 @@ target_link_libraries(Generator
 )
 
 ##################################################################
-#                           Aggregator                           #
-##################################################################
-add_library(Aggregator Algorithm/Aggregator.cpp)
-target_include_directories(Aggregator
-	PUBLIC
-		${CMAKE_CURRENT_SOURCE_DIR}/Algorithm
-        ${CMAKE_CURRENT_SOURCE_DIR}/Numeric
-)
-target_link_libraries(Aggregator
-	PUBLIC
-		InputData
-)
-
-##################################################################
 #                      RLAPSolverHungarian                       #
 ##################################################################
 add_library(RLAPSolverHungarian Algorithm/RLAP/RLAPSolverHungarian.cpp)
@@ -84,11 +70,10 @@ target_link_libraries(Algorithm
 		SearchGraphNode
 		InputData
 		Generator
-		Aggregator
 )
 
 ##################################################################
 #                        RideDistributor                         #
 ##################################################################
 add_executable(RideDistributor main.cpp)
-target_link_libraries(RideDistributor PRIVATE Algorithm SearchGraphNode InputData Generator Aggregator)
+target_link_libraries(RideDistributor PRIVATE Algorithm SearchGraphNode InputData Generator)
