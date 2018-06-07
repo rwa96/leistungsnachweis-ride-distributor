@@ -44,7 +44,7 @@ int RLAPSolverTest::assignmentSum(const Tensor<unsigned>& assignments,
 	return result;
 }
 
-std::list<RLAP> testParams = {
+std::list<RLAPTest> testParams = {
 	{Tensor<int>({1, 1}, 42), 42},
 	{Tensor<int>({2, 3}, 1), 2},
 	{Tensor<int>({3, 2}, 1), 2},
@@ -70,8 +70,12 @@ std::list<RLAP> testParams = {
 
 INSTANTIATE_TEST_CASE_P(RLAPTestCases, RLAPSolverTest, ::testing::ValuesIn(testParams));
 
+/**
+ * \test Parameterized test for all RLAPSolver implementations 
+ *       using various RLA Matrices with known results
+ */
 TEST_P(RLAPSolverTest, TestingWithRLAPParams) {
-	const RLAP& param = GetParam();
+	const RLAPTest& param = GetParam();
 	const Tensor<int>& inputMatrix = param.inputMatrix;
 	const unsigned nAssignments = std::min(inputMatrix.getDims()[0],
 		inputMatrix.getDims()[1]);
