@@ -90,8 +90,26 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <ul>
 <li>Create Workspace ``` cmake . -B".build" -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_BUILD_TYPE=Debug ```</li>
 <li>Create Executable (and documentation) ``` cmake &ndash;build .build &ndash;target all cmake &ndash;build .build &ndash;target doc ```</li>
-<li>Unit Tests (first create executable) ``` cd .build &amp;&amp; ctest -VV ``` </li>
+<li>Unit Tests (first create executable) ``` cd .build &amp;&amp; ctest -VV ```</li>
 </ul>
+<h2>Results</h2>
+<p>The following table shows benchmarks from all versions of this project: *(each of the columns links to the commit of that version)*</p>
+<table class="doxtable">
+<tr>
+<th align="left"></th><th align="center"><a href="https://github.com/ob-algdatii-ss18/leistungsnachweis-ride-distributor/tree/f7e62f75816e76f720a8996a9e8c475ab3343053">Heuristic Beam Search</a></th><th align="center"><a href="https://github.com/ob-algdatii-ss18/leistungsnachweis-ride-distributor/tree/159ce4224aa3974086f4b4e08e330543555b7478">Best-first search (using points)</a></th><th align="center"><a href="https://github.com/ob-algdatii-ss18/leistungsnachweis-ride-distributor/tree/eb81ece48d004fe83487926999c8ef1079212033">Best-first search (using times left + points)</a>  </th></tr>
+<tr>
+<td align="left">a_example.in </td><td align="center">10 </td><td align="center">8 </td><td align="center">10 </td></tr>
+<tr>
+<td align="left">b_should_be_easy.in </td><td align="center">124373 </td><td align="center">168815 </td><td align="center">176877 </td></tr>
+<tr>
+<td align="left">c_no_hurry.in </td><td align="center">8747443 </td><td align="center">9133444 </td><td align="center">14825711 </td></tr>
+<tr>
+<td align="left">d_metropolis.in </td><td align="center">1708208 </td><td align="center">4403978 </td><td align="center">3015856 </td></tr>
+<tr>
+<td align="left">e_high_bonus.in </td><td align="center">2503182 </td><td align="center">3363963 </td><td align="center">21465945 </td></tr>
+<tr>
+<td align="left">Total </td><td align="center">13,083,216 </td><td align="center">17,070,208 </td><td align="center">39,484,399 </td></tr>
+</table>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
