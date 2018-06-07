@@ -3,6 +3,7 @@
 
 #include <memory>
 #include <vector>
+#include "Types.hpp"
 #include "Tensor.hpp"
 #include "InputData.hpp"
 #include "SearchGraphNode.hpp"
