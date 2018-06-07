@@ -9,9 +9,9 @@
 
 /** RLA Matrix and its optimal solution used as input for parameterized tests. */
 struct RLAPTest {
-	/** RLA Matrix */
+    /** RLA Matrix */
     Tensor<int> inputMatrix;
-	/** Optimal solution for RLAPTest#inputMatrix. */
+    /** Optimal solution for RLAPTest#inputMatrix. */
     int expectedSum;
 };
 
