@@ -7,7 +7,7 @@ var searchData=
   ['inputdatatest_2ecpp',['InputDataTest.cpp',['../InputDataTest_8cpp.html',1,'']]],
   ['inputdatatest_2ehpp',['InputDataTest.hpp',['../InputDataTest_8hpp.html',1,'']]],
   ['inputfile',['inputFile',['../classInputDataTest.html#ab6a9752040ec6354921176ec7664d559',1,'InputDataTest']]],
-  ['inputmatrix',['inputMatrix',['../structRLAP.html#a0659f92d76c834ed0fe02bb2b6bc4f86',1,'RLAP']]],
+  ['inputmatrix',['inputMatrix',['../structRLAPTest.html#aa886fa6978dc0a043dae7524a24e105c',1,'RLAPTest']]],
   ['instantiate_5ftest_5fcase_5fp',['INSTANTIATE_TEST_CASE_P',['../RLAPSolverTest_8cpp.html#ac47c5cb41de5c10fe66072a9ab6ed26d',1,'RLAPSolverTest.cpp']]],
   ['invalidinputfile',['invalidInputFile',['../classInputDataTest.html#acc5f9b7acc7b2966391a9f14fe3c95a0',1,'InputDataTest']]]
 ];

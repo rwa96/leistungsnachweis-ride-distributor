@@ -101,7 +101,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a00992201a8dac1ded23105d8626b9901"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="structTypes_1_1Choice.html">Types::Choice</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGenerator.html#a00992201a8dac1ded23105d8626b9901">generate</a> (std::shared_ptr&lt; <a class="el" href="classSearchGraphNode.html">SearchGraphNode</a> &gt; &amp;prevNode, std::vector&lt; int &gt; &amp;unassigned, std::unique_ptr&lt; <a class="el" href="structTypes_1_1CarData.html">Types::CarData</a> &gt; cars)</td></tr>
 <tr class="separator:a00992201a8dac1ded23105d8626b9901"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Finds the best possible way to distribute one ride to each car given a list of unassigned rides and a list of cars with their positions gained points and points in time. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="aef145fa9c2c4137c267b8a44d322fd09"></a>
 <div class="memitem">
 <div class="memproto">
@@ -123,6 +125,13 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Creates a generator of choices on given input data.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">inputData</td><td>used internally to get specific information about rides </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -156,6 +165,17 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Given the current state of the search process this generates the next optimal choice to take.</p>
+<dl class="section note"><dt>Note</dt><dd>This method should be called repeatedly using its result until the searchpath is complete</dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">prevNode</td><td>is referenced by the new <a class="el" href="classSearchGraphNode.html">SearchGraphNode</a> of the returned Choice </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">unassigned</td><td>a list of indices of all unassigned rides </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cars</td><td>represents the current state of all cars </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>std::unique_ptr&lt;Types::Choice&gt; optimal way to assign one ride to each car </dd></dl>
 
 </div>
 </div>
