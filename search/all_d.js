@@ -6,7 +6,7 @@ var searchData=
   ['searchgraphnodetest',['SearchGraphNodeTest',['../classSearchGraphNodeTest.html',1,'SearchGraphNodeTest'],['../classSearchGraphNodeTest.html#abfc934ca303a677d5572bb574451994f',1,'SearchGraphNodeTest::SearchGraphNodeTest()']]],
   ['searchgraphnodetest_2ecpp',['SearchGraphNodeTest.cpp',['../SearchGraphNodeTest_8cpp.html',1,'']]],
   ['searchgraphnodetest_2ehpp',['SearchGraphNodeTest.hpp',['../SearchGraphNodeTest_8hpp.html',1,'']]],
-  ['setup',['SetUp',['../classInputDataTest.html#a763193299b079f253db9be1d1de295cb',1,'InputDataTest']]],
+  ['setup',['SetUp',['../classAlgorithmTest.html#adea566fb16333a69783a5092d84d4298',1,'AlgorithmTest::SetUp()'],['../classInputDataTest.html#a763193299b079f253db9be1d1de295cb',1,'InputDataTest::SetUp()']]],
   ['solve',['solve',['../classRLAPSolver.html#ae88bf6b67bca5297b2d45e65b32fc9a3',1,'RLAPSolver::solve()'],['../classRLAPSolverHungarian.html#af81bb70f75e249bdc57b2bf72225e39a',1,'RLAPSolverHungarian::solve()'],['../classRLAPSolverJV.html#ab6b95af407e85524c2d37e2fdb96b760',1,'RLAPSolverJV::solve()']]],
   ['solved',['solved',['../RLAPSolverHungarian_8cpp.html#a5363bb340cfac59d77c17498645df238',1,'RLAPSolverHungarian.cpp']]],
   ['solvercreator',['SolverCreator',['../classRLAPSolverTest.html#ac329bc13a8e443fb6eda5e22664deda6',1,'RLAPSolverTest']]],
