@@ -68,7 +68,8 @@ The following table shows benchmarks from all versions of this project:
 
 * [CMake 3.11.0](https://cmake.org/cmake/help/v3.11/) - Compiler-independent management of the build process
 * [Doxygen 1.8.13](https://www.stack.nl/~dimitri/doxygen/manual/index.html) - Documentation generator
-* [Visual Studio 2017 v15.7.3](https://docs.microsoft.com/en-us/visualstudio/ide/) - IDE
+* [Visual Studio Code 1.35.1](https://code.visualstudio.com) - IDE
+* [Artistic Style 3.1](http://astyle.sourceforge.net) - Code Autoformat
 
 ## Authors
 
