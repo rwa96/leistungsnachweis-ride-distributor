@@ -1,7 +1,5 @@
 # Ride distributor
 
-![Build status](https://travis-ci.org/ob-algdatii-ss18/leistungsnachweis-ride-distributor.svg?branch=master)
-
 Solution to the Self-driving rides problem statement for the [Online Qualification Round of Hash Code 2018](https://hashcode.withgoogle.com/2018/tasks/hashcode2018_qualification_task.pdf).
 
 ## Getting Started
