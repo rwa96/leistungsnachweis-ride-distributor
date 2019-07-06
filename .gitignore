@@ -1,6 +1,3 @@
-.atom-dbg.cson
-.build/
-.vs/
-CMakeSettings.json
-*.orig
+.vscode
+build
 resources/*.out
